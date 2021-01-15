@@ -1,0 +1,20 @@
+.header__container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 4rem;
+  align-items: center;
+}
+
+.header__logo {
+  width: 60px;
+  height: 20px;
+}
+
+.header__container_child {
+  flex: 5 1 auto;
+}
+
+.header__container_child_img {
+  flex: 1 1 auto;
+}
