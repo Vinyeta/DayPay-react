@@ -1,0 +1,25 @@
+.footerList__container {
+width: 190px;
+height: 229px;
+display: flex;
+flex-direction: column;
+margin-top: 79px;
+}
+.principalText{
+font-family: Circular Std;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 32px;
+color: #1D293F;
+margin-bottom: 23px;
+}
+.subtittles{
+margin-bottom: 15px;
+font-family: Circular Std;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 40px;
+color: #7C8087;
+}
