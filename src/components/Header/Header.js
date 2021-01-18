@@ -3,20 +3,19 @@ import "./header.css";
 import logo from "../../utils/daypaylogo.png";
 const Header = () => {
   const [site, currentSite] = useState(false);
-
-  let className = "header__container_child_nav";
+  const buttons = document.querySelector(".header__container_child_nav");
 
   const handleClick = () => {
     if (site) {
-      currentSite(false);
-      className = "header__container_child_nav";
+      this.currentSite(false);
     } else if (!site) {
-      currentSite(true);
-      className = "header__container_child_nav_menu-active";
+      this.currentSite(true);
     }
 
     console.log(site);
   };
+
+  console.log(buttons);
   return (
     <div className="header__container">
       <div className="header__container_child_container">
@@ -30,11 +29,9 @@ const Header = () => {
         >
           About
         </div>
-        {site === true ? (
-          <div className="header__container_child_nav">Pricing</div>
-        ) : (
-          <div className="header__container_child_nav_ac">Pricing</div>
-        )}
+
+        <div className="header__container_child_nav">Pricing</div>
+
         <div className="header__container_child_nav">Contact</div>
       </div>
       <div className="header__container_child_img">
