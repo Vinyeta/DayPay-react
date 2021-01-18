@@ -1,0 +1,66 @@
+#TrustBox__container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 71px;
+}
+
+.TrustBoxShowRatings__container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 95px;
+}
+
+#TrustBoxRightSide__container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 137px;
+}
+
+.TrustBoxBigNum{
+    font-family: Circular Std;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 70px;
+    letter-spacing: -1px;
+    color: #1D293F;
+}
+
+.TrustBoxSpan {
+    font-family: Circular Std;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: #1D293F;
+}
+
+#TrustBoxBigText {
+    font-family: Circular Std;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 45px;
+    letter-spacing: -0.586207px;
+    color: #1D293F;
+    width: 473px;
+    margin-bottom: 42px;
+}
+
+#TrustBoxFeatureSpan {
+    font-family: Circular Std;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 32px;
+    color: #7C8087;
+    margin-bottom: 38px;
+}
+
+.logo {
+    margin-right: 48px;
+}
+
+.TrustBoxShowRatings__container img {
+    margin-right: 5px;
+}
