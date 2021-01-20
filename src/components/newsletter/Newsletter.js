@@ -1,4 +1,5 @@
 import "./newsletter.css";
+import Button from '../Button/Button';
 
 const Newsletter = ({ }) => {
     return (
@@ -11,7 +12,7 @@ const Newsletter = ({ }) => {
             </div>
             <div className="newsletter__bottom__container">
             <span className="newsletter__email" > ✉ Enter your email </span>
-            <button className="newsletter__suscribe__button"> Subscribe! </button>
+            <Button style={"featuredButton"} value={"Subscribe!"} /* onClick={}*/ />
             </div>
         </div>
     );

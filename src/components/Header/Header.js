@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./header.css";
 import logo from "../../utils/daypaylogo.png";
+import Button from '../Button/Button';
+
 const Header = () => {
   const [site, currentSite] = useState(false);
   const buttons = document.querySelector(".header__container_child_nav");
@@ -39,7 +41,8 @@ const Header = () => {
       </div>
 
       <div className="header__container_child_buttons">
-        Login / Sign up part
+        <Button style={"defaultButton"} value={"Log in"} /* onClick={}*/ />
+        <Button style={"defaultButton_featured"} value={"Sign Up"} /* onClick={}*/ />
       </div>
     </div>
   );
