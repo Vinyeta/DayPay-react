@@ -3,17 +3,17 @@ import "./header.css";
 import logo from "../../utils/daypaylogo.png";
 
 const Header = () => {
-  const [activeLink, setActiveLink] = useState({
+  const [links, setLinks] = useState({
     activeObject: null,
     objects: [{ text: "About" }, { text: "Pricing" }, { text: "Contact" }],
   });
 
   const toggleActive = (index) => {
-    setActiveLink({ ...activeLink, activeObject: activeLink.objects[index] });
+    setLinks({ ...links, activeObject: links.objects[index] });
   };
 
   const toggleActiveStyles = (index) => {
-    if (activeLink.objects[index] === activeLink.activeObject) {
+    if (links.objects[index] === links.activeObject) {
       return "header__child_nav-active";
     } else {
       return "header__child_nav";
@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <div className="header__container">
       <div className="header__child_container">
-        {activeLink.objects.map((elements, index) => (
+        {links.objects.map((elements, index) => (
           <div
             key={index}
             className={toggleActiveStyles(index)}
