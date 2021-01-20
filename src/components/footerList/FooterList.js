@@ -7,7 +7,7 @@ const FooterList = ({menu}) => {
     return (
         <div className="footerList__container">
             <span className="principalText"> {menu.tittle} </span>
-            {menu.items.map(item => <p className="subtittles"> {item.subtittle} </p>)}
+            {menu.items.map(item => <span className="subtittles"> {item.subtittle} </span>)}
         </div>
     );
 };

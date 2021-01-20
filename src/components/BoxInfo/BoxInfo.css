@@ -1,14 +1,8 @@
+.boxinfo__container{
+    margin-left: 165px;
+}
 .big_text{
-    margin-top: 1539px;
-    position: absolute;
-    width: 464px;
-    height: 128px;
-    position: absolute;
-    height: 128px;
-    left: 0.5%;
-    right: 9.73%;
-    top: calc(55% - 128px/2 - 213px);
-    
+    margin-bottom: 42px;
     font-family: Circular Std;
     font-style: normal;
     font-weight: bold;
@@ -16,60 +10,31 @@
     line-height: 64px;  
     letter-spacing: -1px;;
 }
-
-.generalbox{
-    margin-top: 1722px;
-    position: absolute;
-    width: 318px;
-    height: 34px;
-    left: 113px;
-    top: calc(50% - 34px/2 - 31.5px);
+.firstsubgeneralbox__container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
 .box_infoN {
-       
     font-family: Circular Std;
     font-style: normal;
     font-weight: bold;
     font-size: 21px;
     line-height: 34px;
     color: #1D293F;
-   
-
 }
 .box_info {
-
-margin-bottom: 40px;
-font-family: Circular Std;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 28px;
-color: #7C8087;
-width:240px;
-
-}
-
-.target{
-position: absolute;
-width: 83px;
-left: -25%;
-top: 10%;
-bottom: 5.15%;
-}
-
-.talk{
-position: absolute;
-left: -21.5%;
-right: 76.55%;
-top: 400%;
-bottom: 5.15%;
-}
-
-.card{
-position: absolute;
-left:-21.5%;
-right: 76.55%;
-top: 780%;
-bottom: 5.15%;
+    position: relative;
+    top: 18px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    font-family: Circular Std;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: #7C8087;
 }
