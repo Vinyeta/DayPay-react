@@ -4,6 +4,8 @@ height: 229px;
 display: flex;
 flex-direction: column;
 margin-top: 79px;
+cursor: pointer;
+
 }
 .principalText{
 font-family: Circular Std;

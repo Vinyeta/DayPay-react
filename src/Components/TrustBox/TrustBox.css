@@ -1,4 +1,6 @@
 #TrustBox__container {
+    margin-left: 166px;
+    margin-bottom: 180px;
     display: flex;
     flex-direction: row;
     margin-top: 71px;
@@ -7,7 +9,7 @@
 .TrustBoxShowRatings__container {
     display: flex;
     flex-direction: column;
-    margin-right: 95px;
+    margin-right: 70px;
 }
 
 #TrustBoxRightSide__container {

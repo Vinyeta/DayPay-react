@@ -1,5 +1,6 @@
 import "./Footer.css";
 import FooterList from "../footerList/FooterList";
+import Newsletter from "../newsletter/Newsletter";
 
 const Footer = () => {
     return ( 
@@ -33,6 +34,7 @@ const Footer = () => {
                         ]
                     }}
                     />
+                    <Newsletter/>
             </div>
         </div>
     );

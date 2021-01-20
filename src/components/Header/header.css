@@ -25,6 +25,7 @@
   flex: 1 1 auto;
 }
 .header__container_child_container {
+  margin-left: 137px;
   display: flex;
   flex: 1 1 auto;
 }
