@@ -1,1 +1,8 @@
-
+.secondprincipal__container{
+    display: flex;
+    flex-direction: row;
+}
+.secondprincipal__container >img {
+    margin-left: 100px;
+    margin-top: -22px;
+}

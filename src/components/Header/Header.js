@@ -11,7 +11,6 @@ const Header = () => {
     } else if (!site) {
       this.currentSite(true);
     }
-
     console.log(site);
   };
 
@@ -29,15 +28,12 @@ const Header = () => {
         >
           About
         </div>
-
         <div className="header__container_child_nav">Pricing</div>
-
         <div className="header__container_child_nav">Contact</div>
       </div>
       <div className="header__container_child_img">
         <img src={logo} alt="Daypay Logo" className="header__logo"></img>
       </div>
-
       <div className="header__container_child_buttons">
         Login / Sign up part
       </div>
