@@ -1,0 +1,7 @@
+.Footer__container {
+    display: flex;
+    flex-direction: row;
+    width: 1439px;
+    height: 352px;
+    padding-left: 165px;
+}
