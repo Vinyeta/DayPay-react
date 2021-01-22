@@ -16,6 +16,7 @@
     display:flex;
     align-items: center;
     justify-content: center;
+    margin-right: 7px;
   }
 
   .defaultButton_featured {
@@ -67,4 +68,42 @@
     color: white;
     background: black;
   }
+
+.buttonOfIntroducePage{
+  text-align: center;
+  line-height: 20px;
+  font-family: Circular Std;
+  font-size: 16px;
+  height: 65px;
+  width: 193px;
+  border-radius: 5px;
+  background-color: #258AFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 33px;
+  margin-bottom: 30px;
+}
+
+.buttonOfNewsletterform{
+  text-align: center;
+  line-height: 20px;
+  font-family: Circular Std;
+  font-size: 16px;
+  height: 63px;
+  width: 160px;
+  border-radius: 5px;
+  background-color: #258AFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 33px;
+  margin-bottom: 30px;
+}
   

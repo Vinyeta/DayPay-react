@@ -12,10 +12,18 @@
     margin-right: 70px;
 }
 
+#TrustBoxDivStars{
+    width: 120px;
+}
+#TrustBoxDivIcons{
+    width: 580px;
+
+}
+
 #TrustBoxRightSide__container {
     display: flex;
     flex-direction: column;
-    margin-left: 137px;
+    margin-left: 120px;
 }
 
 .TrustBoxBigNum{

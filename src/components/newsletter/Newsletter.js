@@ -1,6 +1,6 @@
 import "./newsletter.css";
-
 import emailLogo from "../../assets/email-logo.png";
+import Button from "../Button/Button";
 
 
 const Newsletter = ({ }) => {
@@ -13,10 +13,11 @@ const Newsletter = ({ }) => {
                 <span> Time is the most precious thing you have when Bootstrapping. You can't take time.</span>
             </div>
             <div className="newsletter__bottom__container">
-
-                <img src={emailLogo} alt="email Logo"/>
-                <span className="newsletter__email" >  Enter your email </span>
-                <button className="newsletter__suscribe__button"> Subscribe </button>
+                <img src={emailLogo} alt="email Logo" />
+                <span className="newsletter__email" >  Enter your email </span> {/*es input con type="text" placeholder="enter your Email"*/}
+                <Button
+                    style="buttonOfNewsletterform"
+                    value="Subscribe" />
             </div>
         </div>
     );

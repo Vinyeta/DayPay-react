@@ -5,16 +5,15 @@
   height: 4rem;
   align-items: center;
   font-weight: bold;
-  width: 100%;
+  width: 85%;
   margin: 0 auto;
   text-align: center;
+  margin-left: 120px;
 }
-
 .header__logo {
   width: 93px;
   height: 31px;
 }
-
 .header__child_nav {
   flex: 1 1 auto;
   transition-duration: 0.4s;
@@ -32,7 +31,6 @@
 }
 
 .header__child_container {
-
   display: flex;
   flex: 1 1 auto;
 }

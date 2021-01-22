@@ -29,7 +29,7 @@ const TrustBox = () => {
             </div>
             <div className="TrustBoxShowRatings__container">
                 <span className="TrustBoxBigNum">{rating}</span>
-                <div>
+                <div id="TrustBoxDivStars">
                         <img src={star} alt="heart" />
                         <img src={star} alt="heart" />
                         <img src={star} alt="heart" />
@@ -43,7 +43,7 @@ const TrustBox = () => {
                     Trusted by 5000+ happy bussinesss and customers since 2020.
                 </span>
                 <span id="TrustBoxFeatureSpan">Also featured in</span>
-                <div>
+                <div id="TrustBoxDivIcons">
                     <img className="logo" src={slack} alt="slack logo" />
                     <img className="logo" src={microsoft} alt="microsoft logo" />
                     <img className="logo" src={facebook} alt="slack logo" />

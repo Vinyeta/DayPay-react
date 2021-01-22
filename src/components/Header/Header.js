@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./header.css";
 import logo from "../../utils/daypaylogo.png";
-
+import Button from "../Button/Button";
 
 const Header = () => {
   const [links, setLinks] = useState({
@@ -24,7 +24,6 @@ const Header = () => {
 
   return (
     <div className="header__container">
-
       <div className="header__child_container">
         {links.objects.map((elements, index) => (
           <div
@@ -37,15 +36,16 @@ const Header = () => {
             {elements.text}
           </div>
         ))}
-
       </div>
       <div className="header__logo">
         <img src={logo} alt="Daypay Logo" className="header__logo"></img>
       </div>
-
-
-      <div className="header__buttons">Login / Sign up part</div>
-
+      <Button
+        style="defaultButton"
+        value="Login"/>
+      <Button
+        style="defaultButton_featured"
+        value="Sign up"/>
     </div>
   );
 };
