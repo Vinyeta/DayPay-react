@@ -5,29 +5,23 @@
     flex-direction: row;
     margin-top: 71px;
 }
-
 .TrustBoxShowRatings__container {
     display: flex;
     flex-direction: column;
     margin-right: 70px;
 }
-
 #TrustBoxDivStars{
     width: 120px;
 }
 #TrustBoxDivIcons{
     width: 580px;
-
 }
-
 #TrustBoxRightSide__container {
     display: flex;
     flex-direction: column;
     margin-left: 120px;
 }
-
 .TrustBoxBigNum{
-    font-family: Circular Std;
     font-style: normal;
     font-weight: bold;
     font-size: 70px;
@@ -35,18 +29,14 @@
     letter-spacing: -1px;
     color: #1D293F;
 }
-
 .TrustBoxSpan {
-    font-family: Circular Std;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 28px;
     color: #1D293F;
 }
-
 #TrustBoxBigText {
-    font-family: Circular Std;
     font-style: normal;
     font-weight: bold;
     font-size: 34px;
@@ -56,9 +46,7 @@
     width: 473px;
     margin-bottom: 42px;
 }
-
 #TrustBoxFeatureSpan {
-    font-family: Circular Std;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -66,11 +54,9 @@
     color: #7C8087;
     margin-bottom: 38px;
 }
-
 .logo {
     margin-right: 48px;
 }
-
 .TrustBoxShowRatings__container img {
     margin-right: 5px;
 }

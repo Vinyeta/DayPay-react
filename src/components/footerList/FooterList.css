@@ -8,7 +8,6 @@ cursor: pointer;
 
 }
 .principalText{
-font-family: Circular Std;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
@@ -18,7 +17,6 @@ margin-bottom: 23px;
 }
 .subtittles{
 margin-bottom: 15px;
-font-family: Circular Std;
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
