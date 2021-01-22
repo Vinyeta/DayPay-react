@@ -11,12 +11,12 @@
     color: #1D293F;
     margin: auto;
     width: 100%;
-    font-style: normal;
-    font-weight: 500;
     font-size: 18px;
     line-height: 32px;
     margin-bottom: 23px;
     text-align: left;
+    font-style: normal;
+    font-weight: bold;
 }
 .newsletter__text__container {
     width: 350px;

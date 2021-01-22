@@ -5,10 +5,9 @@
   height: 4rem;
   align-items: center;
   font-weight: bold;
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
-  margin-left: 120px;
 }
 .header__logo {
   width: 93px;

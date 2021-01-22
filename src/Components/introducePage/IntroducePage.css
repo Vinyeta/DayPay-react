@@ -2,8 +2,6 @@
     display: flex;
     flex-direction: row;
     margin-top: 159px;
-    margin-left: 149px;
-
 }
 .introduceImage__container >img{
     width: 609px;
