@@ -32,6 +32,7 @@
 .header__buttons {
   flex: 1 1 auto;
 }
+
 .header__child_container {
   display: flex;
   flex: 1 1 auto;
