@@ -31,6 +31,7 @@
 
 .header__buttons {
   flex: 1 1 auto;
+  display: flex;
 }
 
 .header__child_container {
@@ -40,12 +41,12 @@
 
 .header__child_nav-active {
   flex: 1 1 auto;
-  background-color: #548cfce0;
+  background-color: #258aff;
   padding: 5px;
   height: 20px;
   border-radius: 8px;
 }
 
 .header__child_nav:hover {
-  background-color: #548cfca8;
+  background-color: #258aff;
 }

@@ -9,9 +9,6 @@ import Newsletter from "./components/newsletter/Newsletter";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Newsletter />
-
       <>
         <Header />
         <TrustBox />
