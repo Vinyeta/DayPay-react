@@ -2,15 +2,12 @@
     display: flex;
     flex-direction: row;
     margin-top: 159px;
-    margin-left: 149px;
-
 }
 .introduceImage__container >img{
     width: 609px;
     height: 471px;    
 }
 .small__text{
-    font-family: Circular Std;
     font-style: normal;
     font-weight: normal;
     font-size: 21px;
@@ -19,7 +16,6 @@
     margin-top: 26px;
 }
 .stillConfused_text{
-    font-family: Circular Std;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -27,7 +23,6 @@
     color: black;
 }
 .stillConfused_text_url{
-    font-family: Circular Std;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Manrope');
 
 .defaultButton {
-    font-family: Manrope;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -20,7 +19,6 @@
   }
 
   .defaultButton_featured {
-    font-family: Manrope;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -40,7 +38,6 @@
   .featuredButton {
     text-align: center;
     line-height: 20px;
-    font-family: Manrope;
     font-size: 16px;
     height: 65px;
     width: 193px;
@@ -72,7 +69,6 @@
 .buttonOfIntroducePage{
   text-align: center;
   line-height: 20px;
-  font-family: Circular Std;
   font-size: 16px;
   height: 65px;
   width: 193px;
@@ -91,7 +87,6 @@
 .buttonOfNewsletterform{
   text-align: center;
   line-height: 20px;
-  font-family: Circular Std;
   font-size: 16px;
   height: 63px;
   width: 160px;
@@ -107,3 +102,13 @@
   margin-bottom: 30px;
 }
   
+
+.buttonOfNewsletterform:hover {
+  color: white;
+  background: black;
+}
+
+.buttonOfIntroducePage:hover {
+  color: white;
+  background: black;
+}

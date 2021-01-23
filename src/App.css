@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope');
 .secondprincipal__container{
     display: flex;
     flex-direction: row;
@@ -7,5 +8,9 @@
     margin-top: -22px;
 }
 .App{
-    margin-right: 110px;
+    margin-right: 90px;
+    margin-left: 110px;
+}
+html, body {
+    font-family: Manrope, sans-serif;
 }

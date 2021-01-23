@@ -1,9 +1,7 @@
 .boxinfo__container{
-    margin-left: 165px;
 }
 .big_text{
     margin-bottom: 42px;
-    font-family: Circular Std;
     font-style: normal;
     font-weight: bold;
     font-size: 58px;
@@ -17,7 +15,6 @@
 }
 
 .box_infoN {
-    font-family: Circular Std;
     font-style: normal;
     font-weight: bold;
     font-size: 21px;
@@ -31,7 +28,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 40px;
-    font-family: Circular Std;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;

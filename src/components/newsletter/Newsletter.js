@@ -14,7 +14,7 @@ const Newsletter = ({ }) => {
             </div>
             <div className="newsletter__bottom__container">
                 <img src={emailLogo} alt="email Logo" />
-                <span className="newsletter__email" >  Enter your email </span> {/*es input con type="text" placeholder="enter your Email"*/}
+                <input type="text" className="newsletter__email" placeholder="Enter your email" /> {/*es input con type="text" placeholder="enter your Email"*/}
                 <Button
                     style="buttonOfNewsletterform"
                     value="Subscribe" />
