@@ -23,7 +23,7 @@
 [![Contributors][contributors-shield]][]
 [![Forks][forks-shield]][]
 [![Stargazers][stars-shield]][]
-[![Issues][issues-shield]][https://github.com/raulsalcedo03/DayPay-react/issues]
+[![Issues][issues-shield]][]
 [![MIT License][license-shield]][]
 [![LinkedIn][linkedin-shield]][]
 
@@ -85,7 +85,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](./images/screenshot.png)
+<img src="images/logo.png" alt="screenshot">
 
 
 
