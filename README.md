@@ -85,7 +85,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="images/logo.png" alt="screenshot">
+<img src="images/screenshot.png" alt="screenshot">
 
 
 
