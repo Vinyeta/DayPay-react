@@ -84,9 +84,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-<img src="images/screenshot.png" alt="screenshot">
-
+<p align="center">
+  <img src="images/screenshot.png" alt="screenshot">
+</p>
 
 
 ### Built With
