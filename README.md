@@ -33,7 +33,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/raulsalcedo03/DayPay-react">
-    <img src="images/logo.png" alt="Logo" width="100%" height="100%">
+    <img src="images/logo.png" alt="Logo" width="400" height="135">
   </a>
 
   <h3 align="center">DayPay</h3>
@@ -85,7 +85,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](images/screenshot.png)
+[![Product Name Screen Shot][product-screenshot]](./images/screenshot.png)
 
 
 
