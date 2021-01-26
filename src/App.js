@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Footer from "./components/footer/Footer";
+import Header from "./components/Header/Header";
+import BoxInfo from "./components/BoxInfo/BoxInfo";
+import SecondPicture from "./assets/imgmorena.png"
+import TrustBox from "./components/TrustBox/TrustBox";
+import IntroducePage from "./components/introducePage/IntroducePage"
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Start Project
-        </a>
-      </header>
+      <>
+      <Header/>
+      <IntroducePage/>
+      <TrustBox/>
+      <div className="secondprincipal__container">
+      <BoxInfo/>
+      <img src={SecondPicture} alt="sexy lady" className="sexyLady"/>
+      </div>
+      <Footer/>
+      </>
     </div>
   );
 }
