@@ -18,27 +18,15 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/raulsalcedo03/DayPay-react">
-
-    <img src="images/logo.png" alt="Logo" width="400" height="135">
-
-  </a>
+  <a href="https://github.com/raulsalcedo03/DayPay-react" />
+  <img src="images/logo.png" alt="Logo" width="400" height="135">
 
   <h3 align="center">DayPay</h3>
 
   <p align="center">
-
-    Plataforma moneybeam.
     <br />
     <a href="https://github.com/raulsalcedo03/DayPay-react"><strong>Explore the docs »</strong></a>
     <br />
@@ -56,7 +44,6 @@
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
-
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
@@ -70,11 +57,9 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#working-conventions">Working conventions</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <!--<li><a href="#contributing">Contributing</a></li> -->
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
 
   </ol>
@@ -91,6 +76,7 @@
 ### Built With
 
 * [React](https://reactjs.org/)
+* [Express](https://expressjs.com/)
 
 <!-- GETTING STARTED -->
 
@@ -108,9 +94,7 @@ To get a local copy up and running follow these simple steps.
   npm install npm@latest -g
   ```
 
-
 * docker
-
 
 ``` sh
 https://docs.docker.com/engine/install/ubuntu/
@@ -163,36 +147,44 @@ https://docs.docker.com/engine/install/ubuntu/
 
 6. Run the mongo image in docker:
 
-
-```sh
+``` sh
 sudo docker start DayPay-node
 ```
 
 7. Start the backend server:
 
-
-```sh
+``` sh
 npm start
 ```
 
 8. Start the frontend server:
 
-
-```sh
+``` sh
 npm start
 ```
 
-
    
-
 
 <!-- USAGE EXAMPLES -->
 
-## Usage
+<!-- ## Usage -->
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<!-- WORK CONVENTIONS -->
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+## Working Conventions
+We will use camelCase for all naming conventions.
+</br>
+When creating class names, if the class is a container we will name it according to what will be contained followed by __container. eg:
+```sh
+<div className="trustBox__container">trustBox</div>
+```
+Branches will be named after the developer and the feature being developed. eg:
+```sh
+raulSalcedo-user-API
+```
+Pull request have to be reviewed by two team members before merging and have to be tested berfore commiting the changes.
+
+
 
 <!-- ROADMAP -->
 
@@ -204,19 +196,21 @@ See the [open issues](https://github.com/raulsalcedo03/DayPay-react/issues) for 
 
 <!-- LICENSE -->
 
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 
 ## Contact
 
 Raul Salcedo - raul.salcedo03@hotmail.com
+</br>
 Marcos Andaluz de Rosas - mandaluzr@hotmail.com
+</br>
 Felipe Meira - f.zende@gmail.com
+</br>
 Richard Perdomo - richard.perdomo121@gmail.com
+</br>
 Adrià Santos - adria@santos.cat
+</br>
 Alejo Viñeta - avinetam@gmail.com
 
 Project Link: [https://github.com/raulsalcedo03/DayPay-react](https://github.com/raulsalcedo03/DayPay-react)
