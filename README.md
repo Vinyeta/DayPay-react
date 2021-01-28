@@ -2,15 +2,13 @@
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
 *** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
+*** Thanks again! Now go create something AMAZING! : D
 ***
 ***
 ***
 *** To avoid retyping too much info. Do a search and replace for the following:
 *** raulsalcedo03, DayPay-react, twitter_handle, email, DayPay, project_description
 -->
-
-
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -27,18 +25,19 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com/raulsalcedo03/DayPay-react">
+
     <img src="images/logo.png" alt="Logo" width="400" height="135">
+
   </a>
 
   <h3 align="center">DayPay</h3>
 
   <p align="center">
+
     Plataforma moneybeam.
     <br />
     <a href="https://github.com/raulsalcedo03/DayPay-react"><strong>Explore the docs »</strong></a>
@@ -49,15 +48,15 @@
     <a href="https://github.com/raulsalcedo03/DayPay-react/issues">Report Bug</a>
     ·
     <a href="https://github.com/raulsalcedo03/DayPay-react/issues">Request Feature</a>
+
   </p>
 </p>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
+
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
@@ -73,92 +72,144 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <!--<li><a href="#contributing">Contributing</a></li> -->
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
+
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
+
 <p align="center">
   <img src="images/screenshot.png" alt="screenshot">
 </p>
-
 
 ### Built With
 
 * [React](https://reactjs.org/)
 
-
-
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
-  ```sh
+
+  
+
+``` sh
   npm install npm@latest -g
   ```
+
+
+* docker
+
+
+``` sh
+https://docs.docker.com/engine/install/ubuntu/
+```
 
 ### Installation
 
 1. Clone the repo
-   ```sh
+
+   
+
+``` sh
    git clone https://github.com/raulsalcedo03/DayPay-react.git
    ```
+
 2. Install NPM packages
-   ```sh
+
+   
+
+``` sh
    npm install
    ```
 
+3. Clone the backend repo
+
+   
+
+``` sh
+   git clone https://github.com/raulsalcedo03/DayPay-node.git
+   ```
+
+4. Install backend NPM packages
+
+   
+
+``` sh
+   npm install
+   ```
+
+5. Setup MongoDB image using docker:
+
+   
+
+``` sh
+   sudo docker run -d -p 127.0.0.1:27017:27017 --name DayPay-node \
+    -e MONGO_INITDB_ROOT_USERNAME=mongoadmin \
+    -e MONGO_INITDB_ROOT_PASSWORD=secret \
+    mongo
+   ```
+
+6. Run the mongo image in docker:
+
+
+```sh
+sudo docker start DayPay-node
+```
+
+7. Start the backend server:
+
+
+```sh
+npm start
+```
+
+8. Start the frontend server:
+
+
+```sh
+npm start
+```
+
+
+   
 
 
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-
-
 <!-- ROADMAP -->
+
 ## Roadmap
 
 See the [open issues](https://github.com/raulsalcedo03/DayPay-react/issues) for a list of proposed features (and known issues).
 
-
-
 <!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
 
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 Raul Salcedo - raul.salcedo03@hotmail.com
@@ -170,18 +221,11 @@ Alejo Viñeta - avinetam@gmail.com
 
 Project Link: [https://github.com/raulsalcedo03/DayPay-react](https://github.com/raulsalcedo03/DayPay-react)
 
-
-
 <!-- ACKNOWLEDGEMENTS -->
+
 ## Acknowledgements
 
 * [Readme template](https://github.com/othneildrew/Best-README-Template)
-
-
-
-
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
