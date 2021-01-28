@@ -230,7 +230,7 @@ Project Link: [https://github.com/raulsalcedo03/DayPay-react](https://github.com
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/raulsalcedo03/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/raulsalcedo03/DayPay-react/contributors
+[contributors-url]: https://github.com/raulsalcedo03/DayPay-react/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/raulsalcedo03/repo.svg?style=for-the-badge
 [forks-url]: https://github.com/raulsalcedo03/DayPay-react/network/members
 [stars-shield]: https://img.shields.io/github/stars/raulsalcedo03/repo.svg?style=for-the-badge
