@@ -172,19 +172,44 @@ npm start
 <!-- WORK CONVENTIONS -->
 
 ## Working Conventions
+
 We will use camelCase for all naming conventions.
 </br>
 When creating class names, if the class is a container we will name it according to what will be contained followed by __container. eg:
-```sh
+
+``` sh
 <div className="trustBox__container">trustBox</div>
 ```
+
 Branches will be named after the developer and the feature being developed. eg:
-```sh
+
+``` sh
 raulSalcedo-user-API
 ```
+
 Pull request have to be reviewed by two team members before merging and have to be tested berfore commiting the changes.
 
 
+</br>
+</br>
+</br>
+
+
+Usamos camelCase para todos los nombres.
+</br>
+Al crear cajas contenedoras para añadiremos __container al final del nombre de la siguiente manera:
+
+``` sh
+<div className="trustBox__container">trustBox</div>
+```
+
+Nombraremos las ramas en funcion de quien essta trabajando en ella y de la feature a trabajar. Por ejemplo:
+
+``` sh
+raulSalcedo-user-API
+```
+
+Las pull request tienen que ser revisadas por lo menos por dos miembros del equipo.
 
 <!-- ROADMAP -->
 
@@ -195,7 +220,6 @@ See the [open issues](https://github.com/raulsalcedo03/DayPay-react/issues) for 
 <!-- CONTRIBUTING -->
 
 <!-- LICENSE -->
-
 
 <!-- CONTACT -->
 
