@@ -5,14 +5,27 @@ import Header from "./components/Header/Header";
 import BoxInfo from "./components/BoxInfo/BoxInfo";
 import SecondPicture from "./assets/imgmorena.png"
 import TrustBox from "./components/TrustBox/TrustBox";
-import IntroducePage from "./components/introducePage/IntroducePage"
+import IntroducePage from "./components/introducePage/IntroducePage";
+import SignUpForm from "./components/SignUpForm/signUpForm";
 
 
 function App() {
   return (
     <div className="App">
       <>
-      <Header/>
+        <SignUpForm/>
+      </>
+    </div>
+  );
+}
+
+export default App;
+
+/* function App() {
+  return (
+    <div className="App">
+      <>
+       <Header/>
       <IntroducePage/>
       <TrustBox/>
       <div className="secondprincipal__container">
@@ -23,6 +36,4 @@ function App() {
       </>
     </div>
   );
-}
-
-export default App;
+} */
