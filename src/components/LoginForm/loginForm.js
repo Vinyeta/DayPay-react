@@ -1,17 +1,15 @@
 import { useState } from "react";
+import Button from "../Button/Button";
+import "../LoginForm/loginForm.css";
 
 
 
-const RegisterForm = () => {
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+const LoginForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
 
   const body = {
-    firstName: firstName,
-    lastName: lastName,
     email: email,
     password: password,
   };
@@ -30,8 +28,8 @@ const RegisterForm = () => {
     );
   };
   return (
-    <div className="register__container">
-    <form className="registerForm">
+    <div className="login__container">
+    <form className="loginForm">
       <input className="label__text" placeholder="Email"
         type="text"
         name="email"
@@ -42,10 +40,13 @@ const RegisterForm = () => {
         name="password"
         onChange={(e) => setPassword(e.target.value)}
       />
-
+      <Button
+        style="defaultButton"
+        value="Login"/>
     </form>
+    <span>Don't have an account yet? <a>Sign up</a></span>
     </div>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

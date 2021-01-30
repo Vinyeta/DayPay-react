@@ -1,13 +1,19 @@
 .SignUp__container {
   align-items: center;
-  width: 100%;
-  height: 100%;
+
   display: flex;
 }
 
 .signUpForm {
   display: flex;
   flex-direction: column;
+  margin-left: 40%;
+}
+
+.form__container {
+  align-items: center;
+  text-align: center;
+  width: 100vw;
 }
 
 .input__container {
@@ -28,8 +34,15 @@
 }
 
 .imagen__signUp {
-  height: 1075px;
-  width: 741px;
+  /* height: 1075px; */
+  width: 100%;
   display: flex;
-  flex-direction: ;
+  flex-direction: right;
+  z-index: 0;
+}
+
+.imagenBetterPayments {
+  z-index: 1;
+  position: relative;
+  bottom: 520px;
 }
