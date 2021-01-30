@@ -1,0 +1,13 @@
+.Dashboard_container{
+    display: inline-flex;
+    flex-direction: row;
+    height:100%;
+}
+
+.UserMenu_top_container{
+    display: block;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+
+}

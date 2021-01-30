@@ -1,5 +1,5 @@
 import Expand from "../../assets/Expand.png";
-import DashboardIcon from "../../assets/Dashboard.svg";
+import { ReactComponent as DashboardIcon} from "../../assets/Dashboard.svg";
 import { ReactComponent as WalletIcon} from "../../assets/Wallet.svg";
 import { ReactComponent as TradeIcon} from "../../assets/Trade.svg";
 import { ReactComponent as AccountIcon} from "../../assets/Account.svg";
@@ -14,20 +14,20 @@ const SideMenu = () => {
             
             <table>
                 <tr>
-                    <th><img src={DashboardIcon}/></th>
-                    <th style={{"padding-left": "27px"}}> Dashboard</th>
+                    <th><DashboardIcon/></th>
+                    <th style={{"padding-left": "27px"}}><span>Dashboard</span></th>
                 </tr>
                 <tr>
                     <th><WalletIcon /></th>
-                <th style={{"padding-left": "27px"}}>Wallet</th>
+                <th style={{"padding-left": "27px"}}><span>Wallet</span></th>
                 </tr>
                 <tr>
                 <th><TradeIcon /></th>
-                <th style={{"padding-left": "27px"}}>Send</th>
+                <th style={{"padding-left": "27px"}}><span>Send</span></th>
                 </tr>
                 <tr>
                 <th><AccountIcon /></th>
-                <th style={{"padding-left": "27px"}}>Account Setting</th>
+                <th style={{"padding-left": "27px"}}><span>Account Setting</span></th>
                 </tr>
             </table>
 

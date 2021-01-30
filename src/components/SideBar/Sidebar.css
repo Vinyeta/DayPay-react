@@ -1,12 +1,16 @@
 .SideBar_container {
     display: flex;
     flex-direction: column;
+    flex-grow: 0;
     align-items: center;
-    width: 267px;
+    flex-basis: 267px;
+    flex-grow: 0;
+    flex-shrink: 0;
     height: 100vh;
     border: 1px solid #E9E9E9;
     background-color: #8b8b96;
-    position: relative;
+    position: sticky;
+    top:0;
 }
 
 .SideBar_logo_container {
@@ -21,14 +25,17 @@
 
 .SideBar_expandButton_container {
     bottom: 20px;
-    right:20px;
-    order: 2;
+    right: 20px;
     position: absolute;
+    order:2;
+    cursor: pointer
+
 }
 
 .Page_expandButton_container {
     bottom: 20px;
     left:20px;
-    position: absolute;
+    position: fixed;
+    cursor: pointer;
 }
 

@@ -3,5 +3,16 @@ th, td {
     padding-bottom:40px;
   }
 
-tr  {
+tr:hover {
+  color: blue;
+
+}
+
+th:hover {
+  cursor: pointer;
+
+}
+
+tr:hover svg{
+  fill: blue;
 }
