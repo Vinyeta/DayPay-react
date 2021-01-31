@@ -60,11 +60,12 @@ const SignUpForm = () => {
           <Button
           style="buttonOfSignUpForm"
           value="Sign up" />
+        <span className="input__container links">Already have an account?<a href="/login">Log in</a></span>
       </form>
     </div>
     <div className="contenedor__imagen">
-    <img src={imagen} alt="imagenSignUp" className="imagen__signUp" />
     <img src={betterPayments} alt="betterPayments" className="imagenBetterPayments" />
+    <img src={imagen} alt="imagenSignUp" className="imagen__signUp" />
     </div>
 
   </div>
