@@ -57,10 +57,12 @@ const SignUpForm = () => {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <div className="buttonLogin">
           <Button
           style="buttonOfSignUpForm"
           value="Sign up" />
-        <span className="input__container links">Already have an account?<a href="/login">Log in</a></span>
+          </div>
+        <span className="alreadyAccount">Already have an account? <a href="/login"> Log in</a></span>
       </form>
     </div>
     <div className="contenedor__imagen">

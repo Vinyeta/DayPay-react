@@ -7,13 +7,15 @@
 .signUpForm {
   display: flex;
   flex-direction: column;
-  margin-left: 40%;
+  width: 287px;
 }
 
 .form__container {
   align-items: center;
   text-align: center;
   width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .input__container {
@@ -54,6 +56,17 @@
   position: absolute;
 }
 
-.input__container.links {
+.alreadyAccount {
+  font-family: Manrope;
+  font-size: 14px;
+  line-height: 16px;
   text-align: center;
+  color: #a0a3bd;
+  margin-top: 32px;
+}
+
+.buttonOfSignUpForm {
+  display: flex;
+  justify-content: center;
+  margin-left: 85px;
 }

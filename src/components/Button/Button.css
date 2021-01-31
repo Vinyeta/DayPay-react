@@ -106,12 +106,13 @@
   text-align: center;
   line-height: 20px;
   font-size: 16px;
-  height: 63px;
-  width: 160px;
-  border-radius: 5px;
+  font-weight: bold;
+  height: 40px;
+  width: 100px;
+  border-radius: 7px;
+  font-style: Manrope;
   background-color: #258aff;
   color: white;
-  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
