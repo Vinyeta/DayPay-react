@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 .Login__container {
   align-items: center;
 
@@ -66,4 +64,11 @@
   justify-content: center;
   margin-left: 10px;
 }
->>>>>>> Stashed changes
+
+.imagen__moreno {
+  height: 1075px;
+  width: 120%;
+  display: flex;
+  flex-direction: right;
+  z-index: 0;
+}
