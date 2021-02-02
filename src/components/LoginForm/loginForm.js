@@ -16,7 +16,7 @@ const LoginForm = () => {
     password: password,
   };
 
-  const handleSubmit = () => {
+  const handleLogin = () => {
     const options = {
       method: "POST",
       headers: {
@@ -45,10 +45,12 @@ const LoginForm = () => {
             name="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div className="buttonOflogin">
+          
+          <div className="buttonOflogin" onClick={handleLogin}>
           <Button
         style="defaultButton_featured"
         value="Login"/>
+
             </div>
           <span className="alreadyAccount">Don`t have an account? <a href="/sign Up" className="continue_text_url"><b>Sign up</b></a></span>
         </form>
