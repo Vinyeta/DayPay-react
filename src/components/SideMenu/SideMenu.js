@@ -10,7 +10,7 @@ import "./SideMenu.css";
 
 const SideMenu = () => {
     return (
-        <div className="SideMenu_container">
+        <div className="SideMenu_container" style={{color:"#1D293F"}}>
             
             <table>
                 <tr>

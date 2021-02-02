@@ -7,10 +7,10 @@
     flex-grow: 0;
     flex-shrink: 0;
     height: 100vh;
-    border: 1px solid #E9E9E9;
-    background-color: #8b8b96;
+    border-left: 1px solid #E9E9E9;
     position: sticky;
     top:0;
+    background-color: white ;
 }
 
 .SideBar_logo_container {
@@ -28,7 +28,7 @@
     right: 20px;
     position: absolute;
     order:2;
-    cursor: pointer
+    cursor: pointer;
 
 }
 
@@ -37,5 +37,7 @@
     left:20px;
     position: fixed;
     cursor: pointer;
+    z-index: 100;
+
 }
 

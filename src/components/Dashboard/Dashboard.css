@@ -1,7 +1,14 @@
 .Dashboard_container{
-    display: inline-flex;
+    display:flex;
     flex-direction: row;
     height:100%;
+    background-color: #F8FBFF;
+
+}
+
+.Dashboard_Page_container{
+    height: 100%;
+    width: 100%;
 }
 
 .UserMenu_top_container{
@@ -9,5 +16,7 @@
     position: fixed;
     right: 20px;
     top: 20px;
+    z-index: 600;
+
 
 }

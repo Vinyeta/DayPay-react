@@ -2,6 +2,7 @@ import Sidebar from '../SideBar/Sidebar';
 import IntroducePage from '../introducePage/IntroducePage';
 import "./Dashboard.css"
 import UserMenu from '../UserMenu/UserMenu';
+import TradePage from "../TradePage/TradePage"
 
 const Dashboard = () => {
     return (
@@ -19,7 +20,10 @@ const Dashboard = () => {
         </div>
         <div className="Dashboard_container">
         <Sidebar/>
-        <IntroducePage/>
+        <div className="Dashboard_Page_container">
+         {/* <IntroducePage/>  */}
+        <TradePage/>
+        </div>
         </div>
         </>
     )

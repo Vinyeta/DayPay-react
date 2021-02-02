@@ -3,6 +3,9 @@
   align-items: center;
   vertical-align: middle;
   flex-wrap: nowrap;
+  position: sticky;
+  z-index: 600;
+
 }
 
 .UserMenu__container .avatar {
