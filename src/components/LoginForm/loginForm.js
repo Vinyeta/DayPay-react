@@ -6,7 +6,6 @@ import Moreno from "../../assets/Moreno.png";
 import betterPayments from "../../assets/betterPayments.png";
 
 
-
 const LoginForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -32,7 +31,7 @@ const LoginForm = () => {
   };
   return (
     <div className="Login__container">
-      <div className="form__container">
+      <div className="logform__container">
         <img src={Logo} alt="logo" className="logoDayPay"/>
         <form className="signUpForm">
           
@@ -51,13 +50,13 @@ const LoginForm = () => {
         style="defaultButton_featured"
         value="Login"/>
             </div>
-          <span className="alreadyAccount">Don`t have an account? <a href="/signUp"> Sign up</a></span>
+          <span className="alreadyAccount">Don`t have an account? <a href="/sign Up" className="continue_text_url"><b>Sign up</b></a></span>
         </form>
       </div>
       <div className="contenedor__imagen">
       <img src={Moreno} alt="Moreno" className="imagen__moreno" />
       <img src={betterPayments} alt="betterPayments" className="imagenBetterPayments" />
-                  </div>
+      </div>
   
     </div>
     );
