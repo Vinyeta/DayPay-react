@@ -1,0 +1,12 @@
+.secondprincipal__container{
+    display: flex;
+    flex-direction: row;
+}
+.secondprincipal__container >img {
+    margin-left: 100px;
+    margin-top: -22px;
+}
+.landing{
+    margin-right: 90px;
+    margin-left: 110px;
+}

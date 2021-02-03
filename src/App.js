@@ -1,27 +1,55 @@
-
+// Encriptar pass crypto  / js-sha256
 import './App.css';
-import Footer from "./components/footer/Footer";
-import Header from "./components/Header/Header";
-import BoxInfo from "./components/BoxInfo/BoxInfo";
-import SecondPicture from "./assets/imgmorena.png"
-import TrustBox from "./components/TrustBox/TrustBox";
-import IntroducePage from "./components/introducePage/IntroducePage"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory
+} from 'react-router-dom';
+import { useState } from 'react';
+import Landing from './pages/Landing';
 
 
 function App() {
-  return (
-    <div className="App">
-      <>
-      <Header/>
-      <IntroducePage/>
-      <TrustBox/>
-      <div className="secondprincipal__container">
-      <BoxInfo/>
-      <img src={SecondPicture} alt="sexy lady" className="sexyLady"/>
-      </div>
-      <Footer/>
-      </>
-    </div>
+
+  const history = useHistory();
+
+  const token = localStorage.getItem('token');
+
+  return ( 
+    <div>
+      <Landing />
+      {/* <Router>
+        <Switch>
+          <Route path='/login'>
+          { token ?
+             history.push('/dashboard') 
+            :
+              undefined // <Login />
+            }
+          </Route>
+          <Route path='/signup'>
+          { token ?
+             history.push('/dashboard') 
+            :
+              undefined // <SignUp />
+            }
+          </Route>
+          <Route path='/dasboard'>
+            { token ?
+             undefined //<Dashboard /> 
+            :
+              history.push('/login')
+            }
+
+          </Route>
+          <Route path='/'>
+            <Landing />
+          </Route>
+        </Switch>
+      </Router>
+      */}
+    </div> 
   );
 }
 
