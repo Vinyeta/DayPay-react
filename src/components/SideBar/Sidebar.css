@@ -11,6 +11,8 @@
     position: sticky;
     top:0;
     background-color: white ;
+    z-index:999
+    
 }
 
 .SideBar_logo_container {
