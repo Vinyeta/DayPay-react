@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   width: 287px;
+  align-items: center;
 }
 
 .logform__container {
@@ -82,3 +83,4 @@
   color: blue;
   text-decoration:wavy;
 }
+

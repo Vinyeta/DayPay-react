@@ -4,11 +4,14 @@ import Button from "../Button/Button";
 import Logo from "../../assets/Logo.png";
 import Moreno from "../../assets/Moreno.png";
 import betterPayments from "../../assets/betterPayments.png";
+//import { useHistory, withRouter } from "react-router";
 
+ 
 
 const LoginForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  //const history = useHistory();
 
 
   const body = {
@@ -31,7 +34,7 @@ const LoginForm = () => {
   };
   return (
     <div className="Login__container">
-      <div className="logform__container">
+      <div className="logform__container" /*onClick={() => history.push("/")}*/>
         <img src={Logo} alt="logo" className="logoDayPay"/>
         <form className="signUpForm">
           
@@ -44,14 +47,12 @@ const LoginForm = () => {
             type="password"
             name="password"
             onChange={(e) => setPassword(e.target.value)}
-          />
-          
-          <div className="buttonOflogin" onClick={handleLogin}>
+          />  
           <Button
         style="defaultButton_featured"
-        value="Login"/>
-
-            </div>
+        value="Login"
+        onClick={handleLogin} 
+        />
           <span className="alreadyAccount">Don`t have an account? <a href="/sign Up" className="continue_text_url"><b>Sign up</b></a></span>
         </form>
       </div>
@@ -64,4 +65,4 @@ const LoginForm = () => {
     );
   };
   
-  export default LoginForm;
+  export default (LoginForm);
