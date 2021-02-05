@@ -60,9 +60,10 @@ const SignUpForm = () => {
         <div className="buttonLogin">
           <Button
           style="buttonOfSignUpForm"
-          value="Sign up" />
+          value="Sign up"
+          onClick={handleSubmit} />
           </div>
-        <span className="alreadyAccount">Already have an account? <a href="/login"> Log in</a></span>
+        <span className="alreadyAccount">Already have an account? <a className="loginButtonUnderlined"href="/login"> Log in</a></span>
       </form>
     </div>
     <div className="contenedor__imagen">
