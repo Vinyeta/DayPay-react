@@ -10,20 +10,8 @@ import LoginForm from "./components/LoginForm/loginForm";
 import SignUpForm from "./components/SignUpForm/signUpForm";
 
 
+
 function App() {
-  return (
-    <div>
-      <>
-      <SignUpForm />
-      <LoginForm/>
-      </>
-    </div>
-  );
-}
-
-export default App;
-
-/* function App() {
   return (
     <div>
       <>
@@ -38,4 +26,4 @@ export default App;
       </>
     </div>
   );
-} */
+} 
