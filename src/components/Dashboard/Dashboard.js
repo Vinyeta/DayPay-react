@@ -3,6 +3,7 @@ import IntroducePage from '../introducePage/IntroducePage';
 import "./Dashboard.css"
 import UserMenu from '../UserMenu/UserMenu';
 import TradePage from "../TradePage/TradePage"
+import TransactionsPage from '../TransactionsPage/TransactionsPage';
 
 const Dashboard = () => {
     return (
@@ -22,7 +23,8 @@ const Dashboard = () => {
         <Sidebar/>
         <div className="Dashboard_Page_container">
          {/* <IntroducePage/>  */}
-        <TradePage/>
+        <TransactionsPage/>
+        {/* <TradePage></TradePage> */}
         </div>
         </div>
         </>

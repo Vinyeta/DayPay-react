@@ -26,7 +26,7 @@ const UserMenu = ({ user }) => {
         </div>
       <div className="UserMenu_dropdown__container">
         <div className="UserMenu_dropdown__container box">
-          <span className="UserMenu_dropdown__name">{user.firstName}  {user.lastName}</span>
+          <div className="UserMenu_dropdown__name">{user.firstName}  {user.lastName}</div>
           <br />
           <div className="UserMenu_dropdown__list">
             <span>Update Profile</span>

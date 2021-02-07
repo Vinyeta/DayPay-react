@@ -26,7 +26,7 @@ position:relative;}
     fill:#258AFF;
 }
 
-.box span{
+.box > span{
     margin-bottom:45px;
     font-family: Manrope;
 font-style: normal;
@@ -39,7 +39,7 @@ line-height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     z-index: 4;
     position: relative; 
 

@@ -50,7 +50,7 @@
   cursor: default;
 }
 
-.UserMenu_dropdown__list span {
+.UserMenu_dropdown__list span{
   display: block;
   margin-top: 18px;
   font-family: Roboto;

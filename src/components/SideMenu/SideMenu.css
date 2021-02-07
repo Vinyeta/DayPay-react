@@ -1,20 +1,28 @@
-th, td {
+
+ .SideMenu_container th{
     text-align: left;
     padding-bottom:40px;
 
 
   }
 
-tr:hover {
+  .SideMenu_container td{
+    text-align: left;
+    padding-bottom:40px;
+
+
+  }
+
+.SideMenu_container tr:hover {
   color: blue;
 
 }
 
-th:hover {
+.SideMenu_container th:hover {
   cursor: pointer;
 
 }
 
-tr:hover svg{
+.SideMenu_container tr:hover svg{
   fill: blue;
 }
