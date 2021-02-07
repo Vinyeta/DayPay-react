@@ -68,8 +68,7 @@
 }
 
 .imagen__moreno {
-  height: 1075px;
-  width: 120%;
+  width: 100%;
   display: flex;
   flex-direction: right;
   z-index: 0;

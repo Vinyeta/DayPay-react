@@ -7,14 +7,15 @@ import SecondPicture from "./assets/imgmorena.png"
 import TrustBox from "./components/TrustBox/TrustBox";
 import IntroducePage from "./components/introducePage/IntroducePage"
 import LoginForm from "./components/LoginForm/loginForm";
+import SignUpForm from "./components/SignUpForm/signUpForm";
 
 
 function App() {
   return (
-    <div >
+    <div>
       <>
+      <SignUpForm />
       <LoginForm/>
-      
       </>
     </div>
   );
@@ -24,7 +25,7 @@ export default App;
 
 /* function App() {
   return (
-    <div className="App">
+    <div>
       <>
        <Header/>
       <IntroducePage/>

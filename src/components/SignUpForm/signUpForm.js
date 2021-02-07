@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./signUpForm.css";
 import Button from "../Button/Button";
-import imagen from "../../assets/imagelogin.png";
+import imagen from "../../assets/Moreno.png";
 import Logo from "../../assets/Logo.png";
 import betterPayments from "../../assets/betterPayments.png";
 
@@ -57,9 +57,9 @@ const SignUpForm = () => {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="buttonLogin">
+        <div className="buttonOfSignUpForm">
           <Button
-          style="buttonOfSignUpForm"
+          style="defaultButton_featured"
           value="Sign up"
           onClick={handleSubmit} />
           </div>

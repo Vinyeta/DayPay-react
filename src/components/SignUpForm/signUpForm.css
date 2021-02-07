@@ -65,9 +65,9 @@
 .buttonOfSignUpForm {
   display: flex;
   justify-content: center;
-  margin-left: 85px;
+  margin-left: 10px;
 }
 
-/*.loginButtonUnderlined{
-  text-decoration: underline;
-} */
+.loginButtonUnderlined{
+  text-decoration: none;
+} 
