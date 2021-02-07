@@ -6,13 +6,28 @@ import BoxInfo from "./components/BoxInfo/BoxInfo";
 import SecondPicture from "./assets/imgmorena.png"
 import TrustBox from "./components/TrustBox/TrustBox";
 import IntroducePage from "./components/introducePage/IntroducePage"
+import LoginForm from "./components/LoginForm/loginForm";
+import SignUpForm from "./components/SignUpForm/signUpForm";
 
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <>
-      <Header/>
+      <SignUpForm />
+      <LoginForm/>
+      </>
+    </div>
+  );
+}
+
+export default App;
+
+/* function App() {
+  return (
+    <div>
+      <>
+       <Header/>
       <IntroducePage/>
       <TrustBox/>
       <div className="secondprincipal__container">
@@ -23,6 +38,4 @@ function App() {
       </>
     </div>
   );
-}
-
-export default App;
+} */
