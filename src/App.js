@@ -1,5 +1,7 @@
 // Encriptar pass crypto  / js-sha256
 import './App.css';
+import LoginForm from "./components/LoginForm/loginForm";
+import SignUpForm from "./components/SignUpForm/signUpForm";
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,29 +20,30 @@ function App() {
 
   return ( 
     <div>
-      <Landing />
-      {/* <Router>
+       <Router>
         <Switch>
           <Route path='/login'>
-          { token ?
+          { /*token ?
              history.push('/dashboard') 
             :
               undefined // <Login />
-            }
+          */}
+          <LoginForm />
           </Route>
           <Route path='/signup'>
-          { token ?
+          { /*token ?
              history.push('/dashboard') 
             :
               undefined // <SignUp />
-            }
+          */}
+          <SignUpForm />
           </Route>
           <Route path='/dasboard'>
-            { token ?
+            { /*token ?
              undefined //<Dashboard /> 
             :
               history.push('/login')
-            }
+            */}
 
           </Route>
           <Route path='/'>
@@ -48,9 +51,8 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      */}
     </div> 
   );
-}
+} 
 
 export default App;
