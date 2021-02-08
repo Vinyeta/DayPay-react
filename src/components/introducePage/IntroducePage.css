@@ -1,5 +1,7 @@
 .introducePage__principal__conteiner{
     margin-top: 159px;
+    display: flex;
+    flex-direction: row;
 }
 .introduceImage__container >img{
     width: 609px;
