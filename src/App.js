@@ -8,6 +8,7 @@ import TrustBox from "./components/TrustBox/TrustBox";
 import IntroducePage from "./components/introducePage/IntroducePage"
 import LoginForm from "./components/LoginForm/loginForm";
 import SignUpForm from "./components/SignUpForm/signUpForm";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 
 
@@ -15,15 +16,18 @@ function App() {
   return (
     <div>
       <>
-       <Header/>
+       {/* <Header/>
       <IntroducePage/>
       <TrustBox/>
       <div className="secondprincipal__container">
       <BoxInfo/>
       <img src={SecondPicture} alt="sexy lady" className="sexyLady"/>
       </div>
-      <Footer/>
+      <Footer/> */}
+      <Dashboard />
       </>
     </div>
   );
 } 
+
+export default App;

@@ -1,6 +1,4 @@
 .introducePage__principal__conteiner{
-    display: flex;
-    flex-direction: row;
     margin-top: 159px;
 }
 .introduceImage__container >img{
