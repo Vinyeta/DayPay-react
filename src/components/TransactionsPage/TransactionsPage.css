@@ -1,0 +1,191 @@
+.transPage{
+min-width: 543px;
+min-height: 627px;
+max-width: 543px;
+max-height: 627px;
+background: #FFFFFF;
+border: 1px solid #E9E9E9;
+box-shadow : 1px 2px 4px rgba(0, 0, 0, 0.03);
+border-radius: 4px;
+
+flex-direction: row;
+position:relative;
+margin:20px;
+position: relative; 
+}
+
+.filters{
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters span{
+  font-weight: 500;
+font-size: 12px;
+line-height: 20px;
+text-align: center;
+font-feature-settings: 'liga' off;
+
+color: #979797;
+
+}
+
+.transTitle{
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+
+
+}
+.miniBox1{
+  box-shadow: 0px 4px 0px 0px #258AFF inset;
+  border-radius: 4px 0px 0px 0px;
+  height: 150px;
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 26px;
+  padding-top: 26px;
+ }
+  
+  .miniBox2{
+    background-color: #EDF3FA ;
+    height: 150px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    box-sizing:border-box;
+    border-left: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+    border-radius: 0px 4px 0px 0px;
+  }
+
+  .percentage{
+
+    font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+color: #20E9BC;
+  }
+
+  .balance{
+    font-weight: 500;
+font-size: 36px;
+line-height: 49px;
+color: #000000;
+  }
+
+  .balanceTitle {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #979797;
+    
+  }
+.Box3{
+  padding:26px;
+  display: table;
+  overflow: hidden;
+  
+     }
+
+     .Box3 tr{
+      height: 34px;
+      
+         }
+
+     .upper{
+      display:flex;
+      flex-basis:100%;
+      
+         }
+
+.boxShapeTopPage{
+    position: absolute;
+    top:-40px;
+    left:-60px;
+    z-index: -2;
+  }
+
+.boxShapeBottomPage svg{
+    position: absolute;
+    bottom:-125px;
+    right:-120px;
+    z-index: -2;
+    fill:#258AFF;
+
+}
+
+.transPage > span{
+    margin-bottom:45px;
+    font-family: Manrope;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 20px;
+    }
+
+.transactionsPage_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.txTable{
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  border-spacing: none;
+}
+
+.txTable td{
+  font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 20px;
+text-align: center;
+
+color: #979797;
+}
+
+/* STYLE FORM  */
+
+  
+  .tradeForm {
+    display: flex;
+    flex-direction: column;
+    width: 287px;
+    align-items: center;
+  }
+
+  
+  .input__container {
+    background: #ffffff;
+    width: 283px;
+    height: 56px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin-bottom: 32px;
+    /* Shadow */
+  
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04),
+      0px 4px 16px rgba(194, 183, 183, 0.08);
+    border-radius: 4px;
+    border: 1px;
+  }
+
+  .moreTransactions {
+    margin-top:15px;
+    color:#258AFF;
+    font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  font-feature-settings: 'liga' off;
+
+  }
