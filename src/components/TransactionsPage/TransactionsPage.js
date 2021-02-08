@@ -4,16 +4,13 @@ import { useState } from "react";
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { ReactComponent as Arrows } from "../../assets/Arrows.svg";
 import { ReactComponent as PositiveBalance } from "../../assets/PositiveBalance.svg";
+import { ReactComponent as NegativeBalance } from "../../assets/NegativeBalance.svg";
 
 const incomeTransactions = (setTransactions) => {
   
   fetch("http://localhost:3001/")
   .then((response) => response.json())
-  .then((json) => setTransactions([{
-                    date: "1/1/1",
-                    description: "1 1",
-                    amount: -1243,
-                  }]));
+  .then((json) => setTransactions(json));
 
 }
 
@@ -142,7 +139,7 @@ const TransactionsPage = () => {
               color: percentage > 0 ? "#20E9BC" : "#FF523D", 
               fill: percentage > 0 ?  "#20E9BC" : "#FF523D"  ,
             }}>
-              {percentage > 0 ? <PositiveBalance/> : <PositiveBalance/>}  {percentage}% {/* TODO: Negative balance SVG*/}
+              {percentage > 0 ? <PositiveBalance/> : <NegativeBalance/>}  {percentage}% {/* TODO: Negative balance SVG*/}
             </div>
             <div className="balance">{`${balance / 100}$`}</div>
             <div className="balanceTitle">Balance</div>
@@ -161,7 +158,7 @@ const TransactionsPage = () => {
               <div>
                 <span onClick={allTransactions(setTransactions)}>All</span>
               </div>
-              <div onClick={
+              <div style={{cursor:"pointer"}} onClick={
                   incomeTransactions(setTransactions)}>
                 <span>Income</span>
               </div>

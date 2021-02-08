@@ -7,7 +7,34 @@ import {ReactComponent as DotPattern} from "../../assets/Pattern.svg"
 const TradePage = () => {
 
   const [email, setEmail] = useState();
+
   const [amount, setAmount] = useState();
+
+  const body = {
+    email: "",
+    amount:""
+  };
+
+  const handleSubmit = () => {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    };
+
+    fetch("http://localhost:3001/api/", options).then((response) =>
+      console.log(response.status)
+    );
+
+    cleanForm();
+  };
+
+  const cleanForm = () => {
+    setEmail("");
+    setAmount("");
+  };
 
     return (
         <div className="tradePage_container">
@@ -30,7 +57,8 @@ const TradePage = () => {
 
             <Button
             style="defaultButton_featured"
-            value="Transfer funds" />
+            value="Transfer funds" 
+            onClick={handleSubmit}/>
                 </form>   </div></div>
     )
 }
