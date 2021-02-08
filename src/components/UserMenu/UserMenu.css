@@ -36,8 +36,7 @@
   height: 20px;
   width: auto;
   order: 4;
-  background-color: red;
-  cursor: default;;
+  cursor: default;
 
 
 }
@@ -92,8 +91,4 @@
   visibility: visible;
   z-index: 100;
   display: block;
-}
-
-.UserMenu_dropdown__space:hover {
-  background-color: blue;
 }
