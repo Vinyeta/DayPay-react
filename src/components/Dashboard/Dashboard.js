@@ -23,7 +23,7 @@ const Dashboard = () => {
         <Sidebar/>
         <div className="Dashboard_Page_container">
          {/* <IntroducePage/>  */}
-        <TransactionsPage/>
+        <TransactionsPage />
         {/* <TradePage></TradePage> */}
         </div>
         </div>
