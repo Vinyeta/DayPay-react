@@ -8,14 +8,19 @@ const TradePage = () => {
 
   const WALLET_ID = "6021ff060e5bd82c2fccd226"
 
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState();
 
   const [amount, setAmount] = useState();
 
   const body = {
     sender:  WALLET_ID,
     receiver: email,
-    amount: amount  
+    amount: amount*100 
+  };
+
+  const cleanForm = () => {
+    setEmail("");
+    setAmount("");
   };
 
   const handleSubmit = (id) => {
@@ -34,10 +39,8 @@ const TradePage = () => {
     cleanForm();
   };
 
-  const cleanForm = () => {
-    setEmail("");
-    setAmount("");
-  };
+  console.log(email);
+  console.log(amount);
 
   return (
     <div className="tradePage_container">
@@ -55,7 +58,7 @@ const TradePage = () => {
           <input className="input__container" placeholder="Amount"
             type="number"
             name="amount"
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => {setAmount(e.target.value); console.log(amount)}}
           />
 
           <Button

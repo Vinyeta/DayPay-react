@@ -13,9 +13,9 @@ export  const outcomeTransactions = (setTransactions, id) => {
 
   }
 
-export  const allTransactions = (setTransactions) => {
+export  const allTransactions = (setTransactions, id) => {
 
-    fetch("http://localhost:5000/api/transactions/")
+    fetch(`http://localhost:5000/api/transactions/${id}/all`)
       .then((response) => response.json())
       .then((json) => setTransactions(json));
 

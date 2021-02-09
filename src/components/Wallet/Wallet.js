@@ -19,11 +19,13 @@ const TransactionsPage = () => {
 
   const walletId = "6021ff060e5bd82c2fccd226";
 
-  const EURO_CONVERTER = 100;
+  const CENTS_CONVERTER = 100;
 
 
 
-  const [transactions, setTransactions] = useState(mockTransactions);
+  const [transactions, setTransactions] = useState( );
+
+  const [allTransactionsObject, setAllTransactionsObject] = useState();
 
   const [balance, setBalance] = useState();
 
@@ -31,7 +33,11 @@ const TransactionsPage = () => {
 
   useEffect(() => {
     getBalance(setBalance, walletId);
+    allTransactions(setAllTransactionsObject, walletId);
+    // setTransactions(allTransactionsObject.incomingTransactions.concat(allTransactionsObject.outgoingTransactions))
   }, []);
+  console.log(allTransactionsObject.incomingTransactions.concat(allTransactionsObject.outgoingTransactions));
+
 
   return (
     <div className="transactionsPage_container">
@@ -44,7 +50,7 @@ const TransactionsPage = () => {
             }}>
               {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}% {/* TODO: Negative balance SVG*/}
             </div>
-            <div className="balance">{`${balance / EURO_CONVERTER}$`}</div>
+            <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
             <div className="balanceTitle">Balance</div>
           </div>
           <div className="miniBox2">
@@ -76,7 +82,7 @@ const TransactionsPage = () => {
 
           <table className="txTable">
 
-            {transactions.map((i) => {
+            {mockTransactions.map((i) => {
 
               return (
                 <tr>
