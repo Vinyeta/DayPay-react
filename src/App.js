@@ -6,53 +6,37 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory
 } from 'react-router-dom';
-import { useState } from 'react';
 import Landing from './pages/Landing';
+import DashboardPage from './pages/DashboardPage';
 
 
 function App() {
 
-  const history = useHistory();
-
   const token = localStorage.getItem('token');
 
-  return ( 
+
+
+  return (
     <div>
-       <Router>
+      <Router>
         <Switch>
           <Route path='/login'>
-          { /*token ?
-             history.push('/dashboard') 
-            :
-              undefined // <Login />
-          */}
-          <LoginForm />
+            <LoginForm />
           </Route>
           <Route path='/signup'>
-          { /*token ?
-             history.push('/dashboard') 
-            :
-              undefined // <SignUp />
-          */}
-          <SignUpForm />
+            <SignUpForm />
           </Route>
-          <Route path='/dasboard'>
-            { /*token ?
-             undefined //<Dashboard /> 
-            :
-              history.push('/login')
-            */}
-
+          <Route path='/dashboard'>
+            <DashboardPage />
           </Route>
           <Route path='/'>
             <Landing />
           </Route>
         </Switch>
       </Router>
-    </div> 
+    </div>
   );
-} 
+}
 
 export default App;

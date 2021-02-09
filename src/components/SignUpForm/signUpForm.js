@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./signUpForm.css";
 import Button from "../Button/Button";
 import imagen from "../../assets/Moreno.png";
@@ -11,6 +11,8 @@ const SignUpForm = () => {
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const history = useHistory();
 
 
   const body = {
@@ -29,14 +31,17 @@ const SignUpForm = () => {
       body: JSON.stringify(body),
     };
 
-    fetch("http://localhost:5000/api/users", options).then((response) =>
-      response.json()
-    );
+    fetch("http://localhost:5000/api/users", options)
+      .then((response) => response.json())
+      .then( history.replace('/login'))
+      .catch(error => console.log(error))
   };
   return (
   <div className="SignUp__container">
     <div className="form__container">
-      <img src={Logo} alt="logo" className="logoDayPay"/>
+      <Link to='/' >
+        <img src={Logo} alt="logo" className="logoDayPay"/>
+      </Link>
       <form className="signUpForm">
         <input className="input__container" placeholder="First name"
           type="text"

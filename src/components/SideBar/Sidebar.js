@@ -3,6 +3,8 @@ import Expand from "../../assets/Expand.png";
 import "./Sidebar.css";
 import SideMenu from '../SideMenu/SideMenu';
 import { useState } from 'react';
+import { Link } from "react-router-dom";
+
 
 const Sidebar = () => {
 
@@ -12,11 +14,11 @@ const Sidebar = () => {
     return (
         <>
         {SideBarStatus && (<div className="SideBar_container">
-            
-            <div className="SideBar_logo_container">
-                <img src={Logo} height="37px" width="107px"  alt="DayPay Logo" />
-            </div>
-            
+            <Link to="/">
+                <div className="SideBar_logo_container">
+                    <img src={Logo} height="37px" width="107px"  alt="DayPay Logo" />
+                </div>
+            </Link>
             <div className="SideBar_menu_container">
                 <SideMenu />
             </div>
