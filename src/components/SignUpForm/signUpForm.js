@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "./signUpForm.css";
 import Button from "../Button/Button";
 import imagen from "../../assets/Moreno.png";
@@ -11,10 +12,12 @@ const SignUpForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  const history = useHistory();
+
 
   const body = {
-    firstName: firstName,
-    lastName: lastName,
+    name: firstName,
+    surname: lastName,
     email: email,
     password: password,
   };
@@ -28,14 +31,17 @@ const SignUpForm = () => {
       body: JSON.stringify(body),
     };
 
-    fetch("http://localhost:5000/api/users", options).then((response) =>
-      response.json()
-    );
+    fetch("http://localhost:5000/api/users", options)
+      .then((response) => response.json())
+      .then( history.replace('/login'))
+      .catch(error => console.log(error))
   };
   return (
   <div className="SignUp__container">
     <div className="form__container">
-      <img src={Logo} alt="logo" className="logoDayPay"/>
+      <Link to='/' >
+        <img src={Logo} alt="logo" className="logoDayPay"/>
+      </Link>
       <form className="signUpForm">
         <input className="input__container" placeholder="First name"
           type="text"
@@ -63,7 +69,9 @@ const SignUpForm = () => {
           value="Sign up"
           onClick={handleSubmit} />
           </div>
-        <span className="alreadyAccount">Already have an account? <a className="loginButtonUnderlined"href="/login"> Log in</a></span>
+        <span className="alreadyAccount">Already have an account? 
+        <Link to="/login" style={{ textDecoration: 'none' }}> Log in</Link>
+        </span>
       </form>
     </div>
     <div className="contenedor__imagen">

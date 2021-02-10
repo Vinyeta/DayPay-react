@@ -1,31 +1,42 @@
-
+// Encriptar pass crypto  / js-sha256
 import './App.css';
-import Footer from "./components/footer/Footer";
-import Header from "./components/Header/Header";
-import BoxInfo from "./components/BoxInfo/BoxInfo";
-import SecondPicture from "./assets/imgmorena.png"
-import TrustBox from "./components/TrustBox/TrustBox";
-import IntroducePage from "./components/introducePage/IntroducePage"
 import LoginForm from "./components/LoginForm/loginForm";
 import SignUpForm from "./components/SignUpForm/signUpForm";
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import Landing from './pages/Landing';
+import DashboardPage from './pages/DashboardPage';
 
 
 function App() {
+
+  const token = localStorage.getItem('token');
+
+
+
   return (
-    <div className='App'>
-      <>
-       <Header/>
-      <IntroducePage/>
-      <TrustBox/>
-      <div className="secondprincipal__container">
-      <BoxInfo/>
-      <img src={SecondPicture} alt="sexy lady" className="sexyLady"/>
-      </div>
-      <Footer/>
-      </>
+    <div>
+      <Router>
+        <Switch>
+          <Route path='/login'>
+            <LoginForm />
+          </Route>
+          <Route path='/signup'>
+            <SignUpForm />
+          </Route>
+          <Route path='/dashboard'>
+            <DashboardPage />
+          </Route>
+          <Route path='/'>
+            <Landing />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
-} 
+}
 
 export default App;

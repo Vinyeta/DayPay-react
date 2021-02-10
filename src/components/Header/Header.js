@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import "./header.css";
 import logo from "../../utils/daypaylogo.png";
 import Button from "../Button/Button";
@@ -40,12 +41,16 @@ const Header = () => {
       <div className="header__logo">
         <img src={logo} alt="Daypay Logo" className="header__logo"></img>
       </div>
+      <Link to='/login' style={ {textDecoration: 'none'} }>
       <Button
         style="defaultButton"
         value="Login"/>
+      </Link>
+      <Link to='/signup' style={ {textDecoration: 'none'} } >
       <Button
         style="defaultButton_featured"
         value="Sign up"/>
+      </Link>
     </div>
   );
 };

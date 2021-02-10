@@ -3,7 +3,7 @@ import emailLogo from "../../assets/email-logo.png";
 import Button from "../Button/Button";
 
 
-const Newsletter = ({ }) => {
+const Newsletter = () => {
     return (
         <div className="newsletter__container" >
             <div className="newsletter__title__container">
