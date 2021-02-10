@@ -11,7 +11,7 @@ import {
   allTransactions,
   getBalance,
   addFunds,
-  mockTransactions
+  weeklyIncrement
 } from './walletHelper';
 
 
@@ -25,19 +25,17 @@ const TransactionsPage = () => {
 
   const [transactions, setTransactions] = useState( );
 
-  const [allTransactionsObject, setAllTransactionsObject] = useState();
-
   const [balance, setBalance] = useState();
 
   const [percentage, setPercentage] = useState("-23");
 
   useEffect(() => {
     getBalance(setBalance, walletId);
-    allTransactions(setAllTransactionsObject, walletId);
-    // setTransactions(allTransactionsObject.incomingTransactions.concat(allTransactionsObject.outgoingTransactions))
-  }, []);
-  console.log(allTransactionsObject.incomingTransactions.concat(allTransactionsObject.outgoingTransactions));
+    allTransactions(setTransactions, walletId);
+    weeklyIncrement(setPercentage, walletId);
+    }, []);
 
+    console.log(transactions);
 
   return (
     <div className="transactionsPage_container">
@@ -69,7 +67,7 @@ const TransactionsPage = () => {
             <div className="filters">
               <div></div>
               <div>
-                <span onClick={() => allTransactions(setTransactions, walletId)}>All</span>
+                <span onClick={() =>{ allTransactions(setTransactions, walletId);}}>All</span>
               </div>
               <div style={{ cursor: "pointer" }} onClick={ () => incomeTransactions(setTransactions, walletId)}>
                 <span>Income</span>
@@ -82,7 +80,7 @@ const TransactionsPage = () => {
 
           <table className="txTable">
 
-            {mockTransactions.map((i) => {
+            {transactions && transactions.map((i) => {
 
               return (
                 <tr>
@@ -93,10 +91,10 @@ const TransactionsPage = () => {
                   }}>
                     <Arrows></Arrows>
                   </td>
-                  <td style={{ width: "20%" }}>{i.date}</td>
-                  <td style={{ width: "50%", "text-align": "left" }}>{i.description}</td>
+                  <td style={{ width: "40%" }}>{i.date}</td>
+                  <td style={{ width: "30%", "text-align": "left" }}>{i.description}</td>
                   <td style={{ width: "65px", height: "16px" }}>
-                    <div
+                    <div  
                       style={{
                         "background-color": i.amount > 0 ? "rgba(32, 233, 188, 0.15)" : "rgba(255, 55, 79, 0.15)",
                         "color": i.amount > 0 ? "#20E9BC" : "#FF374F",
@@ -109,7 +107,7 @@ const TransactionsPage = () => {
                       {i.amount > 0 ? "INCOME" : "OUTCOME"}
                     </div>
                   </td>
-                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${i.amount / 100}` : i.amount / 100} USD</td>
+                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${i.amount / CENTS_CONVERTER}` : i.amount / CENTS_CONVERTER} USD</td>
                 </tr>)
             }
 

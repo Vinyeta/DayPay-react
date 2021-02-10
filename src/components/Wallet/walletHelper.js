@@ -21,13 +21,6 @@ export  const allTransactions = (setTransactions, id) => {
 
   }
 
-//export const sendMoney = (setTransactions) => {
-
-  //   fetch("http://localhost:3001/")
-  //   .then((response) => response.json())
-  //   .then((json) => setTransactions(json));
-
-  // }
 
 export  const getBalance = (setBalance, id) => {
     fetch(`http://localhost:5000/api/wallet/${id}/balance`)
@@ -54,55 +47,9 @@ export  const getBalance = (setBalance, id) => {
     );
   };
 
-  export const mockTransactions = [
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: -1243,
-    },
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: 1243,
-    },
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: -1243,
-    },
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: 1243,
-    },
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: -1243,
-    },
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: -1243,
-    },
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: 1243,
-    },
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: -1243,
-    },
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: -1243,
-    },
-    {
-      date: "24/04/2020",
-      description: "Joe Doe",
-      amount: -1243,
-    },
-  ];
+  export const weeklyIncrement = (setPercentage, id) => {
+    
+    fetch(`http://localhost:5000/api/wallet/${id}/increment`)
+      .then((response) => response.json())
+      .then((json) => setPercentage(json));
+  };
