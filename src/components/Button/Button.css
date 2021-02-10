@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Manrope');
+@import url("https://fonts.googleapis.com/css?family=Manrope");
 
 .defaultButton {
     font-style: normal;
@@ -6,7 +6,7 @@
     font-size: 14px;
     line-height: 20px;
     width: 100px;
-    height: 40px;
+    min-height: 40px;
     background: rgba(37, 138, 255, 0.16);
     border-radius: 8px;
     color: #258AFF;
@@ -16,6 +16,8 @@
     align-items: center;
     justify-content: center;
     margin-right: 7px;
+    padding-left:7px;
+    padding-right:7px;
   }
 
   .defaultButton_featured {
@@ -33,6 +35,8 @@
     display:flex;
     align-items: center;
     justify-content: center;
+    padding-left:7px;
+    padding-right:7px;
   }
   
   .featuredButton {
@@ -51,57 +55,89 @@
     justify-content: center;
   }
 
-  .defaultButton:hover {
-    color: white;
-    background-color: black;
-  }
-  
-  .featuredButton:hover {
-    color: white;
-    background: black;
-  }
-  
-  .defaultButton_featured:hover {
-    color: white;
-    background: black;
-  }
-
-.buttonOfIntroducePage{
+.featuredButton {
   text-align: center;
   line-height: 20px;
   font-size: 16px;
   height: 65px;
   width: 193px;
   border-radius: 5px;
-  background-color: #258AFF;
+  background-color: #258aff;
   color: white;
   border: none;
   cursor: pointer;
-  display:flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.defaultButton:hover {
+  color: white;
+  background-color: black;
+}
+
+.featuredButton:hover {
+  color: white;
+  background: black;
+}
+
+.defaultButton_featured:hover {
+  color: white;
+  background: black;
+}
+
+.buttonOfIntroducePage {
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
+  height: 65px;
+  width: 193px;
+  border-radius: 5px;
+  background-color: #258aff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 33px;
   margin-bottom: 30px;
 }
 
-.buttonOfNewsletterform{
+.buttonOfNewsletterform {
   text-align: center;
   line-height: 20px;
   font-size: 16px;
   height: 63px;
   width: 160px;
   border-radius: 5px;
-  background-color: #258AFF;
+  background-color: #258aff;
   color: white;
   border: none;
   cursor: pointer;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 33px;
   margin-bottom: 30px;
 }
-  
+
+.buttonOfSignUpForm {
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  height: 40px;
+  width: 100px;
+  border-radius: 7px;
+  font-style: Manrope;
+  background-color: #258aff;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .buttonOfNewsletterform:hover {
   color: white;
@@ -109,6 +145,11 @@
 }
 
 .buttonOfIntroducePage:hover {
+  color: white;
+  background: black;
+}
+
+.buttonOfSignUpForm:hover {
   color: white;
   background: black;
 }
