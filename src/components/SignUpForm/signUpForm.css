@@ -31,7 +31,7 @@
 .contenedor__imagen_signUp {
   max-height: 100vh;
   width: 50vw;
-  overflow: hidden;
+  overflow-y: hidden;
   object-fit: cover;
   display: flex;
   justify-content: center;
