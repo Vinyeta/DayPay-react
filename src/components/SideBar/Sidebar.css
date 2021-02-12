@@ -6,7 +6,7 @@
     min-width: 267px;
     flex-grow: 0;
     flex-shrink: 0;
-    height: 100vh;
+    min-height: 100vh;
     border-right: 1px solid #E9E9E9;
     position: sticky;
     top:0;
@@ -29,8 +29,8 @@
 
 .SideBar_expandButton_container {
     bottom: 20px;
-    right: 20px;
-    position: absolute;
+    left: 231px;
+    position: fixed;
     order:2;
     cursor: pointer;
 
