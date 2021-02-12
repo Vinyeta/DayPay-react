@@ -64,7 +64,7 @@ const LoginForm = () => {
           </span>
         </form>
       </div>
-      <div className="contenedor__imagen">
+      <div className="contenedor__imagen_login">
         <img src={Moreno} alt="Moreno" className="imagen__moreno" />
         <img src={betterPayments} alt="betterPayments" className="imagenBetterPayments" />
       </div>

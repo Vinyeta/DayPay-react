@@ -1,6 +1,6 @@
 .Login__container {
   align-items: center;
-
+  max-height: 100vh;
   display: flex;
 }
 
@@ -14,7 +14,7 @@
 .logform__container {
   align-items: center;
   text-align: center;
-  width: 50%;
+  min-width: 50%;
   display: flex;
   flex-direction: column;
 }
@@ -32,13 +32,16 @@
   border: 1px;
 }
 
-.contenedor__imagen {
-  height: 100%;
-  width: 50%;
+.contenedor__imagen_login {
+  max-height: 100vh;
+  width: 50vw;
+  overflow: hidden;
+  object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 .logoDayPay {
   margin-bottom: 64px;
