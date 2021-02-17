@@ -15,9 +15,9 @@ import {
 } from './walletHelper';
 
 
-const TransactionsPage = () => {
+const TransactionsPage = (wallet) => {
 
-  const walletId = "6021ff060e5bd82c2fccd226";
+  const walletId = wallet.wallet
 
   const CENTS_CONVERTER = 100;
 

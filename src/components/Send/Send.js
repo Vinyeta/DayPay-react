@@ -4,16 +4,16 @@ import Button from '../Button/Button';
 import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 
-const TradePage = () => {
+const TradePage = (wallet) => {
 
-  const WALLET_ID = "6021ff060e5bd82c2fccd226"
+  const walletId = wallet.wallet
 
   const [email, setEmail] = useState();
 
   const [amount, setAmount] = useState();
 
   const body = {
-    sender:  WALLET_ID,
+    sender:  walletId,
     receiver: email,
     amount: amount*100 
   };
@@ -54,17 +54,19 @@ const TradePage = () => {
             type="email"
             name="email"
             onChange={(e) => {setEmail(e.target.value); console.log(email)}}
+            value={email}
           />
           <input className="input__container" placeholder="Amount"
             type="number"
             name="amount"
+            value={amount}
             onChange={(e) => {setAmount(e.target.value); console.log(amount)}}
           />
 
           <Button
             style="defaultButton_featured"
             value="Transfer funds"
-            onClick={() => handleSubmit(WALLET_ID)} />
+            onClick={() => handleSubmit(walletId)} />
         </form>
       </div>
     </div>

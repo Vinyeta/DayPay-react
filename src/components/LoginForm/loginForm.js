@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./loginForm.css";
 import Button from "../Button/Button";
 import Logo from "../../assets/Logo.png";
 import Moreno from "../../assets/Moreno.png";
 import betterPayments from "../../assets/betterPayments.png";
-
+import { jwt } from 'jsonwebtoken';
 
 
 const LoginForm = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const history = useHistory();
-
 
   const body = {
     email: email,
@@ -29,14 +29,22 @@ const LoginForm = () => {
     };
 
     fetch("http://localhost:5000/api/login", options)
-      .then(response => response.json())
-      .then(json => {
-        localStorage.setItem('token', json.token)
-        history.replace('/dashboard')
+      .then(response => {
+        // return {body: response.json(), status: response.status}
+        if (response.ok) return response.json();
+        else {
+          alert("Incorrect user or password");
+          return { error: true }
+        }
+      }).then(json => {
+        if (!json.error) {
+          localStorage.setItem('token', json.token);
+          history.replace('/dashboard')
+        }
       })
-      .catch(error => console.log(error))
-  };
-  return (
+};
+
+  if (!localStorage.getItem("token")) {return (
     <div className="Login__container">
       <div className="logform__container" >
         <Link to='/'>
@@ -52,7 +60,7 @@ const LoginForm = () => {
           <input className="input__container" placeholder="Password"
             type="password"
             name="password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {setPassword(e.target.value); console.log(e.target.value)}}
           />
           <Button
             style="defaultButton_featured"
@@ -69,8 +77,12 @@ const LoginForm = () => {
         <img src={betterPayments} alt="betterPayments" className="imagenBetterPayments" />
       </div>
 
-    </div>
+    </div>  
   );
+} else {
+  history.push("/dashboard")
+  return (<div>Redirecting...</div>)
+}
 };
 
 export default (LoginForm);
