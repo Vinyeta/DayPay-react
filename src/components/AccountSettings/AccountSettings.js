@@ -2,69 +2,76 @@
 import "./AccountSettings.css"
 import Button from '../Button/Button';
 import { useState } from 'react';
-import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
-import Logo from "../../assets/Logo.png"
+import EditUser from '../../assets/userPictureEdit.png';
+
 
 const AccountSettings = () => {
 
-  const WALLET_ID = "6021ff060e5bd82c2fccd226"
 
+  const [name, setName] = useState();
+  const [surname, setSurname] = useState();
   const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
-  const [amount, setAmount] = useState();
 
   const body = {
-    sender:  WALLET_ID,
-    receiver: email,
-    amount: amount*100 
+    name: name,
+    surname: surname,
+    email: email,
+    password:  password,
   };
 
   const cleanForm = () => {
+    setName("");
+    setSurname("");
     setEmail("");
-    setAmount("");
+    setPassword("");
   };
 
   const handleSubmit = (id) => {
     const options = {
-      method: "POST",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
     };
 
-    fetch(`http://localhost:5000/api/transactions/${id}`, options).then((response) =>
+    fetch(`http://localhost:5000/api/users/${id}`, options).then((response) =>
       console.log(response.status)
     );
 
     cleanForm();
   };
 
+  console.log(name);
+  console.log(surname);
   console.log(email);
-  console.log(amount);
+  console.log(password);
+
 
   return (
     <div className="accountSettings_container">
       <div className="boxSettings">
-        <div className="boxShapeTop"><DotPattern></DotPattern></div>
-        <div className="boxShapeBottom"><DotPattern></DotPattern></div>
 
         <span> Edit profile</span>
         <form className="tradeForm">
 
-          <img className="accountSettins__img">{Logo}</img>
+          <img className="accountSettins__img" src="https://static1.abc.es/media/play/2017/09/28/avatar-kVmB--620x349@abc.jpeg" alt="Avatar" />
+          <img className="accountSettins__edit" src="{userPictureEdit}" alt="" />
+  
 
           <div className="nameData__container">
             <input className="nameInput__container" placeholder="Name"
               type="text"
-              name="Name"
-              onChange={(e) => {setEmail(e.target.value); console.log(email)}}
+              name="name"
+              onChange={(e) => {setName(e.target.value); console.log(name)}}
             />
 
             <input className="lastNameInput__container" placeholder="Last Name"
               type="text"
-              name="lastName"
-              onChange={(e) => {setEmail(e.target.value); console.log(email)}}
+              name="surname"
+              onChange={(e) => {setSurname(e.target.value); console.log(surname)}}
             />     
           </div>
 
@@ -77,15 +84,15 @@ const AccountSettings = () => {
           /> 
 
             <input className="input__container" placeholder="Password"
-            type="text"
+            type="password"
             name="password"
-            onChange={(e) => {setEmail(e.target.value); console.log(email)}}
+            onChange={(e) => {setPassword(e.target.value); console.log(password)}}
           /> 
 
           <Button
             style="defaultButton_featured"
-            value="SAve"
-            onClick={() => handleSubmit(WALLET_ID)} />
+            value="Save"
+            onClick={() => handleSubmit()} />
         </form>
       </div>
     </div>
