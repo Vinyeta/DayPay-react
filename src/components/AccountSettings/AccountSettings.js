@@ -1,10 +1,11 @@
 
-import "../Send/Send.css"
+import "./AccountSettings.css"
 import Button from '../Button/Button';
 import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
+import Logo from "../../assets/Logo.png"
 
-const Request = () => {
+const AccountSettings = () => {
 
   const WALLET_ID = "6021ff060e5bd82c2fccd226"
 
@@ -43,27 +44,47 @@ const Request = () => {
   console.log(amount);
 
   return (
-    <div className="tradePage_container">
-      <div className="box">
+    <div className="accountSettings_container">
+      <div className="boxSettings">
         <div className="boxShapeTop"><DotPattern></DotPattern></div>
         <div className="boxShapeBottom"><DotPattern></DotPattern></div>
 
-        <span> Request money from another user</span>
+        <span> Edit profile</span>
         <form className="tradeForm">
-          <input className="input__container" placeholder="Email"
+
+          <img className="accountSettins__img">{Logo}</img>
+
+          <div className="nameData__container">
+            <input className="nameInput__container" placeholder="Name"
+              type="text"
+              name="Name"
+              onChange={(e) => {setEmail(e.target.value); console.log(email)}}
+            />
+
+            <input className="lastNameInput__container" placeholder="Last Name"
+              type="text"
+              name="lastName"
+              onChange={(e) => {setEmail(e.target.value); console.log(email)}}
+            />     
+          </div>
+
+
+
+            <input className="input__container" placeholder="Email"
             type="email"
             name="email"
             onChange={(e) => {setEmail(e.target.value); console.log(email)}}
-          />
-          <input className="input__container" placeholder="Amount"
-            type="number"
-            name="amount"
-            onChange={(e) => {setAmount(e.target.value); console.log(amount)}}
-          />
+          /> 
+
+            <input className="input__container" placeholder="Password"
+            type="text"
+            name="password"
+            onChange={(e) => {setEmail(e.target.value); console.log(email)}}
+          /> 
 
           <Button
             style="defaultButton_featured"
-            value="Request funds"
+            value="SAve"
             onClick={() => handleSubmit(WALLET_ID)} />
         </form>
       </div>
@@ -71,4 +92,4 @@ const Request = () => {
   )
 }
 
-export default Request;
+export default AccountSettings;
