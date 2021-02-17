@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 
-const TradePage = () => {
+const Send = () => {
 
   const WALLET_ID = "6021ff060e5bd82c2fccd226"
 
@@ -71,4 +71,4 @@ const TradePage = () => {
   )
 }
 
-export default TradePage;
+export default Send;

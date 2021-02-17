@@ -52,7 +52,7 @@ const SideMenu = () => {
                 </tr>
 
                 <tr>
-                    <Link to={`${url}/send`} style={{ textDecoration: 'none', color: 'black' }}>
+                    <Link to={`${url}/request`} style={{ textDecoration: 'none', color: 'black' }}>
 
                         <th>
                             <TradeIcon />
