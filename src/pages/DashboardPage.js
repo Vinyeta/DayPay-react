@@ -8,6 +8,7 @@ import UserMenu from '../components/UserMenu/UserMenu';
 import Sidebar from '../components/SideBar/Sidebar';
 import Wallet from '../components/Wallet/Wallet';
 import Send from '../components/Send/Send';
+import Request from '../components/Request/Request';
 
 const DashboardPage = () => {
     const { path } = useRouteMatch();
@@ -34,6 +35,9 @@ const DashboardPage = () => {
                             </Route>
                             <Route path={`${path}/send`} >
                                 <Send id={user.id} />
+                            </Route>
+                            <Route path={`${path}/request`} >
+                                <Request id={user.id} />
                             </Route>
                             <Route path={`${path}/accountsettings`} />
                             <Route path={`${path}/`} >
