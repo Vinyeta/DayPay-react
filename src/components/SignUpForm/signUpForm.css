@@ -42,7 +42,6 @@
   width: 100%;
   display: flex;
   flex-direction: right;
-  z-index: 0;
 }
 
 .logoDayPay {
