@@ -9,6 +9,7 @@ import Sidebar from '../components/SideBar/Sidebar';
 import Wallet from '../components/Wallet/Wallet';
 import Send from '../components/Send/Send';
 import Request from '../components/Request/Request';
+import AccountSettings from '../components/AccountSettings/AccountSettings';
 
 const DashboardPage = () => {
     const { path } = useRouteMatch();
@@ -33,14 +34,17 @@ const DashboardPage = () => {
                             <Route  path={`${path}/wallet`} >
                                 <Wallet  />
                             </Route>
+
                             <Route path={`${path}/send`} >
                                 <Send id={user.id} />
                             </Route>
+
                             <Route path={`${path}/request`} >
                                 <Request id={user.id} />
                             </Route>
-                            <Route path={`${path}/accountsettings`} />
-                            <Route path={`${path}/`} >
+
+                            <Route path={`${path}/accountsettings`} >
+                                <AccountSettings id={user.id} />
                             </Route>
                         </Switch>
                 </div>
