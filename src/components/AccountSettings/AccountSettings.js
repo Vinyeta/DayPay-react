@@ -2,8 +2,8 @@
 import "./AccountSettings.css"
 import Button from '../Button/Button';
 import { useState } from 'react';
-import EditUser from '../../assets/userPictureEdit.png';
-
+import EditUser from '../../assets/EditUser.svg';
+import EyeOff from '../../assets/eye-off.svg';
 
 const AccountSettings = () => {
 
@@ -57,8 +57,8 @@ const AccountSettings = () => {
         <span> Edit profile</span>
         <form className="tradeForm">
 
-          <img className="accountSettins__img" src="https://static1.abc.es/media/play/2017/09/28/avatar-kVmB--620x349@abc.jpeg" alt="Avatar" />
-          <img className="accountSettins__edit" src="{userPictureEdit}" alt="" />
+          <img className="accountSettings__img" src="https://static1.abc.es/media/play/2017/09/28/avatar-kVmB--620x349@abc.jpeg" alt="Avatar" />
+          <img className="accountSettings__edit" src={EditUser} alt="edit user picture" />
   
 
           <div className="nameData__container">
@@ -88,6 +88,8 @@ const AccountSettings = () => {
             name="password"
             onChange={(e) => {setPassword(e.target.value); console.log(password)}}
           /> 
+          <img className="eyeOff" src={EyeOff} alt="eye off" />
+
 
           <Button
             style="defaultButton_featured"

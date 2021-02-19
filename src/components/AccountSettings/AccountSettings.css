@@ -46,13 +46,21 @@
 }
 
 /* STYLE FORM  */
-.accountSettins__img {
+.accountSettings__img {
   width: 69px;
   height: 69px;
   border-radius: 4px;
   margin: 18px;
   object-fit: cover;
 }
+
+.accountSettings__edit {
+    display: flex;
+    position: absolute;
+    top: 130px;
+    left: 235px; 
+}
+
 
 .tradeForm {
   display: flex;
@@ -74,6 +82,17 @@
   border-radius: 4px;
   border: 1px;
 }
+
+.eyeOff {
+    display: flex;
+    position: absolute;
+    top: 368px;
+    left: 330px; 
+    width: 20px;
+}
+
+
+
 
 .nameData__container {
   display: flex;
