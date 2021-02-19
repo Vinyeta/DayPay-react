@@ -25,4 +25,9 @@
 
 .SideMenu_container tr:hover svg{
   fill: blue;
+
+}
+
+.SideMenu_container span:hover {
+  color: blue;
 }

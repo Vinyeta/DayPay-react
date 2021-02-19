@@ -57,7 +57,7 @@
 .accountSettings__edit {
     display: flex;
     position: absolute;
-    top: 130px;
+    top: 135px;
     left: 235px; 
 }
 
@@ -86,7 +86,7 @@
 .eyeOff {
     display: flex;
     position: absolute;
-    top: 368px;
+    top: 369px;
     left: 330px; 
     width: 20px;
 }
