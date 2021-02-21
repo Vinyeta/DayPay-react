@@ -16,6 +16,7 @@ import { useState, useEffect} from 'react';
 import mongoose from "mongoose";
 import RequestBar from '../components/RequestsBar/RequestBar';
 
+
 const CENTS_CONVERTER = 100;
 
 
@@ -54,7 +55,6 @@ const DashboardPage = () => {
         
       }, []);
 
-      console.log(wallet)
     
 
 

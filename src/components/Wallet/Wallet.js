@@ -13,6 +13,8 @@ import {
   addFunds,
   weeklyIncrement
 } from './walletHelper';
+import Moment from 'moment';
+
 
 
 const TransactionsPage = (wallet) => {
@@ -91,7 +93,7 @@ const TransactionsPage = (wallet) => {
                   }}>
                     <Arrows></Arrows>
                   </td>
-                  <td style={{ width: "40%" }}>{i.date}</td>
+                  <td style={{ width: "40%" }}>{Moment(i.date).format('DD/MM/YYYY')}</td>
                   <td style={{ width: "30%", "text-align": "left" }}>{i.description}</td>
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
@@ -107,7 +109,7 @@ const TransactionsPage = (wallet) => {
                       {i.amount > 0 ? "INCOME" : "OUTCOME"}
                     </div>
                   </td>
-                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${i.amount / CENTS_CONVERTER}` : i.amount / CENTS_CONVERTER} USD</td>
+                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${Number(i.amount / CENTS_CONVERTER).toFixed(2)}` : Number(i.amount / CENTS_CONVERTER).toFixed(2)} USD</td>
                 </tr>)
             }
 
