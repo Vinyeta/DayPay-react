@@ -15,6 +15,8 @@ import jwt from "jsonwebtoken";
 import { useState, useEffect} from 'react';
 import mongoose from "mongoose";
 import RequestBar from '../components/RequestsBar/RequestBar';
+import Expand from "../assets/Expand.png";
+
 
 
 const CENTS_CONVERTER = 100;
@@ -33,8 +35,11 @@ const DashboardPage = () => {
 
     const [percentage, setPercentage] = useState("-23");
 
+    const [SideBarStatus, setSideBarStatus] = useState(true);
 
 
+
+    console.log("LOC" + JSON.stringify(history.location))
     
     useEffect(() => {
         
@@ -56,25 +61,59 @@ const DashboardPage = () => {
       }, []);
 
     
+    const notDashboard = (history.location.pathname !== "/dashboard")
 
+    var styleClass = ""
 
+    if (!notDashboard && SideBarStatus) {
+
+        styleClass = "Dashboard_Page_container"
+    }
+    if (notDashboard && SideBarStatus) {
+        styleClass = "Dashboard_Page_container expand"}
+
+    if (notDashboard && !SideBarStatus) {
+        styleClass = "Dashboard_Page_container expand2"}
     
+    if (!notDashboard && !SideBarStatus) {
+
+            styleClass = "Dashboard_Page_container expand3"
+    }
+
+
+
+
     const { path } = useRouteMatch();
 
     return (
         <>
-         {/* <div className="UserMenu_top_container">
-         <RequestBar />  
-            </div> */}
+          {notDashboard && <div className="UserMenu_top_container">
+                <UserMenu user={{
+                "id":"6021fc5a3edd692a8bb60ad4",
+                "name": "Pepe",
+                "surname": "El Gipsy",
+                "email": "pepe@pepe.pepe",
+                "avatar": "https://randomuser.me/api/portraits/men/81.jpg",
+                "password": "pepe"
+            }} />  
+            </div> }
 
             <div className="Dashboard_container">
             
                 <div className="Dashboard_SideBar_container">
-                    <Sidebar />
+                    <Sidebar SideBarStatus={SideBarStatus} />
                 </div>
-                <div className="Dashboard_Page_container">
+                
+                {SideBarStatus && <div className="SideBar_expandButton_container" onClick={() => setSideBarStatus(!SideBarStatus)} >
+                    <img src={Expand} alt="Expand Button"  /> </div>}
+
+                {!SideBarStatus && <div className="Page_expandButton_container" onClick={() => setSideBarStatus(!SideBarStatus)} >
+                <img src={Expand} alt="Expand Button"  />
+            </div>}
+
+                <div className={styleClass}>
                     
-                            {/* <div className="miniBox1Dashboard">
+                        {!notDashboard &&  <div className="miniBox1Dashboard">
                         <div className="percentage" style={{
                         color: percentage > 0 ? "#20E9BC" : "#FF523D",
                         fill: percentage > 0 ? "#20E9BC" : "#FF523D",
@@ -83,7 +122,7 @@ const DashboardPage = () => {
                         </div>
                         <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
                         <div className="balanceTitle">Balance</div>
-                    </div> */}
+                    </div> }
                         <Switch>
                             <Route  path={`${path}/wallet`} >
                                 {wallet && <Wallet wallet={wallet}/>}
@@ -96,9 +135,9 @@ const DashboardPage = () => {
                             </Route>
                         </Switch>
                 </div>
-            <div className="Dashboard_Requests_container">
+                {!notDashboard && <div className="Dashboard_Requests_container">
                 <RequestBar /> 
-            </div>
+            </div>}
         </div> 
         </>
     )

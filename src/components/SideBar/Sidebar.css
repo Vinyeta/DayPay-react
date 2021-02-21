@@ -22,21 +22,5 @@
     order: 1;
 }
 
-.SideBar_expandButton_container {
-    bottom: 20px;
-    left: 231px;
-    position: fixed;
-    order:2;
-    cursor: pointer;
 
-}
-
-.Page_expandButton_container {
-    bottom: 20px;
-    left: 20px;
-    position: fixed;
-    cursor: pointer;
-    z-index: 100;
-
-}
 

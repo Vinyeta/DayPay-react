@@ -10,12 +10,32 @@
     display:flex;
     justify-content: center;
     margin-left: 267px;
-    margin-right: 348px;
     position: fixed;
     width: calc(100vw - 615px);
     height: 100%;
     background-color: #F8FBFF;
 }
+
+.Dashboard_Page_container.expand{
+
+    width: calc(100vw - 267px);
+    margin-right: 267px;
+
+}
+
+.Dashboard_Page_container.expand2{
+    margin-left: 0px;
+    width: calc(100vw);
+
+}
+
+.Dashboard_Page_container.expand3{
+    margin-left: 0px;
+    width: calc(100vw - 348px );
+
+}
+
+
 
 /* .Dashboard_Page_container .SideBarOpen{
     position: relative;
@@ -52,8 +72,8 @@
 .UserMenu_top_container{
     display: block;
     position: fixed;
-    right: 0;
-    top: 0;
+    right: 20px;
+    top: 20px;
     z-index: 600;
 
 
@@ -69,3 +89,24 @@
     padding-left: 26px;
     padding-top: 26px;
    }
+
+   .SideBar_expandButton_container {
+    bottom: 20px;
+    left: 231px;
+    position: fixed;
+    order:2;
+    cursor: pointer;
+    z-index: 99999;
+
+}
+
+.Page_expandButton_container {
+    bottom: 20px;
+    left: 20px;
+    position: fixed;
+    cursor: pointer;
+    z-index: 100;
+    z-index: 99999;
+
+
+}
