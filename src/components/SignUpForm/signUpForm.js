@@ -5,12 +5,18 @@ import Button from "../Button/Button";
 import imagen from "../../assets/Moreno.png";
 import Logo from "../../assets/Logo.png";
 import betterPayments from "../../assets/betterPayments.png";
+import EyeOff from '../../assets/eye-off.svg';
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   const history = useHistory();
 
@@ -58,11 +64,16 @@ const SignUpForm = () => {
           name="email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input className="input__container" placeholder="Password"
-          type="password"
-          name="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+
+        <div className="inputPassword"> 
+          <input className="input__container" placeholder="Password"
+            type={passwordShown ? "text" : "password"}
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+            <img className="eyeOffSign" src={EyeOff} alt="eye off" onClick={togglePasswordVisiblity} />
+        </div>
+
         <div className="buttonOfSignUpForm">
           <Button
           style="defaultButton_featured"

@@ -5,6 +5,8 @@ import { useState } from 'react';
 import EditUser from '../../assets/EditUser.svg';
 import EyeOff from '../../assets/eye-off.svg';
 
+
+
 const AccountSettings = () => {
 
 
@@ -12,6 +14,12 @@ const AccountSettings = () => {
   const [surname, setSurname] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  //code added to show/hide password
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
 
   const body = {
@@ -84,11 +92,11 @@ const AccountSettings = () => {
           /> 
 
             <input className="input__container" placeholder="Password"
-            type="password"
+            type={passwordShown ? "text" : "password"}
             name="password"
             onChange={(e) => {setPassword(e.target.value); console.log(password)}}
           /> 
-          <img className="eyeOff" src={EyeOff} alt="eye off" />
+          <img className="eyeOff" src={EyeOff} alt="eye off" onClick={togglePasswordVisiblity} />
 
 
           <Button
