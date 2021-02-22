@@ -11,7 +11,6 @@ import Wallet from '../components/Wallet/Wallet';
 import Send from '../components/Send/Send';
 import jwt from "jsonwebtoken";
 import { useState, useEffect} from 'react';
-import mongoose from "mongoose";
 
 
 const DashboardPage = () => {

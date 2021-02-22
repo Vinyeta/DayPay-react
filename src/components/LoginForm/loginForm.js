@@ -5,7 +5,6 @@ import Button from "../Button/Button";
 import Logo from "../../assets/Logo.png";
 import Moreno from "../../assets/Moreno.png";
 import betterPayments from "../../assets/betterPayments.png";
-import { jwt } from 'jsonwebtoken';
 
 
 const LoginForm = () => {
@@ -28,7 +27,7 @@ const LoginForm = () => {
       body: JSON.stringify(body),
     };
 
-    fetch("http://localhost:5000/api/login", options)
+    fetch("http://localhost:5000/api/auth/login", options)
       .then(response => {
         // return {body: response.json(), status: response.status}
         if (response.ok) return response.json();
