@@ -16,7 +16,7 @@ const SideMenu = () => {
 
             <table>
                 <tr>
-                    <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }}    >
+                    <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }}>
 
                         <th>
                             <DashboardIcon />
