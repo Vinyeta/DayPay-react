@@ -15,13 +15,13 @@ import jwt from "jsonwebtoken";
 import { useState, useEffect} from 'react';
 import RequestBar from '../components/RequestsBar/RequestBar';
 import Expand from "../assets/Expand.png";
+import Request from '../components/Request/Request';
 
 
 
 const CENTS_CONVERTER = 100;
 
 
-import Request from '../components/Request/Request';
 
 const DashboardPage = () => {
 
@@ -44,11 +44,12 @@ const DashboardPage = () => {
     useEffect(() => {
         
         const token = jwt.decode(localStorage.getItem("token"));
+        console.log(token._id);
         
         if (!token) {
             history.replace("/login")
         } else {
-            
+            // hay que añadir options con el token en los fetch
             fetch(`http://localhost:5000/api/users/${token._id}`)
                   .then((response) => response.json())
                   .then((json) => setUserData(json));
@@ -131,7 +132,7 @@ const DashboardPage = () => {
                                 {wallet && <Send wallet={wallet} />}
                             </Route>
                             <Route path={`${path}/request`} >
-                                <Request id={user.id} />
+                                {/* <Request id={user._id} /> */}
                             </Route>
                             <Route path={`${path}/accountsettings`} />
                             <Route path={`${path}/`} >

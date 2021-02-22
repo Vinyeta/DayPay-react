@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 
-const Send = () => {
+const Send = ({wallet}) => {
 
   const walletId = wallet.wallet
 
