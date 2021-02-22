@@ -71,3 +71,11 @@
 .loginButtonUnderlined{
   text-decoration: none;
 } 
+
+.errorInvisible {
+  display:none;
+}
+
+.errorVisible {
+  color:red;
+}

@@ -83,3 +83,12 @@
   text-decoration:wavy;
 }
 
+.errorInvisible {
+  display:none;
+}
+
+.errorVisible {
+  color:red;
+}
+
+
