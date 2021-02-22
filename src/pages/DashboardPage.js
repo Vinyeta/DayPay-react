@@ -21,6 +21,7 @@ import Expand from "../assets/Expand.png";
 const CENTS_CONVERTER = 100;
 
 
+import Request from '../components/Request/Request';
 
 const DashboardPage = () => {
 
@@ -128,6 +129,9 @@ const DashboardPage = () => {
                             </Route>
                             <Route path={`${path}/send`} >
                                 {wallet && <Send wallet={wallet} />}
+                            </Route>
+                            <Route path={`${path}/request`} >
+                                <Request id={user.id} />
                             </Route>
                             <Route path={`${path}/accountsettings`} />
                             <Route path={`${path}/`} >
