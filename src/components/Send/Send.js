@@ -1,21 +1,32 @@
-
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import "./Send.css"
 import Button from '../Button/Button';
-import { useState } from 'react';
-import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
+import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
+import { validateEmail } from "../../Utils/validations";
+
 
 const Send = ({wallet, token}) => {
 
   const walletId = wallet
+  const history = useHistory();
+
+
 
   const [email, setEmail] = useState();
 
   const [amount, setAmount] = useState();
 
+  const [errorStyle, setErrorStyle] = useState({
+    "email": 'errorInvisible',
+    "amount": 'errorInvisible'
+  });
+
   const body = {
     sender:  walletId,
     receiver: email,
     amount: amount*100   
+
   };
 
   const cleanForm = () => {
@@ -34,9 +45,29 @@ const Send = ({wallet, token}) => {
       body: JSON.stringify(body),
     };
 
-    fetch(`http://localhost:5000/api/transactions/`, options).then((response) =>
-      console.log(response.status)
-    );
+
+    if (!validateEmail(email) && (amount <= 0 || !amount)) {
+      setErrorStyle({
+        'email': 'errorVisible',
+        'amount': 'errorVisible',
+      })
+    } else if (amount <= 0) {
+      setErrorStyle({
+        'email': 'errorInvisible',
+        'amount': 'errorVisible',
+      })
+    } else if (!validateEmail(email)) {
+      setErrorStyle({
+        'email': 'errorVisible',
+        'amount': 'errorInvisible',
+      })
+    } else {
+      fetch(`http://localhost:5000/api/transactions/${id}`, options).then((response) => {
+        console.log(response.status);
+        history.replace("/dashboard");
+      }
+      );
+    }
 
     cleanForm();
   };
@@ -55,13 +86,18 @@ const Send = ({wallet, token}) => {
             name="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+
           />
+          <span className={errorStyle.email}>Invalid email</span>
+
           <input className="input__container" placeholder="Amount"
             type="number"
             name="amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+
           />
+          <span className={errorStyle.amount}>Introduce a number greater than 0</span>
 
           <Button
             style="defaultButton_featured"
