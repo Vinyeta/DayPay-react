@@ -13,7 +13,7 @@ import Request from '../components/Request/Request';
 const DashboardPage = () => {
     const { path } = useRouteMatch();
     const user = {
-        "id":"6021fc5a3edd692a8bb60ad4",
+        "_id":"6021fc5a3edd692a8bb60ad4",
         "name": "pepe",
         "surname": "pepe",
         "email": "pepe@pepe.pepe",
@@ -34,10 +34,10 @@ const DashboardPage = () => {
                                 <Wallet  />
                             </Route>
                             <Route path={`${path}/send`} >
-                                <Send id={user.id} />
+                                <Send id={user._id} />
                             </Route>
                             <Route path={`${path}/request`} >
-                                <Request id={user.id} />
+                                <Request id={user._id} />
                             </Route>
                             <Route path={`${path}/accountsettings`} />
                             <Route path={`${path}/`} >
