@@ -59,8 +59,8 @@
     position: absolute;
     top: 135px;
     left: 235px; 
+    cursor: pointer;
 }
-
 
 .tradeForm {
   display: flex;
@@ -89,10 +89,8 @@
     top: 369px;
     left: 330px; 
     width: 20px;
+    cursor: pointer;
 }
-
-
-
 
 .nameData__container {
   display: flex;

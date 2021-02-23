@@ -71,3 +71,17 @@
 .loginButtonUnderlined{
   text-decoration: none;
 } 
+
+.eyeOffSign {
+  display: flex;
+  position: absolute;
+  margin-left: 275px;
+  margin-top: 20px;
+  width: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.inputPassword {
+  display: flex;
+}
