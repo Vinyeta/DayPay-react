@@ -86,7 +86,7 @@ const RequestBox = () => {
                   .then((response) => response.json())
                   .then((json) => {
                       console.log(json)
-                      setRequests(json);
+                      setRequests([json]);
                     })
 
             
@@ -94,11 +94,6 @@ const RequestBox = () => {
         
       }, [!updateTrans])
 
-      
-
-      console.log(requests);
-
-      
 
     return (
         <>

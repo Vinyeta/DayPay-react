@@ -28,6 +28,8 @@ const Send = ({wallet}) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        'Authorization': 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDJhYjczZmVkYWJhNjY4MzBiN2ExNDEiLCJpYXQiOjE2MTM1Nzg1OTB9.1jXP9kYnGogDcHjPSNFTgpK0k1r5FR9_kc0EsZUSI30"
+
       },
       body: JSON.stringify(body),
     };

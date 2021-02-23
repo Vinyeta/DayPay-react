@@ -62,7 +62,6 @@ const SideMenu = () => {
                         </th>
                     </Link>
                 </tr>
-
                 <tr>
                     <Link to={`${url}/accountsettings`} style={{ textDecoration: 'none', color: 'black' }}>
 
@@ -70,7 +69,7 @@ const SideMenu = () => {
                             <AccountIcon />
                         </th>
                         <th style={{ "padding-left": "27px" }}>
-                            <span>Account Setting</span>
+                            <span>Account Settings</span>
                         </th>
                     </Link>
                 </tr>
