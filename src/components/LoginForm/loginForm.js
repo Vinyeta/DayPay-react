@@ -90,10 +90,7 @@ const LoginForm = () => {
 
     </div>  
   );
-} else {
-  history.push("/dashboard")
-  return (<div>Redirecting...</div>)
-}
 };
+
 
 export default (LoginForm);
