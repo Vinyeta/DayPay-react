@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import imagen from "../../assets/Moreno.png";
 import Logo from "../../assets/Logo.png";
 import betterPayments from "../../assets/betterPayments.png";
+import EyeOff from '../../assets/eye-off.svg';
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -16,6 +17,11 @@ const SignUpForm = () => {
     'password': 'errorInvisible',
   });
 
+
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   const history = useHistory();
 
@@ -65,39 +71,44 @@ const SignUpForm = () => {
     }
   };
   return (
-    <div className="SignUp__container">
-      <div className="form__container">
-        <Link to='/' >
-          <img src={Logo} alt="logo" className="logoDayPay" />
-        </Link>
-        <form className="signUpForm">
-          <input className="input__container" placeholder="First name"
-            type="text"
-            name="firstName"
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <input className="input__container" placeholder="Last name"
-            type="text"
-            name="lastName"
-            onChange={(e) => setLastName(e.target.value)}
-          />
-          <input className="input__container" placeholder="Email"
-            type="text"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <span className={errorStyle.email}>Invalid email</span>
+  <div className="SignUp__container">
+    <div className="form__container">
+      <Link to='/' >
+        <img src={Logo} alt="logo" className="logoDayPay"/>
+      </Link>
+      <form className="signUpForm">
+        <input className="input__container" placeholder="First name"
+          type="text"
+          name="firstName"
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <input className="input__container" placeholder="Last name"
+          type="text"
+          name="lastName"
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <input className="input__container" placeholder="Email"
+          type="text"
+          name="email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+                  <span className={errorStyle.email}>Invalid email</span>
+
+        <div className="inputPassword"> 
           <input className="input__container" placeholder="Password"
-            type="password"
+            type={passwordShown ? "text" : "password"}
             name="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <span className={errorStyle.password}>Password must be 5 characters long</span>
-          <div className="buttonOfSignUpForm">
-            <Button
-              style="defaultButton_featured"
-              value="Sign up"
-              onClick={handleSubmit} />
+            <img className="eyeOffSign" src={EyeOff} alt="eye off" onClick={togglePasswordVisiblity} />
+        </div>
+        <span className={errorStyle.password}>Password must be 5 characters long</span>
+
+        <div className="buttonOfSignUpForm">
+          <Button
+          style="defaultButton_featured"
+          value="Sign up"
+          onClick={handleSubmit} />
           </div>
           <span className="alreadyAccount">Already have an account?
         <Link to="/login" style={{ textDecoration: 'none' }}> Log in</Link>

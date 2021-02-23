@@ -1,6 +1,7 @@
 
 import { useHistory } from "react-router-dom";
 import "./Request.css"
+import "../Send/Send.css"
 import Button from '../Button/Button';
 import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
