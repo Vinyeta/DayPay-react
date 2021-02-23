@@ -6,7 +6,7 @@ import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 
 const Request = ({wallet, token}) => {
 
-  const WALLET_ID = wallet.wallet
+  const WALLET_ID = wallet;
 
   const [email, setEmail] = useState();
 
@@ -15,7 +15,7 @@ const Request = ({wallet, token}) => {
   const body = {
     sender:  WALLET_ID,
     receiver: email,
-    amount: amount*100 
+    amount: amount 
   };
 
   const cleanForm = () => {

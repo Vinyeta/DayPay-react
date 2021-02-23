@@ -7,19 +7,10 @@ import Moment from 'moment';
 const updateRequest = (requestId, status, token) => {
 
         
-    let body = {}
+    const body = {
+        status: status
+    }
     
-    if (status === "accepted") {
-        body = JSON.stringify({
-        status : status
-    })} else {
-        body = JSON.stringify(
-            {
-            status : status
-        })
-    };
-
-
     
     const options = {
 
@@ -29,7 +20,7 @@ const updateRequest = (requestId, status, token) => {
 
         },
 
-        body: body,
+        body: JSON.stringify(body),
 
         method: "PATCH"
 
@@ -102,8 +93,8 @@ const RequestBox = ({user, token}) => {
             { request.status === "pending" &&
                 
             <div className="Request_buttons">
-                <div className="Request_button_accept" onClick={() => {updateRequest(request._id, "accepted"); setUpdate(!updateTrans)}}>Accept</div>
-                <div className="Request_button_reject" onClick={() => {updateRequest(request._id, "rejected"); setUpdate(!updateTrans)}}>Reject</div>
+                <div className="Request_button_accept" onClick={() => {updateRequest(request._id, "accepted", token); setUpdate(!updateTrans)}}>Accept</div>
+                <div className="Request_button_reject" onClick={() => {updateRequest(request._id, "rejected", token); setUpdate(!updateTrans)}}>Reject</div>
             </div>
 
             }  
