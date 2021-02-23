@@ -11,6 +11,7 @@ import EyeOff from '../../assets/eye-off.svg';
 const LoginForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [errorStyle, setErrorStyle] = useState('errorInvisible');
   const history = useHistory();
   
   const [passwordShown, setPasswordShown] = useState(false);
@@ -33,13 +34,16 @@ const LoginForm = () => {
       body: JSON.stringify(body),
     };
 
-    fetch("http://localhost:5000/api/login", options)
+    fetch("http://localhost:5000/api/auth/login", options)
       .then(response => response.json())
       .then(json => {
         localStorage.setItem('token', json.token)
         history.replace('/dashboard')
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error)
+        setErrorStyle('errorVisible');
+      })
   };
   return (
     <div className="Login__container">
@@ -47,7 +51,7 @@ const LoginForm = () => {
         <Link to='/'>
           <img src={Logo} alt="logo" className="logoDayPay" />
         </Link>
-        <form className="signUpForm">
+        <form className="signUpForm" noValidate>
 
           <input className="input__container" placeholder="Email"
             type="text"
@@ -69,6 +73,8 @@ const LoginForm = () => {
             value="Login"
             onClick={handleLogin}
           />
+          <span className></span>
+          <span className={errorStyle}>Invalid password or email</span>
           <span className="alreadyAccount">Don`t have an account?
           <Link to="/signup" style={{ textDecoration: 'none' }}> Sign Up</Link>
           </span>

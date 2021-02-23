@@ -83,6 +83,15 @@
   text-decoration:wavy;
 }
 
+.errorInvisible {
+  display:none;
+}
+
+.errorVisible {
+  color:red;
+}
+
+
 .eyeOffLogin {
   display: flex;
   position: absolute;

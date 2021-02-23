@@ -72,6 +72,13 @@
   text-decoration: none;
 } 
 
+.errorInvisible {
+  display:none;
+}
+
+.errorVisible {
+  color:red;
+}
 .eyeOffSign {
   display: flex;
   position: absolute;
