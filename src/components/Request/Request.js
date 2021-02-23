@@ -7,11 +7,11 @@ import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 import { validateEmail } from "../../Utils/validations";
 
-const Request = () => {
+const Request = ({wallet, token}) => {
 
+  const WALLET_ID = wallet;
   const history = useHistory();
 
-  const WALLET_ID = "6021ff060e5bd82c2fccd226"
 
   const [email, setEmail] = useState();
 
@@ -28,13 +28,15 @@ const Request = () => {
   const body = {
     sender: WALLET_ID,
     receiver: email,
-    amount: amount * 100
+    amount: amount 
+
   };
 
   const cleanForm = () => {
     setEmail("");
     setAmount("");
   };
+
 
   const cleanErrors = () => {
     setErrorStyle({
@@ -48,10 +50,14 @@ const Request = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        'Authorization': 'Bearer ' + token
       },
       body: JSON.stringify(body),
     };
 
+    fetch(`http://localhost:5000/api/requestMoney/`, options).then((response) =>
+      console.log(response.status)
+    );
     if (!validateEmail(email) && (amount <= 0 || !amount)) {
       setErrorStyle({
         'email': 'errorVisible',
@@ -94,20 +100,22 @@ const Request = () => {
             placeholder="Email"
             type="email"
             name="email"
-            onChange={(e) => { setEmail(e.target.value) }}
+            onChange={(e) => setEmail(e.target.value)}
+
           />
           <span className={errorStyle.email}>Invalid email</span>
           <input required className="input__container" 
             placeholder="Amount"
             type="number"
             name="amount"
-            onChange={(e) => { setAmount(e.target.value) }}
+            onChange={(e) => setAmount(e.target.value)}
+
           />
           <span className={errorStyle.amount}>Introduce a number greater than 0</span>
           <Button
             style="defaultButton_featured"
             value="Request funds"
-            onClick={() => handleSubmit(WALLET_ID)} />
+            onClick={() => handleSubmit()} />
         </form>
       </div>
     </div>

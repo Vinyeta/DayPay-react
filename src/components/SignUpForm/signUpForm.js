@@ -48,6 +48,7 @@ const SignUpForm = () => {
       body: JSON.stringify(body),
     };
 
+
     if (!validate(email) && password.length < 5) {
       setErrorStyle({
         'email': 'errorVisible',
@@ -112,6 +113,7 @@ const SignUpForm = () => {
           </div>
           <span className="alreadyAccount">Already have an account?
         <Link to="/login" style={{ textDecoration: 'none' }}> Log in</Link>
+
           </span>
         </form>
       </div>

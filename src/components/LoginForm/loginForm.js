@@ -7,10 +7,12 @@ import Moreno from "../../assets/Moreno.png";
 import betterPayments from "../../assets/betterPayments.png";
 import EyeOff from '../../assets/eye-off.svg';
 
-
 const LoginForm = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [errorStyle, setErrorStyle] = useState('errorInvisible');
   const history = useHistory();
   
@@ -18,7 +20,6 @@ const LoginForm = () => {
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
-
 
   const body = {
     email: email,
@@ -35,6 +36,7 @@ const LoginForm = () => {
     };
 
     fetch("http://localhost:5000/api/auth/login", options)
+
       .then(response => response.json())
       .then(json => {
         localStorage.setItem('token', json.token)
@@ -58,6 +60,7 @@ const LoginForm = () => {
             name="email"
             onChange={(e) => setEmail(e.target.value)}
           />
+
           
           <div className="inputPassword">
             <input className="input__container" placeholder="Password"
@@ -80,13 +83,17 @@ const LoginForm = () => {
           </span>
         </form>
       </div>
-      <div className="contenedor__imagen">
+      <div className="contenedor__imagen_login">
         <img src={Moreno} alt="Moreno" className="imagen__moreno" />
         <img src={betterPayments} alt="betterPayments" className="imagenBetterPayments" />
       </div>
 
-    </div>
+    </div>  
   );
+} else {
+  history.push("/dashboard")
+  return (<div>Redirecting...</div>)
+}
 };
 
 export default (LoginForm);

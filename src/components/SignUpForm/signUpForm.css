@@ -28,9 +28,11 @@
   border: 1px;
 }
 
-.contenedor__imagen {
-  height: 100%;
-  width: 50%;
+.contenedor__imagen_signUp {
+  max-height: 100vh;
+  width: 50vw;
+  overflow-y: hidden;
+  object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +42,6 @@
   width: 100%;
   display: flex;
   flex-direction: right;
-  z-index: 0;
 }
 
 .logoDayPay {

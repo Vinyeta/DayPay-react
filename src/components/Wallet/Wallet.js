@@ -13,11 +13,13 @@ import {
   addFunds,
   weeklyIncrement
 } from './walletHelper';
+import Moment from 'moment';
 
 
-const TransactionsPage = () => {
 
-  const walletId = "6021ff060e5bd82c2fccd226";
+const TransactionsPage = (wallet) => {
+
+  const walletId = wallet.wallet
 
   const CENTS_CONVERTER = 100;
 
@@ -46,7 +48,7 @@ const TransactionsPage = () => {
               color: percentage > 0 ? "#20E9BC" : "#FF523D",
               fill: percentage > 0 ? "#20E9BC" : "#FF523D",
             }}>
-              {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}% {/* TODO: Negative balance SVG*/}
+              {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}%
             </div>
             <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
             <div className="balanceTitle">Balance</div>
@@ -91,7 +93,7 @@ const TransactionsPage = () => {
                   }}>
                     <Arrows></Arrows>
                   </td>
-                  <td style={{ width: "40%" }}>{i.date}</td>
+                  <td style={{ width: "40%" }}>{Moment(i.date).format('DD/MM/YYYY')}</td>
                   <td style={{ width: "30%", "text-align": "left" }}>{i.description}</td>
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
@@ -107,7 +109,7 @@ const TransactionsPage = () => {
                       {i.amount > 0 ? "INCOME" : "OUTCOME"}
                     </div>
                   </td>
-                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${i.amount / CENTS_CONVERTER}` : i.amount / CENTS_CONVERTER} USD</td>
+                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${Number(i.amount / (CENTS_CONVERTER)).toFixed(2)}` : i.amount / (CENTS_CONVERTER*CENTS_CONVERTER).toFixed(2)} USD</td>
                 </tr>)
             }
 
