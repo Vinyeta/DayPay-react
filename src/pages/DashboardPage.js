@@ -48,12 +48,20 @@ const DashboardPage = () => {
         if (!token) {
             history.replace("/login")
         } else {
+
+            const options = {
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+        
+                }}
             
-            fetch(`http://localhost:5000/api/users/${token._id}`)
+            fetch(`http://localhost:5000/api/users/${token._id}`, options)
                   .then((response) => response.json())
                   .then((json) => setUserData(json));
             
-            fetch(`http://localhost:5000/api/wallet/${token._id}/author`)
+            fetch(`http://localhost:5000/api/wallet/${token._id}/author`, options)
                   .then((response) => response.json())
                   .then((json) => {setWallet(json._id); console.log(json)});    
         }
