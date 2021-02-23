@@ -1,19 +1,19 @@
 
-import "./Send.css"
+import "./Request.css"
 import Button from '../Button/Button';
 import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 
-const TradePage = (wallet) => {
+const Request = () => {
 
-  const walletId = wallet.wallet
+  const WALLET_ID = "6021ff060e5bd82c2fccd226"
 
   const [email, setEmail] = useState();
 
   const [amount, setAmount] = useState();
 
   const body = {
-    sender:  walletId,
+    sender:  WALLET_ID,
     receiver: email,
     amount: amount*100 
   };
@@ -29,7 +29,6 @@ const TradePage = (wallet) => {
       headers: {
         "Content-Type": "application/json",
         'Authorization': 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDJhYjczZmVkYWJhNjY4MzBiN2ExNDEiLCJpYXQiOjE2MTM1Nzg1OTB9.1jXP9kYnGogDcHjPSNFTgpK0k1r5FR9_kc0EsZUSI30"
-
       },
       body: JSON.stringify(body),
     };
@@ -50,29 +49,27 @@ const TradePage = (wallet) => {
         <div className="boxShapeTop"><DotPattern></DotPattern></div>
         <div className="boxShapeBottom"><DotPattern></DotPattern></div>
 
-        <span> Send money to another user</span>
+        <span> Request money from another user</span>
         <form className="tradeForm">
           <input className="input__container" placeholder="Email"
             type="email"
             name="email"
             onChange={(e) => {setEmail(e.target.value); console.log(email)}}
-            value={email}
           />
           <input className="input__container" placeholder="Amount"
             type="number"
             name="amount"
-            value={amount}
             onChange={(e) => {setAmount(e.target.value); console.log(amount)}}
           />
 
           <Button
             style="defaultButton_featured"
-            value="Transfer funds"
-            onClick={() => handleSubmit(walletId)} />
+            value="Request funds"
+            onClick={() => handleSubmit(WALLET_ID)} />
         </form>
       </div>
     </div>
   )
 }
 
-export default TradePage;
+export default Request;

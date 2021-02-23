@@ -51,6 +51,17 @@ const SideMenu = () => {
                     </Link>
                 </tr>
                 <tr>
+                    <Link to={`${url}/request`} style={{ textDecoration: 'none', color: 'black' }}>
+
+                        <th>
+                            <TradeIcon />
+                        </th>
+                        <th style={{ "padding-left": "27px" }}>
+                            <span>Request</span>
+                        </th>
+                    </Link>
+                </tr>
+                <tr>
                     <Link to={`${url}/accountsettings`} style={{ textDecoration: 'none', color: 'black' }}>
 
                         <th>

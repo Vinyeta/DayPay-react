@@ -80,6 +80,7 @@
 }
 
 .miniBox1Dashboard{
+    margin-top: 40px;
     display:block;
     box-shadow: 0px 4px 0px 0px #258AFF inset;
     border-radius: 4px 0px 0px 0px;
@@ -88,7 +89,29 @@
     box-sizing: border-box;
     padding-left: 26px;
     padding-top: 26px;
-   }
+    background-color: white;
+}
+
+.overview_container h1{
+    font-family: Manrope;
+    font-style: bold;
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+
+}
+
+.overview_container span{
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #979797;
+    margin-bottom: 40px;
+}
+
+
+
 
    .SideBar_expandButton_container {
     bottom: 20px;
@@ -109,4 +132,13 @@
     z-index: 99999;
 
 
+}
+
+.overview_container{
+    display: inline-block;
+    position: relative;
+    top:40px;
+    left:40px;
+    height: 100%;
+    width: 100%;
 }
