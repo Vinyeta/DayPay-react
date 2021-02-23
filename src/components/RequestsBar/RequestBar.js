@@ -1,27 +1,13 @@
-import Logo from "../../utils/daypaylogo.png";
-import Expand from "../../assets/Expand.png";
 import "./RequestBar.css";
-import SideMenu from '../SideMenu/SideMenu';
-import { useState } from 'react';
-import { Link } from "react-router-dom";
 import RequestBox from '../RequestBox/RequestBox';
 import Avatar from '../Avatar/Avatar';
 
 
 
 
-const RequestBar = () => {
+const RequestBar = ({user, token}) => {
 
-    const user = {
-        "id":"6021fc5a3edd692a8bb60ad4",
-        "name": "Pepe",
-        "surname": "El Gipsy",
-        "email": "pepe@pepe.pepe",
-        "avatar": "https://randomuser.me/api/portraits/men/81.jpg",
-        "password": "pepe"
-    };
 
-    const [RequestBarStatus, setRequestBarStatus] = useState(true);
 
 
     return (
@@ -37,7 +23,7 @@ const RequestBar = () => {
             <span>{user.name} {user.surname}</span>
         </div>
 
-           <RequestBox/>
+           <RequestBox user={user} token={token}/>
             </div>
     </>
     )

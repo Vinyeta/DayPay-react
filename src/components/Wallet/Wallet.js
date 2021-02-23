@@ -48,7 +48,7 @@ const TransactionsPage = (wallet) => {
               color: percentage > 0 ? "#20E9BC" : "#FF523D",
               fill: percentage > 0 ? "#20E9BC" : "#FF523D",
             }}>
-              {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}% {/* TODO: Negative balance SVG*/}
+              {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}%
             </div>
             <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
             <div className="balanceTitle">Balance</div>

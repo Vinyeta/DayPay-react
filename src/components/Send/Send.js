@@ -4,9 +4,9 @@ import Button from '../Button/Button';
 import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 
-const Send = ({wallet}) => {
+const Send = ({wallet, token}) => {
 
-  const walletId = wallet.wallet
+  const walletId = wallet
 
   const [email, setEmail] = useState();
 
@@ -15,7 +15,7 @@ const Send = ({wallet}) => {
   const body = {
     sender:  walletId,
     receiver: email,
-    amount: amount*100 
+    amount: amount*100   
   };
 
   const cleanForm = () => {
@@ -23,26 +23,24 @@ const Send = ({wallet}) => {
     setAmount("");
   };
 
-  const handleSubmit = (id) => {
+  const handleSubmit = () => {
     const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDJhYjczZmVkYWJhNjY4MzBiN2ExNDEiLCJpYXQiOjE2MTM1Nzg1OTB9.1jXP9kYnGogDcHjPSNFTgpK0k1r5FR9_kc0EsZUSI30"
+        'Authorization': 'Bearer ' + token
 
       },
       body: JSON.stringify(body),
     };
 
-    fetch(`http://localhost:5000/api/transactions/${id}`, options).then((response) =>
+    fetch(`http://localhost:5000/api/transactions/`, options).then((response) =>
       console.log(response.status)
     );
 
     cleanForm();
   };
 
-  console.log(email);
-  console.log(amount);
 
   return (
     <div className="tradePage_container">
@@ -55,20 +53,20 @@ const Send = ({wallet}) => {
           <input className="input__container" placeholder="Email"
             type="email"
             name="email"
-            onChange={(e) => {setEmail(e.target.value); console.log(email)}}
+            onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
           <input className="input__container" placeholder="Amount"
             type="number"
             name="amount"
             value={amount}
-            onChange={(e) => {setAmount(e.target.value); console.log(amount)}}
+            onChange={(e) => setAmount(e.target.value)}
           />
 
           <Button
             style="defaultButton_featured"
             value="Transfer funds"
-            onClick={() => handleSubmit(walletId)} />
+            onClick={() => handleSubmit()} />
         </form>
       </div>
     </div>

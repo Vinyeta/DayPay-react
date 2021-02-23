@@ -1,7 +1,6 @@
 import Logo from "../../utils/daypaylogo.png";
 import "./Sidebar.css";
 import SideMenu from '../SideMenu/SideMenu';
-import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 

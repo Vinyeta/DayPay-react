@@ -30,11 +30,13 @@ const DashboardPage = () => {
 
   const [SideBarStatus, setSideBarStatus] = useState(true);
 
+  const token = jwt.decode(localStorage.getItem("token"));
+
+  const token2 = localStorage.getItem("token");
+
   useEffect(() => {
-    const token = jwt.decode(localStorage.getItem("token"));
 
-    const token2 = localStorage.getItem("token");
-
+    console.log("hola");
     if (!token) {
       history.replace("/login");
     } else {
@@ -86,9 +88,10 @@ const DashboardPage = () => {
 
   const { path } = useRouteMatch();
 
-  return (
+  return ( 
+
     <>
-      {notDashboard && (
+      {notDashboard && user && (
         <div className="UserMenu_top_container">
           <UserMenu
             user={user}
@@ -101,7 +104,7 @@ const DashboardPage = () => {
           <Sidebar SideBarStatus={SideBarStatus} />
         </div>
 
-        {SideBarStatus && (
+        {SideBarStatus && user && (
           <div
             className="SideBar_expandButton_container"
             onClick={() => setSideBarStatus(!SideBarStatus)}
@@ -110,7 +113,7 @@ const DashboardPage = () => {
           </div>
         )}
 
-        {!SideBarStatus && (
+        {!SideBarStatus && user && (
           <div
             className="Page_expandButton_container"
             onClick={() => setSideBarStatus(!SideBarStatus)}
@@ -118,13 +121,12 @@ const DashboardPage = () => {
             <img src={Expand} alt="Expand Button" />
           </div>
         )}
-
         <div className={styleClass}>
-          {!notDashboard && wallet && (
+          {!notDashboard && wallet && user && (
             <div className="overview_container"> 
             <h1>Overview</h1>
-            <span>Hi Maria, get your summary of your transacrtions and requests here</span><div className="miniBox1Dashboard">
-              
+              <span>Hi {user.name}, get your summary of your transacrtions and requests here</span><div className="miniBox1Dashboard">
+            
               <div
                 className="percentage"
                 style={{
@@ -139,26 +141,29 @@ const DashboardPage = () => {
               <div className="balanceTitle">Balance</div>
             </div></div>
           )}
+          
           <Switch>
             <Route path={`${path}/wallet`}>
               {wallet && <Wallet wallet={wallet} />}
             </Route>
             <Route path={`${path}/send`}>
-              {wallet && <Send wallet={wallet} />}
+              {wallet && <Send wallet={wallet} token={token2} />}
             </Route>
             <Route path={`${path}/request`}>
-              {user && <Request id={user.id} />}
+              {user && <Request id={wallet} token={token2} />}
             </Route>
             <Route path={`${path}/accountsettings`} />
             <Route path={`${path}/`}></Route>
           </Switch>
         </div>
-        {!notDashboard && (
+        {!notDashboard && user &&(
           <div className="Dashboard_Requests_container">
-            <RequestBar />
+            <RequestBar user={user} token={token2}/>
           </div>
         )}
       </div>
+        }
+
     </>
   );
 };

@@ -1,15 +1,13 @@
-import Logo from "../../utils/daypaylogo.png";
 import "./RequestBox.css";
 import { useState , useEffect} from 'react';
-import { Link } from "react-router-dom";
 import Moment from 'moment';
 
 
 
-const updateRequest = (requestId, status) => {
+const updateRequest = (requestId, status, token) => {
 
         
-    var body = {}
+    let body = {}
     
     if (status === "accepted") {
         body = JSON.stringify({
@@ -21,15 +19,13 @@ const updateRequest = (requestId, status) => {
         })
     };
 
-    console.log(body)
-    console.log(requestId)
 
     
     const options = {
 
         headers: {
             "Content-Type": "application/json",
-            'Authorization': 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDJhYjczZmVkYWJhNjY4MzBiN2ExNDEiLCJpYXQiOjE2MTM1Nzg1OTB9.1jXP9kYnGogDcHjPSNFTgpK0k1r5FR9_kc0EsZUSI30"
+            'Authorization': 'Bearer ' + token
 
         },
 
@@ -45,11 +41,8 @@ const updateRequest = (requestId, status) => {
 }
 
 
-const RequestBox = () => {
+const RequestBox = ({user, token}) => {
 
-    const user = {_id: "602ab73fedaba66830b7a141"}
-
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDJhYjczZmVkYWJhNjY4MzBiN2ExNDEiLCJpYXQiOjE2MTM1Nzg1OTB9.1jXP9kYnGogDcHjPSNFTgpK0k1r5FR9_kc0EsZUSI30"
 
     // const request = 
     
@@ -103,7 +96,7 @@ const RequestBox = () => {
                 <div className="Request_date">{Moment(request.date).format('DD.MM.YYYY HH:MM')}</div>
                 <div className="Request_title">Sent to John</div>
                 <div className="Request_subtitle">Maria requested a payment</div>
-                <div className="Request_amount">{Number(request.amount / CENTS_CONVERTER).toFixed(2)}<span className="request_currency">$</span></div>
+                <div className="Request_amount">{Number(request.amount).toFixed(2)}<span className="request_currency">$</span></div>
             </div>
 
             { request.status === "pending" &&
