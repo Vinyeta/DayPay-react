@@ -1,0 +1,66 @@
+.RequestBar_container {
+    display: inline-flex;
+    flex-direction: column;
+    flex-grow: 0;
+    align-items: center;
+    min-width: 348px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-left: 1px solid #E9E9E9;
+    top:0;
+    right: 0;
+    background-color: white;
+    
+}
+
+.RequestBar_UserMenu__avatar{
+        width: 87px;
+        height: 87px;
+        cursor: pointer;
+        margin-bottom:10px;
+}
+
+.RequestBar_UserMenu__container{
+    margin-top: 46px;
+    margin-bottom:14px;
+
+
+}
+
+.RequestBar_UserMenu__container span{
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #1D293F;
+}
+
+.RequestBar_logo_container {
+    margin-top: 90px;
+    margin-bottom:90px;
+    order: 0;
+}
+
+.RequestBar_menu_container {
+    order: 1;
+}
+
+.RequestBar_expandButton_container {
+    bottom: 20px;
+    left: 231px;
+    position: fixed;
+    order:2;
+    cursor: pointer;
+
+}
+
+.Page_expandButton_container {
+    bottom: 20px;
+    left: 20px;
+    position: fixed;
+    cursor: pointer;
+    z-index: 100;
+
+}
+

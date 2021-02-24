@@ -1,28 +1,23 @@
+.SideMenu_container th {
+  text-align: left;
+  padding-bottom: 40px;
+}
 
- .SideMenu_container th{
-    text-align: left;
-    padding-bottom:40px;
-
-
-  }
-
-  .SideMenu_container td{
-    text-align: left;
-    padding-bottom:40px;
-
-
-  }
-
-.SideMenu_container tr:hover {
-  color: blue;
-
+.SideMenu_container td {
+  text-align: left;
+  padding-bottom: 40px;
 }
 
 .SideMenu_container th:hover {
   cursor: pointer;
-
+  color: blue;
 }
 
-.SideMenu_container tr:hover svg{
+.SideMenu_container tr:hover svg {
   fill: blue;
 }
+
+.SideMenu_container span:hover {
+  color: blue;
+}
+

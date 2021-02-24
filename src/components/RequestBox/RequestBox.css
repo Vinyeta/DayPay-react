@@ -1,0 +1,183 @@
+.Request_date{
+
+font-family: Manrope;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 20px;
+color: #D8D8D8;
+
+
+}
+
+.Request_title{
+
+    font-family: Circular Std;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+color: #1D293F;
+
+
+}
+
+.Request_subtitle{
+    font-family: Circular Std;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+color: #D8D8D8;
+margin-bottom: 14px;
+}
+
+.Request_amount{
+    font-family: Circular Std;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+color: #1D293F;
+
+}
+
+.RequestBox_container_pending{
+    background: #FFFFFF;
+    border-radius: 3px;
+    border: 1px solid #E9E9E9;
+    width: 193px;
+    height: 150px;
+    margin-bottom:10px;
+    margin-top:10px;  
+    display: inline-flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+
+.RequestBox_container_accepted{
+    background: #FFFFFF;
+    border-radius: 3px;
+    border: 1px solid #20E9BC;
+    width:193px;
+    height: 150px;
+    margin-bottom:10px;
+    margin-top:10px; 
+    display: inline-flex;
+    flex-direction: column;
+    align-items: space-between;
+
+
+}
+.RequestBox_container_rejected{
+    margin-bottom:10px;
+    margin-top:10px;  
+    background: #FFFFFF;
+    border-radius: 3px;
+    border: 1px solid #FF374F;
+    width:193px;
+    height: 150px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: space-between;
+
+
+
+}
+
+.Request_buttons{
+    display:flex;
+    flex-basis:100%;
+    align-items: flex-end;
+    max-height: 31px;
+    font-family: Circular Std;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+
+    
+}
+
+
+.Request_button_accept{
+    
+    display:flex;
+    flex-basis: 55%;
+    background-color: #258AFF;
+    height: 100%;
+    color:white;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+
+}
+
+.Request_button_reject{
+    flex-basis: 45%;
+    background-color: #FF374F;
+    height: 100%;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+
+}
+
+.Request_data{
+    flex-basis:100%;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.Request_status_accepted{
+    background-color: rgba(32, 233, 188, 0.15);
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 9px;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom:10px;
+    margin-left:auto;
+    margin-right: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color:#20E9BC;
+    border-radius: 3px;
+
+
+
+
+
+
+}
+
+.Request_status_rejected{
+    background-color: rgba(255, 55, 79, 0.15);;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 9px;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom:10px;
+    margin-left:auto;
+    margin-right: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: #FF374F;
+    border-radius: 3px;
+    
+}
+
+.request_currency{
+    color:#D8D8D8;
+    font-size: 15px;
+
+}
