@@ -110,7 +110,7 @@ const Request = ({wallet, token}) => {
           />
           <span className={errorStyle.amount}>Introduce a number greater than 0</span>
           <Button
-            class="defaultButton_featured"
+            buttonClass="defaultButton_featured"
             value="Request funds"
             onClick={() => handleSubmit()} />
         </form>
