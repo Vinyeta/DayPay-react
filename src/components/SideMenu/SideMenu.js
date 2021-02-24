@@ -16,7 +16,7 @@ const SideMenu = () => {
 
             <table>
                 <tr>
-                    <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }}>
+                    <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }}    >
 
                         <th>
                             <DashboardIcon />
@@ -50,18 +50,6 @@ const SideMenu = () => {
                         </th>
                     </Link>
                 </tr>
-
-                <tr>
-                    <Link to={`${url}/request`} style={{ textDecoration: 'none', color: 'black' }}>
-
-                        <th>
-                            <TradeIcon />
-                        </th>
-                        <th style={{ "padding-left": "27px" }}>
-                            <span>Request</span>
-                        </th>
-                    </Link>
-                </tr>
                 <tr>
                     <Link to={`${url}/accountsettings`} style={{ textDecoration: 'none', color: 'black' }}>
 
@@ -69,7 +57,7 @@ const SideMenu = () => {
                             <AccountIcon />
                         </th>
                         <th style={{ "padding-left": "27px" }}>
-                            <span>Account Settings</span>
+                            <span>Account Setting</span>
                         </th>
                     </Link>
                 </tr>
