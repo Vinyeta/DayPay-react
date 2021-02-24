@@ -1,4 +1,4 @@
-import Logo from "../../utils/daypaylogo.png";
+import Logo from "../../assets/daypaylogo.png";
 import "./Sidebar.css";
 import SideMenu from '../SideMenu/SideMenu';
 import { Link } from "react-router-dom";

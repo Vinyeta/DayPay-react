@@ -13,6 +13,7 @@ import RequestBar from '../components/RequestsBar/RequestBar';
 import Expand from "../assets/Expand.png";
 import Request from '../components/Request/Request';
 import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
+import AccountSettings from "../components/AccountSettings/AccountSettings";
 
 const CENTS_CONVERTER = 100;
 
@@ -150,9 +151,11 @@ const DashboardPage = () => {
               {wallet && <Send wallet={wallet} token={token2} />}
             </Route>
             <Route path={`${path}/request`}>
-              {user && <Request id={wallet} token={token2} />}
+              {user && <Request wallet={wallet} token={token2} />}
+            </Route>  
+            <Route path={`${path}/accountsettings`} >
+             {user && <AccountSettings user={user} token={token2} />}
             </Route>
-            <Route path={`${path}/accountsettings`} />
             <Route path={`${path}/`}></Route>
           </Switch>
         </div>

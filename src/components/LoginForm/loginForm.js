@@ -72,11 +72,10 @@ const LoginForm = () => {
           </div>
 
           <Button
-            style="defaultButton_featured"
+            buttonClass="defaultButton_featured"
             value="Login"
             onClick={handleLogin}
           />
-          <span className></span>
           <span className={errorStyle}>Invalid password or email</span>
           <span className="alreadyAccount">Don`t have an account?
           <Link to="/signup" style={{ textDecoration: 'none' }}> Sign Up</Link>

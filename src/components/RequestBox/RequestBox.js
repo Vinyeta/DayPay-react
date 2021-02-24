@@ -48,7 +48,6 @@ const RequestBox = ({user, token}) => {
 
     const [updateTrans, setUpdate] = useState(false)
 
-    const CENTS_CONVERTER = 100;
 
 
 
@@ -69,25 +68,21 @@ const RequestBox = ({user, token}) => {
         fetch(`http://localhost:5000/api/requestMoney/${user._id}/user`, options)
                   .then((response) => response.json())
                   .then((json) => {
-                      console.log(json)
-                      setRequests([json]);
-                    })
-
-            
-
-        
+                      setRequests(json);
+                      console.log(requests);
+                    })      
       }, [!updateTrans])
 
 
     return (
         <>
-        {requests.map((request) => ( 
+        {requests && requests.map((request) => ( 
         <div className={`RequestBox_container_${request.status}`}>
             <div className="Request_data">
                 <div className="Request_date">{Moment(request.date).format('DD.MM.YYYY HH:MM')}</div>
-                <div className="Request_title">Sent to John</div>
-                <div className="Request_subtitle">Maria requested a payment</div>
-                <div className="Request_amount">{Number(request.amount).toFixed(2)}<span className="request_currency">$</span></div>
+                {request.receiver && request.receiver.author && <div className="Request_title">Sent to {request.receiver.author.name}</div>}
+                {request.sender && request.sender.author && <div className="Request_subtitle">{request.sender.author.name} requested a payment</div> }
+                <div className="Request_amount">{request.amount.toFixed(2)}<span className="request_currency">$</span></div>
             </div>
 
             { request.status === "pending" &&

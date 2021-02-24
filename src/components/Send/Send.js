@@ -100,7 +100,7 @@ const Send = ({wallet, token}) => {
           <span className={errorStyle.amount}>Introduce a number greater than 0</span>
 
           <Button
-            style="defaultButton_featured"
+            buttonClass="defaultButton_featured"
             value="Transfer funds"
             onClick={() => handleSubmit()} />
         </form>
