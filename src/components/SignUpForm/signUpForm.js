@@ -112,7 +112,7 @@ const SignUpForm = () => {
           </span>
         </form>
       </div>
-      <div className="contenedor__imagen">
+      <div className="contenedor__imagen_signUp">
         <img src={betterPayments} alt="betterPayments" className="imagenBetterPayments" />
         <img src={imagen} alt="imagenSignUp" className="imagen__signUp" />
       </div>
