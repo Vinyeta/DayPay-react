@@ -109,7 +109,7 @@ const TransactionsPage = (wallet) => {
                       {i.amount > 0 ? "INCOME" : "OUTCOME"}
                     </div>
                   </td>
-                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${Number(i.amount / (CENTS_CONVERTER)).toFixed(2)}` : i.amount / (CENTS_CONVERTER*CENTS_CONVERTER).toFixed(2)} USD</td>
+                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${i.amount / (CENTS_CONVERTER).toFixed(2)}` : i.amount / (CENTS_CONVERTER).toFixed(2)} USD</td>
                 </tr>)
             }
 
