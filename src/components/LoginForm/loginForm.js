@@ -9,15 +9,12 @@ import EyeOff from '../../assets/eye-off.svg';
 
 const LoginForm = () => {
 
-
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [errorStyle, setErrorStyle] = useState('errorInvisible');
   const history = useHistory();
-
-  if(localStorage.getItem("token"))  history.push("/dashboard");
-
   
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
