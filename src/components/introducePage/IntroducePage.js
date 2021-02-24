@@ -10,7 +10,7 @@ const IntroducePage = () => {
                 <br/>
                 <span className="small__text">We’ve helped thousends of people to save fees <br />sending money with us.</span>
             <Button
-                style="buttonOfIntroducePage"
+                buttonClass="buttonOfIntroducePage"
                 value="Get Started for Free"/>
                 <span className="stillConfused_text"> Still confused? </span>
                 <span className="stillConfused_text_url">Check our 1 min video</span>

@@ -54,7 +54,7 @@ const TransactionsPage = (wallet) => {
             <div className="balanceTitle">Balance</div>
           </div>
           <div className="miniBox2">
-            <Button style="defaultButton_featured" value="Add funds" 
+            <Button buttonClass="defaultButton_featured" value="Add funds" 
             onClick={() => {
               addFunds(walletId, balance); 
               getBalance(setBalance, walletId);

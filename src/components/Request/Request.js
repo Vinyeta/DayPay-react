@@ -9,7 +9,8 @@ import { validateEmail } from "../../Utils/validations";
 
 const Request = ({wallet, token}) => {
 
-  const WALLET_ID = wallet;
+  console.log(wallet);
+
   const history = useHistory();
 
 
@@ -26,10 +27,9 @@ const Request = ({wallet, token}) => {
   
 
   const body = {
-    sender: WALLET_ID,
+    sender: wallet,
     receiver: email,
-    amount: amount 
-
+    amount: amount
   };
 
   const cleanForm = () => {
@@ -45,7 +45,7 @@ const Request = ({wallet, token}) => {
     })
   };
 
-  const handleSubmit = (id) => {
+  const handleSubmit = () => {
     const options = {
       method: "POST",
       headers: {
@@ -55,9 +55,6 @@ const Request = ({wallet, token}) => {
       body: JSON.stringify(body),
     };
 
-    fetch(`http://localhost:5000/api/requestMoney/`, options).then((response) =>
-      console.log(response.status)
-    );
     if (!validateEmail(email) && (amount <= 0 || !amount)) {
       setErrorStyle({
         'email': 'errorVisible',
@@ -113,7 +110,7 @@ const Request = ({wallet, token}) => {
           />
           <span className={errorStyle.amount}>Introduce a number greater than 0</span>
           <Button
-            style="defaultButton_featured"
+            class="defaultButton_featured"
             value="Request funds"
             onClick={() => handleSubmit()} />
         </form>

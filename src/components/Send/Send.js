@@ -34,7 +34,7 @@ const Send = ({wallet, token}) => {
     setAmount("");
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (id) => {
     const options = {
       method: "POST",
       headers: {
@@ -62,7 +62,7 @@ const Send = ({wallet, token}) => {
         'amount': 'errorInvisible',
       })
     } else {
-      fetch(`http://localhost:5000/api/transactions/${id}`, options).then((response) => {
+      fetch(`http://localhost:5000/api/transactions/`, options).then((response) => {
         console.log(response.status);
         history.replace("/dashboard");
       }
@@ -100,7 +100,7 @@ const Send = ({wallet, token}) => {
           <span className={errorStyle.amount}>Introduce a number greater than 0</span>
 
           <Button
-            style="defaultButton_featured"
+            buttonClass="defaultButton_featured"
             value="Transfer funds"
             onClick={() => handleSubmit()} />
         </form>
