@@ -17,19 +17,18 @@ import Moment from 'moment';
 
 
 
-const TransactionsPage = (wallet) => {
+const Wallet = (wallet) => {
 
   const walletId = wallet.wallet
 
-  const CENTS_CONVERTER = 100;
 
 
 
-  const [transactions, setTransactions] = useState( );
+  const [transactions, setTransactions] = useState("");
 
-  const [balance, setBalance] = useState();
+  const [balance, setBalance] = useState("");
 
-  const [percentage, setPercentage] = useState("-23");
+  const [percentage, setPercentage] = useState("");
 
   useEffect(() => {
     getBalance(setBalance, walletId);
@@ -37,7 +36,6 @@ const TransactionsPage = (wallet) => {
     weeklyIncrement(setPercentage, walletId);
     }, []);
 
-    console.log(transactions);
 
   return (
     <div className="transactionsPage_container">
@@ -50,7 +48,7 @@ const TransactionsPage = (wallet) => {
             }}>
               {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}%
             </div>
-            <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
+            <div className="balance">{`${balance}`}</div>
             <div className="balanceTitle">Balance</div>
           </div>
           <div className="miniBox2">
@@ -89,7 +87,7 @@ const TransactionsPage = (wallet) => {
                   <td style={{
                     width: "3%",
                     "text-align": "left",
-                    fill: i.amount > 0 ? "#20E9BC" : "#FF523D"
+                    fill: i.amount[0] !== "-" ? "#20E9BC" : "#FF523D"
                   }}>
                     <Arrows></Arrows>
                   </td>
@@ -98,18 +96,18 @@ const TransactionsPage = (wallet) => {
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
                       style={{
-                        "background-color": i.amount > 0 ? "rgba(32, 233, 188, 0.15)" : "rgba(255, 55, 79, 0.15)",
-                        "color": i.amount > 0 ? "#20E9BC" : "#FF374F",
+                        "background-color": i.amount[0] !== "-" ? "rgba(32, 233, 188, 0.15)" : "rgba(255, 55, 79, 0.15)",
+                        "color": i.amount[0] !== "-" ? "#20E9BC" : "#FF374F",
                         "border-radius": "2px",
                         "padding-left": "6px",
                         "padding-right": "6px",
                         "font-size": "9px",
                       }}
                     >
-                      {i.amount > 0 ? "INCOME" : "OUTCOME"}
+                      {i.amount[0] !== "-" ? "INCOME" : "OUTCOME"}
                     </div>
                   </td>
-                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${i.amount / (CENTS_CONVERTER).toFixed(2)}` : i.amount / (CENTS_CONVERTER).toFixed(2)} USD</td>
+                  <td style={{ "color": i.amount[0] !== "-" ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount[0] !== "-" ? `${i.amount}` : i.amount}</td>
                 </tr>)
             }
 
@@ -130,4 +128,4 @@ const TransactionsPage = (wallet) => {
   );
 };
 
-export default TransactionsPage;
+export default Wallet;

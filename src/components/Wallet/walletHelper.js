@@ -50,7 +50,7 @@ export  const getBalance = (setBalance, id) => {
       ,
       body: JSON.stringify({
 
-        funds: balance + 1000
+        funds: balance + 10
 
       }),
     };
@@ -65,5 +65,5 @@ export  const getBalance = (setBalance, id) => {
     
     fetch(`http://localhost:5000/api/wallet/${id}/increment`, options)
       .then((response) => response.json())
-      .then((json) => setPercentage(json));
+      .then((json) => setPercentage(parseInt(json)));
   };

@@ -88,7 +88,7 @@ const AccountSettings = ({ user, token }) => {
             <input required className="input__container" placeholder="Password"
             type={passwordShown ? "text" : "password"}
             name="password"
-            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           /> 
           <img className="eyeOff" src={EyeOff} alt="eye off" onClick={togglePasswordVisiblity} />
 

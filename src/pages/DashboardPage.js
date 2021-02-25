@@ -15,7 +15,6 @@ import Request from '../components/Request/Request';
 import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
 
-const CENTS_CONVERTER = 100;
 
 const DashboardPage = () => {
   
@@ -138,7 +137,7 @@ const DashboardPage = () => {
                 {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}{" "}
                 {percentage}%
               </div>
-              <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
+              <div className="balance">{`${balance}`}</div>
               <div className="balanceTitle">Balance</div>
             </div></div>
           )}
