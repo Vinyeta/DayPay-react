@@ -3,11 +3,17 @@
     flex-direction: column;
     flex-grow: 0;
     align-items: center;
+    min-width: 267px;
     flex-grow: 0;
     flex-shrink: 0;
-    border-right: 1px solid #E9E9E9;
-    background-color: white ;
     height: 100vh;
+    border-right: 1px solid #E9E9E9;
+    position: sticky;
+    top:0;
+    left: 0;
+    background-color: white ;
+    z-index:999;
+    overflow-x: unset;
     
 }
 
@@ -15,12 +21,27 @@
     margin-top: 90px;
     margin-bottom:90px;
     order: 0;
-    
 }
 
 .SideBar_menu_container {
     order: 1;
 }
 
+.SideBar_expandButton_container {
+    bottom: 20px;
+    right: 20px;
+    position: absolute;
+    order:2;
+    cursor: pointer;
 
+}
+
+.Page_expandButton_container {
+    bottom: 20px;
+    left: 20px;
+    position: fixed;
+    cursor: pointer;
+    z-index: 100;
+
+}
 

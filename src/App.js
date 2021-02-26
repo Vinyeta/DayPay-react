@@ -13,6 +13,10 @@ import DashboardPage from './pages/DashboardPage';
 
 function App() {
 
+  const token = localStorage.getItem('token');
+
+
+
   return (
     <div>
       <Router>

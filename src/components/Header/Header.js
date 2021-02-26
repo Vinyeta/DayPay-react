@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import "./header.css";
-import logo from "../../assets/daypaylogo.png";
+import logo from "../../utils/daypaylogo.png";
 import Button from "../Button/Button";
 
 const Header = () => {
@@ -43,12 +43,12 @@ const Header = () => {
       </div>
       <Link to='/login' style={ {textDecoration: 'none'} }>
       <Button
-        buttonClass="defaultButton"
+        style="defaultButton"
         value="Login"/>
       </Link>
       <Link to='/signup' style={ {textDecoration: 'none'} } >
       <Button
-        buttonClass="defaultButton_featured"
+        style="defaultButton_featured"
         value="Sign up"/>
       </Link>
     </div>
