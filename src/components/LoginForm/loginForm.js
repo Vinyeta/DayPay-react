@@ -28,7 +28,7 @@ const LoginForm = () => {
       body: JSON.stringify(body),
     };
 
-    fetch("http://localhost:5000/api/login", options)
+    fetch("http://localhost:5000/api/auth/login", options)
       .then(response => response.json())
       .then(json => {
         localStorage.setItem('token', json.token)
@@ -55,7 +55,7 @@ const LoginForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button
-            style="defaultButton_featured"
+            buttonClass="defaultButton_featured"
             value="Login"
             onClick={handleLogin}
           />

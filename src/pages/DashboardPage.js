@@ -8,11 +8,11 @@ import Wallet from "../components/Wallet/Wallet";
 import { ReactComponent as PositiveBalance } from "../assets/PositiveBalance.svg";
 import { ReactComponent as NegativeBalance } from "../assets/NegativeBalance.svg";
 import Send from "../components/Send/Send";
-import RequestBar from '../components/RequestsBar/RequestBar';
 import Expand from "../assets/Expand.png";
 import Request from '../components/Request/Request';
 import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
+import RequestBar from '../components/RequestBar/RequestBar';
 
 
 const DashboardPage = () => {
@@ -35,7 +35,6 @@ const DashboardPage = () => {
 
   useEffect(() => {
 
-    console.log("hola");
     if (!token) {
       history.replace("/login");
     } else {
@@ -60,7 +59,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
 
-    if (wallet !== undefined) {
+    if (wallet) {
       getBalance(setBalance, wallet);
       weeklyIncrement(setPercentage, wallet);
     }
@@ -163,7 +162,7 @@ const DashboardPage = () => {
           </div>
         )}
       </div>
-        }
+        
 
     </>
   );

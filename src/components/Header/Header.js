@@ -43,12 +43,12 @@ const Header = () => {
       </div>
       <Link to='/login' style={ {textDecoration: 'none'} }>
       <Button
-        style="defaultButton"
+        buttonClass="defaultButton"
         value="Login"/>
       </Link>
       <Link to='/signup' style={ {textDecoration: 'none'} } >
       <Button
-        style="defaultButton_featured"
+        buttonClass="defaultButton_featured"
         value="Sign up"/>
       </Link>
     </div>

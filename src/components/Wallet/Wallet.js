@@ -13,9 +13,14 @@ import {
   addFunds,
   weeklyIncrement
 } from './walletHelper';
+import Moment from 'moment';
 
 
-const TransactionsPage = () => {
+
+const Wallet = (wallet) => {
+
+  const walletId = wallet.wallet
+
 
 
 
@@ -41,13 +46,13 @@ const TransactionsPage = () => {
               color: percentage > 0 ? "#20E9BC" : "#FF523D",
               fill: percentage > 0 ? "#20E9BC" : "#FF523D",
             }}>
-              {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}% {/* TODO: Negative balance SVG*/}
+              {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}%
             </div>
             <div className="balance">{`${balance}`}</div>
             <div className="balanceTitle">Balance</div>
           </div>
           <div className="miniBox2">
-            <Button style="defaultButton_featured" value="Add funds" 
+            <Button buttonClass="defaultButton_featured" value="Add funds" 
             onClick={() => {
               addFunds(walletId, balance); 
               getBalance(setBalance, walletId);
@@ -86,7 +91,7 @@ const TransactionsPage = () => {
                   }}>
                     <Arrows></Arrows>
                   </td>
-                  <td style={{ width: "40%" }}>{i.date}</td>
+                  <td style={{ width: "40%" }}>{Moment(i.date).format('DD/MM/YYYY')}</td>
                   <td style={{ width: "30%", "text-align": "left" }}>{i.description}</td>
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
