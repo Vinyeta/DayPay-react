@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken";
@@ -155,7 +154,7 @@ const DashboardPage = () => {
             <Route path={`${path}/accountsettings`} >
              {user && <AccountSettings user={user} token={token2} />}
             </Route>
-            <Route path={`${path}/`}></Route>
+            <Route exact path={`${path}/`}></Route>
           </Switch>
         </div>
         {!notDashboard && user &&(
