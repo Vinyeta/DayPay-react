@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import "./header.css";
-import logo from "../../utils/daypaylogo.png";
+import logo from "../../assets/daypaylogo.png";
 import Button from "../Button/Button";
 
 const Header = () => {

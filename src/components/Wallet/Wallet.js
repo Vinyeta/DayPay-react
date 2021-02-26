@@ -17,11 +17,6 @@ import {
 
 const TransactionsPage = () => {
 
-const Wallet = (wallet) => {
-
-  const walletId = wallet
-
-
 
 
   const [transactions, setTransactions] = useState("");

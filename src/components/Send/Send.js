@@ -15,12 +15,8 @@ const TradePage = () => {
   const body = {
     sender:  WALLET_ID,
     receiver: email,
-<<<<<<< HEAD
     amount: amount  
 
-=======
-    amount: amount*100 
->>>>>>> master
   };
 
   const cleanForm = () => {
