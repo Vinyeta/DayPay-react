@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken";
@@ -15,7 +14,6 @@ import Request from '../components/Request/Request';
 import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
 
-const CENTS_CONVERTER = 100;
 
 const DashboardPage = () => {
   
@@ -138,7 +136,7 @@ const DashboardPage = () => {
                 {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}{" "}
                 {percentage}%
               </div>
-              <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
+              <div className="balance">{`${balance}`}</div>
               <div className="balanceTitle">Balance</div>
             </div></div>
           )}
@@ -156,7 +154,7 @@ const DashboardPage = () => {
             <Route path={`${path}/accountsettings`} >
              {user && <AccountSettings user={user} token={token2} />}
             </Route>
-            <Route path={`${path}/`}></Route>
+            <Route exact path={`${path}/`}></Route>
           </Switch>
         </div>
         {!notDashboard && user &&(

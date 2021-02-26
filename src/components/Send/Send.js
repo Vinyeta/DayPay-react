@@ -25,7 +25,7 @@ const Send = ({wallet, token}) => {
   const body = {
     sender:  walletId,
     receiver: email,
-    amount: amount*100   
+    amount: amount  
 
   };
 
