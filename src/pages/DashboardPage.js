@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken";
@@ -8,12 +9,13 @@ import Wallet from "../components/Wallet/Wallet";
 import { ReactComponent as PositiveBalance } from "../assets/PositiveBalance.svg";
 import { ReactComponent as NegativeBalance } from "../assets/NegativeBalance.svg";
 import Send from "../components/Send/Send";
+import RequestBar from '../components/RequestBar/RequestBar';
 import Expand from "../assets/Expand.png";
 import Request from '../components/Request/Request';
 import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
-import RequestBar from '../components/RequestBar/RequestBar';
 
+const CENTS_CONVERTER = 100;
 
 const DashboardPage = () => {
   
@@ -35,6 +37,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
 
+    console.log("hola");
     if (!token) {
       history.replace("/login");
     } else {
@@ -59,7 +62,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
 
-    if (wallet) {
+    if (wallet !== undefined) {
       getBalance(setBalance, wallet);
       weeklyIncrement(setPercentage, wallet);
     }
@@ -125,7 +128,7 @@ const DashboardPage = () => {
             <h1>Overview</h1>
               <span>Hi {user.name}, get your summary of your transacrtions and requests here</span><div className="miniBox1Dashboard">
             
-              <div
+              {(percentage === undefined || percentage === 0) && <> <div
                 className="percentage"
                 style={{
                   color: percentage > 0 ? "#20E9BC" : "#FF523D",
@@ -134,8 +137,8 @@ const DashboardPage = () => {
               >
                 {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}{" "}
                 {percentage}%
-              </div>
-              <div className="balance">{`${balance}`}</div>
+              </div></>}
+              <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
               <div className="balanceTitle">Balance</div>
             </div></div>
           )}
@@ -153,7 +156,7 @@ const DashboardPage = () => {
             <Route path={`${path}/accountsettings`} >
              {user && <AccountSettings user={user} token={token2} />}
             </Route>
-            <Route exact path={`${path}/`}></Route>
+            <Route path={`${path}/`}></Route>
           </Switch>
         </div>
         {!notDashboard && user &&(
@@ -162,7 +165,7 @@ const DashboardPage = () => {
           </div>
         )}
       </div>
-        
+        }
 
     </>
   );
