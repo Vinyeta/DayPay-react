@@ -15,7 +15,6 @@ import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
 import BalanceBox from '../components/BalanceBox/BalanceBox';
 
-const CENTS_CONVERTER = 100;
 
 const DashboardPage = () => {
   
@@ -34,7 +33,6 @@ const DashboardPage = () => {
   const token2 = localStorage.getItem("token");
 
   useEffect(() => {
-    console.log("hola");
     if (!token) {
       history.replace("/login");
     } else {
@@ -78,7 +76,6 @@ const DashboardPage = () => {
     styleClass = "Dashboard_Page_container expand3";
   }
 
-  console.log(styleClass + "STYLE" + SideBarStatus )
 
   const { path } = useRouteMatch();
 

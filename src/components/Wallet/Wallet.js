@@ -18,11 +18,10 @@ import BalanceBox from '../BalanceBox/BalanceBox';
 
 
 
-const TransactionsPage = (wallet) => {
+const Wallet = (wallet) => {
 
   const walletId = wallet.wallet
 
-  const CENTS_CONVERTER = 100;
 
   const [updateBalance, setUpdateBalance] = useState(false);
 
@@ -82,7 +81,7 @@ const TransactionsPage = (wallet) => {
                   <td style={{
                     width: "3%",
                     "text-align": "left",
-                    fill: i.amount > 0 ? "#20E9BC" : "#FF523D"
+                    fill: i.amount[0] !== "-" ? "#20E9BC" : "#FF523D"
                   }}>
                     <Arrows></Arrows>
                   </td>
@@ -91,18 +90,18 @@ const TransactionsPage = (wallet) => {
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
                       style={{
-                        "background-color": i.amount > 0 ? "rgba(32, 233, 188, 0.15)" : "rgba(255, 55, 79, 0.15)",
-                        "color": i.amount > 0 ? "#20E9BC" : "#FF374F",
+                        "background-color": i.amount[0] !== "-" ? "rgba(32, 233, 188, 0.15)" : "rgba(255, 55, 79, 0.15)",
+                        "color": i.amount[0] !== "-" ? "#20E9BC" : "#FF374F",
                         "border-radius": "2px",
                         "padding-left": "6px",
                         "padding-right": "6px",
                         "font-size": "9px",
                       }}
                     >
-                      {i.amount > 0 ? "INCOME" : "OUTCOME"}
+                      {i.amount[0] !== "-" ? "INCOME" : "OUTCOME"}
                     </div>
                   </td>
-                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${Number(i.amount / (CENTS_CONVERTER)).toFixed(2)}` : i.amount / (CENTS_CONVERTER*CENTS_CONVERTER).toFixed(2)} USD</td>
+                  <td style={{ "color": i.amount[0] !== "-" ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount[0] !== "-" ? `${i.amount}` : i.amount}</td>
                 </tr>)
             }
 
@@ -123,4 +122,4 @@ const TransactionsPage = (wallet) => {
   );
 };
 
-export default TransactionsPage;
+export default Wallet;

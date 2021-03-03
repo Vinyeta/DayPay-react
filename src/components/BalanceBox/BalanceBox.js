@@ -7,8 +7,6 @@ import {
   } from '../Wallet/walletHelper';
 import { useState, useEffect} from 'react';
 
-const CENTS_CONVERTER = 100;
-
 
 const BalanceBox = ({wallet, update}) => {
     
