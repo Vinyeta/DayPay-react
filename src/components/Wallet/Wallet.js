@@ -24,10 +24,9 @@ const TransactionsPage = (wallet) => {
 
   const CENTS_CONVERTER = 100;
 
+  const [updateBalance, setUpdateBalance] = useState(false);
+
   const [balance, setBalance] = useState();
-
-
-
 
   const [transactions, setTransactions] = useState( );
 
@@ -35,9 +34,8 @@ const TransactionsPage = (wallet) => {
 
   useEffect(() => {
     allTransactions(setTransactions, walletId);
-            getBalance(setBalance, walletId);
-
-    }, []);
+    getBalance(setBalance, walletId);
+    }, [updateBalance]);
 
     console.log(transactions);
 
@@ -46,13 +44,13 @@ const TransactionsPage = (wallet) => {
       <div className="transPage">
         <div className="upper">
           <div className="miniBox1">
-          <BalanceBox/>
+          <BalanceBox wallet={walletId} update={updateBalance}/>
           </div>
           <div className="miniBox2">
             <Button buttonClass="defaultButton_featured" value="Add funds" 
             onClick={() => {
               addFunds(walletId, balance); 
-              getBalance(setBalance, walletId);
+              setUpdateBalance(!updateBalance);
             }} ></Button>
           </div>
         </div>

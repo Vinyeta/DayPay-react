@@ -10,19 +10,25 @@ import { useState, useEffect} from 'react';
 const CENTS_CONVERTER = 100;
 
 
-const BalanceBox = (walletId) => {
+const BalanceBox = ({wallet, update}) => {
     
+  console.log(update + "BAL")
     const [balance, setBalance] = useState();
 
     const [percentage, setPercentage] = useState("0");
 
     useEffect(() => {
-        getBalance(setBalance, walletId);
-        weeklyIncrement(setPercentage, walletId);
-        }, []);
-    
 
-return (<div className="miniBox1">
+      if (wallet !== undefined) {
+        getBalance(setBalance, wallet);
+        weeklyIncrement(setPercentage, wallet);
+      }
+    }, [update]);
+
+    
+  console.log(JSON.stringify(balance))
+
+return (<div className="miniBoxBalance">
           {(percentage === undefined || percentage === 0) && <> <div
                 className="percentage"
                 style={{
@@ -33,7 +39,7 @@ return (<div className="miniBox1">
                 {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}{" "}
                 {percentage}%
               </div></>}
-            <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
+            <div className="balance">{balance}</div>
             <div className="balanceTitle">Balance</div>
 </div>)
 }

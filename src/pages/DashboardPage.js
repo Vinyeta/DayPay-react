@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken";
@@ -9,34 +8,32 @@ import Wallet from "../components/Wallet/Wallet";
 import { ReactComponent as PositiveBalance } from "../assets/PositiveBalance.svg";
 import { ReactComponent as NegativeBalance } from "../assets/NegativeBalance.svg";
 import Send from "../components/Send/Send";
-import RequestBar from '../components/RequestBar/RequestBar';
+import RequestBar from "../components/RequestBar/RequestBar";
 import Expand from "../assets/Expand.png";
-import Request from '../components/Request/Request';
+import Request from "../components/Request/Request";
 import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
+import BalanceBox from '../components/BalanceBox/BalanceBox';
 
 const CENTS_CONVERTER = 100;
 
 const DashboardPage = () => {
   
-    const history = useHistory();
+  const history = useHistory();
 
   const [user, setUserData] = useState();
 
   const [wallet, setWallet] = useState();
 
-  const [balance, setBalance] = useState();
-
-  const [percentage, setPercentage] = useState("-23");
-
   const [SideBarStatus, setSideBarStatus] = useState(true);
+
+
 
   const token = jwt.decode(localStorage.getItem("token"));
 
   const token2 = localStorage.getItem("token");
 
   useEffect(() => {
-
     console.log("hola");
     if (!token) {
       history.replace("/login");
@@ -60,13 +57,7 @@ const DashboardPage = () => {
     }
   }, []);
 
-  useEffect(() => {
 
-    if (wallet !== undefined) {
-      getBalance(setBalance, wallet);
-      weeklyIncrement(setPercentage, wallet);
-    }
-  }, [wallet]);
 
   const notDashboard = history.location.pathname !== "/dashboard";
 
@@ -87,28 +78,26 @@ const DashboardPage = () => {
     styleClass = "Dashboard_Page_container expand3";
   }
 
+  console.log(styleClass + "STYLE" + SideBarStatus )
+
   const { path } = useRouteMatch();
 
-  return ( 
-
+  return (
     <>
       {notDashboard && user && (
         <div className="UserMenu_top_container">
-          <UserMenu
-            user={user}
-          />
+          <UserMenu user={user} />
         </div>
       )}
-
       <div className="Dashboard_container">
-        <div className="Dashboard_SideBar_container">
-          <Sidebar SideBarStatus={SideBarStatus} />
-        </div>
+        { SideBarStatus && (<div className="Dashboard_SideBar_container">
+          <Sidebar /></div> )}
+        
 
         {SideBarStatus && user && (
           <div
             className="SideBar_expandButton_container"
-            onClick={() => setSideBarStatus(!SideBarStatus)}
+            onClick={() => setSideBarStatus(false)}
           >
             <img src={Expand} alt="Expand Button" />{" "}
           </div>
@@ -117,33 +106,26 @@ const DashboardPage = () => {
         {!SideBarStatus && user && (
           <div
             className="Page_expandButton_container"
-            onClick={() => setSideBarStatus(!SideBarStatus)}
+            onClick={() => setSideBarStatus(true)}
           >
             <img src={Expand} alt="Expand Button" />
           </div>
         )}
         <div className={styleClass}>
           {!notDashboard && wallet && user && (
-            <div className="overview_container"> 
-            <h1>Overview</h1>
-              <span>Hi {user.name}, get your summary of your transacrtions and requests here</span><div className="miniBox1Dashboard">
-            
-              {(percentage === undefined || percentage === 0) && <> <div
-                className="percentage"
-                style={{
-                  color: percentage > 0 ? "#20E9BC" : "#FF523D",
-                  fill: percentage > 0 ? "#20E9BC" : "#FF523D",
-                }}
-              >
-                {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}{" "}
-                {percentage}%
-              </div></>}
-              <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
-              <div className="balanceTitle">Balance</div>
-            </div></div>
+            <div className="overview_container">
+              <h1>Overview</h1>
+              <span>
+                Hi {user.name}, get your summary of your transacrtions and
+                requests here
+              </span>
+              <div className="balanceBoxDashboard"><BalanceBox wallet={wallet} /></div>
+            </div>
           )}
-          
+
           <Switch>
+
+
             <Route path={`${path}/wallet`}>
               {wallet && <Wallet wallet={wallet} />}
             </Route>
@@ -152,21 +134,25 @@ const DashboardPage = () => {
             </Route>
             <Route path={`${path}/request`}>
               {user && <Request wallet={wallet} token={token2} />}
-            </Route>  
-            <Route path={`${path}/accountsettings`} >
-             {user && <AccountSettings user={user} token={token2} />}
             </Route>
-            <Route path={`${path}/`}></Route>
+            <Route path={`${path}/accountsettings`}>
+              {user && <AccountSettings user={user} token={token2} />}
+            </Route>
+
+            <Route path={`${path}/`}>
+
+
+
+            </Route>
           </Switch>
         </div>
-        {!notDashboard && user &&(
+        {!notDashboard && user && (
           <div className="Dashboard_Requests_container">
-            <RequestBar user={user} token={token2}/>
+            <RequestBar user={user} token={token2} />
           </div>
         )}
       </div>
-        }
-
+      
     </>
   );
 };
