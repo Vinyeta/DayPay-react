@@ -14,6 +14,7 @@ import Request from "../components/Request/Request";
 import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
 import BalanceBox from '../components/BalanceBox/BalanceBox';
+import Funds from '../components/Funds/Funds';
 
 
 const DashboardPage = () => {
@@ -134,6 +135,10 @@ const DashboardPage = () => {
             </Route>
             <Route path={`${path}/accountsettings`}>
               {user && <AccountSettings user={user} token={token2} />}
+            </Route>
+
+            <Route path={`${path}/funds`}>
+              {user && <Funds wallet={wallet} token={token2} />}
             </Route>
 
             <Route path={`${path}/`}>
