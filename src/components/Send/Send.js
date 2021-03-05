@@ -4,13 +4,13 @@ import "./Send.css"
 import Button from '../Button/Button';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { validateEmail } from "../../Utils/validations";
+import React from 'react';
 
 
 const Send = ({wallet, token}) => {
 
   const walletId = wallet
   const history = useHistory();
-
 
 
   const [email, setEmail] = useState();
@@ -86,15 +86,21 @@ const Send = ({wallet, token}) => {
             name="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+            
 
           />
+          {/* <span className="text-danger text-small d-block mb-2">
+            {errors?.email?.message}
+          </span> */}
           <span className={errorStyle.email}>Invalid email</span>
+          
 
           <input className="input__container" placeholder="Amount"
             type="number"
             name="amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            
 
           />
           <span className={errorStyle.amount}>Introduce a number greater than 0</span>
