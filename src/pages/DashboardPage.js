@@ -55,7 +55,7 @@ const DashboardPage = () => {
           setWallet(json._id);
         });
     }
-  }, []);
+  }, [token]);
 
   useEffect(() => {
 

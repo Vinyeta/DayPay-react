@@ -91,8 +91,14 @@ const Wallet = (wallet) => {
                   }}>
                     <Arrows></Arrows>
                   </td>
-                  <td style={{ width: "40%" }}>{Moment(i.date).format('DD/MM/YYYY')}</td>
-                  <td style={{ width: "30%", "text-align": "left" }}>{i.description}</td>
+                  <td className="date__container">{Moment(i.date).format('DD/MM/YYYY')}</td>
+                  <td className="description__container">{i.description}</td>
+                  { i.amount[0] === '-' ?
+                  i.receiver && i.receiver.author && <div className="nameTransaction">Sent to {i.receiver.author.name}</div>
+                  :
+                  i.sender && i.sender.author && <div className="nameTransaction">Sent by {i.sender.author.name}</div>
+
+                }              
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
                       style={{
