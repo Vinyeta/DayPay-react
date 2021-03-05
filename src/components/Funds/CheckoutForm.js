@@ -10,6 +10,8 @@ import {
 
     addFunds,
   } from '../Wallet/walletHelper';
+ import UseAnimations from 'react-useanimations';
+
 
 export default function CheckoutForm({amount, walletId}) {
   const [succeeded, setSucceeded] = useState(false);
@@ -88,7 +90,7 @@ export default function CheckoutForm({amount, walletId}) {
       setProcessing(false);
       setSucceeded(true);
       console.log(walletId + "mira aqui")
-      addFunds(payload.paymentIntent.description, payload.paymentIntent.amount)
+      addFunds(payload.paymentIntent.description, (payload.paymentIntent.amount/100))
     }
   };
   return (
@@ -115,13 +117,6 @@ export default function CheckoutForm({amount, walletId}) {
       )}
       {/* Show a success message upon completion */}
       <p className={succeeded ? "result-message" : "result-message hidden"}>
-        Payment succeeded, see the result in your
-        <a
-          href={`https://dashboard.stripe.com/test/payments`}
-        >
-          {" "}
-          Stripe dashboard.
-        </a> Refresh the page to pay again.
       </p>
     </form>
     </div>

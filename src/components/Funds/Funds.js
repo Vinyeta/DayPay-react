@@ -44,7 +44,7 @@ const Funds = ({wallet, token}) => {
         <Elements stripe={promise}>
         {checkoutReady && <div className="transTitle"> Complete the payment to add {amount}€ to your wallet</div>}
 
-        {checkoutReady && <CheckoutForm amount={amount} walletId={wallet}/>}
+        {checkoutReady && <CheckoutForm amount={(amount*100)} walletId={wallet}/>}
       </Elements>
       </div>
     </div>

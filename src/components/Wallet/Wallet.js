@@ -4,6 +4,7 @@ import { ReactComponent as Arrows } from "../../assets/Arrows.svg";
 import { ReactComponent as PositiveBalance } from "../../assets/PositiveBalance.svg";
 import { ReactComponent as NegativeBalance } from "../../assets/NegativeBalance.svg";
 import Button from "../Button/Button";
+import { useHistory } from 'react-router-dom';
 import "./wallet.css";
 import {
   incomeTransactions,
@@ -20,10 +21,12 @@ import BalanceBox from '../BalanceBox/BalanceBox';
 
 const Wallet = (wallet) => {
 
-  const walletId = wallet.wallet
-
-
+  const walletId = wallet.wallet;
+  
+  
   const [updateBalance, setUpdateBalance] = useState(false);
+  
+  const history = useHistory();
 
   const [balance, setBalance] = useState();
 
@@ -48,8 +51,7 @@ const Wallet = (wallet) => {
           <div className="miniBox2">
             <Button buttonClass="defaultButton_featured" value="Add funds" 
             onClick={() => {
-              addFunds(walletId, balance); 
-              setUpdateBalance(!updateBalance);
+              history.push('/dashboard/funds');
             }} ></Button>
           </div>
         </div>
