@@ -77,7 +77,7 @@ export default function CheckoutForm({amount, walletId}) {
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
-        card: elements.getElement(CardElement)
+        card: elements.create('card', {hidePostalCode: true})
       }
     });
     console.log(payload)
