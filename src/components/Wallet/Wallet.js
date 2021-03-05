@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { ReactComponent as Arrows } from "../../assets/Arrows.svg";
-import { ReactComponent as PositiveBalance } from "../../assets/PositiveBalance.svg";
-import { ReactComponent as NegativeBalance } from "../../assets/NegativeBalance.svg";
 import Button from "../Button/Button";
 import "./wallet.css";
 import {
@@ -11,7 +9,6 @@ import {
   allTransactions,
   getBalance,
   addFunds,
-  weeklyIncrement
 } from './walletHelper';
 import Moment from 'moment';
 import BalanceBox from '../BalanceBox/BalanceBox';
@@ -36,7 +33,6 @@ const Wallet = (wallet) => {
     getBalance(setBalance, walletId);
     }, [updateBalance]);
 
-    console.log(transactions);
 
   return (
     <div className="transactionsPage_container">
