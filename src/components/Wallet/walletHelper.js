@@ -41,7 +41,6 @@ export  const getBalance = (setBalance, id) => {
 
  export const addFunds = async (id, amount) => {
 
-    console.log(id)
 
     
     const currentBalance = await fetch(`http://localhost:5000/api/wallet/${id}/balance`, options)
@@ -71,5 +70,5 @@ export  const getBalance = (setBalance, id) => {
     
     fetch(`http://localhost:5000/api/wallet/${id}/increment`, options)
       .then((response) => response.json())
-      .then((json) => setPercentage(parseInt(json)));
+      .then((json) => setPercentage(json.toFixed(2)));
   };

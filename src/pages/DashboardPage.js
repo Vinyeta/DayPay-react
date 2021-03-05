@@ -5,13 +5,10 @@ import "./DashboardPage.css";
 import UserMenu from "../components/UserMenu/UserMenu";
 import Sidebar from "../components/SideBar/Sidebar";
 import Wallet from "../components/Wallet/Wallet";
-import { ReactComponent as PositiveBalance } from "../assets/PositiveBalance.svg";
-import { ReactComponent as NegativeBalance } from "../assets/NegativeBalance.svg";
 import Send from "../components/Send/Send";
 import RequestBar from "../components/RequestBar/RequestBar";
 import Expand from "../assets/Expand.png";
 import Request from "../components/Request/Request";
-import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
 import BalanceBox from '../components/BalanceBox/BalanceBox';
 import Funds from '../components/Funds/Funds';
@@ -54,7 +51,7 @@ const DashboardPage = () => {
           setWallet(json._id);
         });
     }
-  }, [token]);
+  }, []);
 
 
 

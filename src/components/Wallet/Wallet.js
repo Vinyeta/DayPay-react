@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { ReactComponent as Arrows } from "../../assets/Arrows.svg";
-import { ReactComponent as PositiveBalance } from "../../assets/PositiveBalance.svg";
-import { ReactComponent as NegativeBalance } from "../../assets/NegativeBalance.svg";
 import Button from "../Button/Button";
 import { useHistory } from 'react-router-dom';
 import "./wallet.css";
@@ -12,7 +10,6 @@ import {
   allTransactions,
   getBalance,
   addFunds,
-  weeklyIncrement
 } from './walletHelper';
 import Moment from 'moment';
 import BalanceBox from '../BalanceBox/BalanceBox';
@@ -39,7 +36,6 @@ const Wallet = (wallet) => {
     getBalance(setBalance, walletId);
     }, [updateBalance]);
 
-    console.log(transactions);
 
   return (
     <div className="transactionsPage_container">
@@ -77,7 +73,7 @@ const Wallet = (wallet) => {
           <table className="txTable">
 
             {transactions && transactions.map((i) => {
-
+              i.amount.receiver && console.log(i.amount.receiver);  
               return (
                 <tr>
                   <td style={{
@@ -89,12 +85,14 @@ const Wallet = (wallet) => {
                   </td>
                   <td className="date__container">{Moment(i.date).format('DD/MM/YYYY')}</td>
                   <td className="description__container">{i.description}</td>
+                  <td>
                   { i.amount[0] === '-' ?
-                  i.receiver && i.receiver.author && <div className="nameTransaction">Sent to {i.receiver.author.name}</div>
+                  i.receiver && i.receiver.author &&  <div className="nameTransaction">Sent to  {i.receiver.author.name}</div>
                   :
                   i.sender && i.sender.author && <div className="nameTransaction">Sent by {i.sender.author.name}</div>
 
-                }              
+                } 
+                </td>             
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
                       style={{
