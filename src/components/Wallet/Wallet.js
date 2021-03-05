@@ -14,6 +14,7 @@ import {
   weeklyIncrement
 } from './walletHelper';
 import Moment from 'moment';
+import BalanceBox from '../BalanceBox/BalanceBox';
 
 
 
@@ -22,40 +23,33 @@ const Wallet = (wallet) => {
   const walletId = wallet.wallet
 
 
+  const [updateBalance, setUpdateBalance] = useState(false);
+
+  const [balance, setBalance] = useState();
+
+  const [transactions, setTransactions] = useState( );
 
 
-  const [transactions, setTransactions] = useState("");
-
-  const [balance, setBalance] = useState("");
-
-  const [percentage, setPercentage] = useState("");
 
   useEffect(() => {
-    getBalance(setBalance, walletId);
     allTransactions(setTransactions, walletId);
-    weeklyIncrement(setPercentage, walletId);
-    }, []);
+    getBalance(setBalance, walletId);
+    }, [updateBalance]);
 
+    console.log(transactions);
 
   return (
     <div className="transactionsPage_container">
       <div className="transPage">
         <div className="upper">
           <div className="miniBox1">
-            <div className="percentage" style={{
-              color: percentage > 0 ? "#20E9BC" : "#FF523D",
-              fill: percentage > 0 ? "#20E9BC" : "#FF523D",
-            }}>
-              {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}%
-            </div>
-            <div className="balance">{`${balance}`}</div>
-            <div className="balanceTitle">Balance</div>
+          <BalanceBox wallet={walletId} update={updateBalance}/>
           </div>
           <div className="miniBox2">
             <Button buttonClass="defaultButton_featured" value="Add funds" 
             onClick={() => {
               addFunds(walletId, balance); 
-              getBalance(setBalance, walletId);
+              setUpdateBalance(!updateBalance);
             }} ></Button>
           </div>
         </div>

@@ -10,6 +10,7 @@
     top:0;
     right: 0;
     background-color: white;
+    min-height: 100vh;
     
 }
 
@@ -23,6 +24,9 @@
 .RequestBar_UserMenu__container{
     margin-top: 46px;
     margin-bottom:14px;
+    display:block;
+    text-align: center;
+    
 
 
 }
@@ -63,3 +67,4 @@
     z-index: 100;
 
 }
+
