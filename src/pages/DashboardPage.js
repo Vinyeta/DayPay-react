@@ -5,40 +5,32 @@ import "./DashboardPage.css";
 import UserMenu from "../components/UserMenu/UserMenu";
 import Sidebar from "../components/SideBar/Sidebar";
 import Wallet from "../components/Wallet/Wallet";
-import { ReactComponent as PositiveBalance } from "../assets/PositiveBalance.svg";
-import { ReactComponent as NegativeBalance } from "../assets/NegativeBalance.svg";
 import Send from "../components/Send/Send";
+import RequestBar from "../components/RequestBar/RequestBar";
 import Expand from "../assets/Expand.png";
-import Request from '../components/Request/Request';
-import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
+import Request from "../components/Request/Request";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
-import RequestBar from '../components/RequestBar/RequestBar';
-import { ReactComponent as Forwards } from "../assets/Forward.svg";
-import Dropdown from "../components/DropDown/DropDown";
-
-//1ºimport Button from '../components/Button/Button';
+import BalanceBox from '../components/BalanceBox/BalanceBox';
+import Funds from '../components/Funds/Funds';
 
 
 const DashboardPage = () => {
   
-    const history = useHistory();
+  const history = useHistory();
 
   const [user, setUserData] = useState();
 
   const [wallet, setWallet] = useState();
 
-  const [balance, setBalance] = useState();
-
-  const [percentage, setPercentage] = useState("-23");
-
   const [SideBarStatus, setSideBarStatus] = useState(true);
+
+
 
   const token = jwt.decode(localStorage.getItem("token"));
 
   const token2 = localStorage.getItem("token");
 
   useEffect(() => {
-
     if (!token) {
       history.replace("/login");
     } else {
@@ -62,13 +54,6 @@ const DashboardPage = () => {
   }, []);
 
 
-  useEffect(() => {
-
-    if (wallet) {
-      getBalance(setBalance, wallet);
-      weeklyIncrement(setPercentage, wallet);
-    }
-  }, [wallet]);
 
   const notDashboard = history.location.pathname !== "/dashboard";
 
@@ -89,32 +74,26 @@ const DashboardPage = () => {
     styleClass = "Dashboard_Page_container expand3";
   }
 
+
   const { path } = useRouteMatch();
 
   return (
-
-
     <>
       {notDashboard && user && (
         <div className="UserMenu_top_container">
-          <UserMenu
-            user={user}
-          /> 
+
+          <UserMenu user={user} />
         </div>
       )}
-          
       <div className="Dashboard_container">
-        <div className="Dashboard_SideBar_container">
-          <Sidebar SideBarStatus={SideBarStatus} />
-        </div>
-       
-        <div className="UserMenu__container forward">
-            <Forwards />
-        </div>
+        { SideBarStatus && (<div className="Dashboard_SideBar_container">
+          <Sidebar /></div> )}
+        
+
         {SideBarStatus && user && (
           <div
             className="SideBar_expandButton_container"
-            onClick={() => setSideBarStatus(!SideBarStatus)}
+            onClick={() => setSideBarStatus(false)}
           >
             <img src={Expand} alt="Expand Button" />{" "}
           </div>
@@ -123,34 +102,27 @@ const DashboardPage = () => {
         {!SideBarStatus && user && (
           <div
             className="Page_expandButton_container"
-            onClick={() => setSideBarStatus(!SideBarStatus)}
+            onClick={() => setSideBarStatus(true)}
           >
             <img src={Expand} alt="Expand Button" />
           </div>
         )}
         <div className={styleClass}>
           {!notDashboard && wallet && user && (
-            <div className="overview_container"> 
-            <h1>Overview</h1>
-              <span>Hi {user.name}, get your summary of your transacrtions and requests here</span><div className="miniBox1Dashboard">
-            
-              <div
-                className="percentage"
-                style={{
-                  color: percentage > 0 ? "#20E9BC" : "#FF523D",
-                  fill: percentage > 0 ? "#20E9BC" : "#FF523D",
-                }}
-              >
-                {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}{" "}
-                {percentage}%
-              </div>
-              <div className="balance">{`${balance}`}</div>
-              <div className="balanceTitle">Balance</div>
-            </div></div>
+            <div className="overview_container">
+              <h1>Overview</h1>
+              <span>
+                Hi {user.name}, get your summary of your transacrtions and
+                requests here
+              </span>
+              <div className="balanceBoxDashboard"><BalanceBox wallet={wallet} /></div>
+            </div>
           )}
-         
+
 
           <Switch>
+
+
             <Route path={`${path}/wallet`}>
               {wallet && <Wallet wallet={wallet} />}
             </Route>
@@ -159,28 +131,30 @@ const DashboardPage = () => {
             </Route>
             <Route path={`${path}/request`}>
               {user && <Request wallet={wallet} token={token2} />}
-            </Route>  
-            <Route path={`${path}/accountsettings`} >
-             {user && <AccountSettings user={user} token={token2} />}
             </Route>
-            <Route exact path={`${path}/`}></Route>
+            <Route path={`${path}/accountsettings`}>
+              {user && <AccountSettings user={user} token={token2} />}
+            </Route>
+
+            <Route path={`${path}/funds`}>
+              {user && <Funds wallet={wallet} token={token2} />}
+            </Route>
+
+            <Route path={`${path}/`}>
+
+
+
+            </Route>
           </Switch>
         </div>
-        {!notDashboard && user &&(
-          
-        <div className="Dashboard_Requests_container">
-          <div>
-           <RequestBar user={user} token={token2}/>
-          </div> 
-        </div>    
-          
+
+        {!notDashboard && user && (
+          <div className="Dashboard_Requests_container">
+            <RequestBar user={user} token={token2} />
+          </div>
         )}
       </div>
-      <div className="dropdown_container">
-            <Dropdown/>
-      </div>
       
-
     </>
   );
 };

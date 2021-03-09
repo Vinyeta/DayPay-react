@@ -73,6 +73,17 @@ const SideMenu = () => {
                         </th>
                     </Link>
                 </tr>
+                <tr>
+                    <Link to={`${url}/funds`} style={{ textDecoration: 'none', color: 'black' }}>
+
+                        <th>
+                            <TradeIcon />
+                        </th>
+                        <th style={{ "padding-left": "27px" }}>
+                            <span>Add funds</span>
+                        </th>
+                    </Link>
+                </tr>
             </table>
 
         </div >)

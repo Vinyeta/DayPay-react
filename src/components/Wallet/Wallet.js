@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { ReactComponent as Arrows } from "../../assets/Arrows.svg";
-import { ReactComponent as PositiveBalance } from "../../assets/PositiveBalance.svg";
-import { ReactComponent as NegativeBalance } from "../../assets/NegativeBalance.svg";
 import Button from "../Button/Button";
+import { useHistory } from 'react-router-dom';
 import "./wallet.css";
 import {
   incomeTransactions,
@@ -11,30 +10,31 @@ import {
   allTransactions,
   getBalance,
   addFunds,
-  weeklyIncrement
 } from './walletHelper';
 import Moment from 'moment';
+import BalanceBox from '../BalanceBox/BalanceBox';
 
 
 
 const Wallet = (wallet) => {
 
-  const walletId = wallet.wallet
+  const walletId = wallet.wallet;
+  
+  
+  const [updateBalance, setUpdateBalance] = useState(false);
+  
+  const history = useHistory();
+
+  const [balance, setBalance] = useState();
+
+  const [transactions, setTransactions] = useState( );
 
 
-
-
-  const [transactions, setTransactions] = useState("");
-
-  const [balance, setBalance] = useState("");
-
-  const [percentage, setPercentage] = useState("");
 
   useEffect(() => {
-    getBalance(setBalance, walletId);
     allTransactions(setTransactions, walletId);
-    weeklyIncrement(setPercentage, walletId);
-    }, []);
+    getBalance(setBalance, walletId);
+    }, [updateBalance]);
 
 
   return (
@@ -42,20 +42,12 @@ const Wallet = (wallet) => {
       <div className="transPage">
         <div className="upper">
           <div className="miniBox1">
-            <div className="percentage" style={{
-              color: percentage > 0 ? "#20E9BC" : "#FF523D",
-              fill: percentage > 0 ? "#20E9BC" : "#FF523D",
-            }}>
-              {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}%
-            </div>
-            <div className="balance">{`${balance}`}</div>
-            <div className="balanceTitle">Balance</div>
+          <BalanceBox wallet={walletId} update={updateBalance}/>
           </div>
           <div className="miniBox2">
             <Button buttonClass="defaultButton_featured" value="Add funds" 
             onClick={() => {
-              addFunds(walletId, balance); 
-              getBalance(setBalance, walletId);
+              history.push('/dashboard/funds');
             }} ></Button>
           </div>
         </div>
@@ -81,7 +73,7 @@ const Wallet = (wallet) => {
           <table className="txTable">
 
             {transactions && transactions.map((i) => {
-
+              i.amount.receiver && console.log(i.amount.receiver);  
               return (
                 <tr>
                   <td style={{
@@ -93,12 +85,14 @@ const Wallet = (wallet) => {
                   </td>
                   <td className="date__container">{Moment(i.date).format('DD/MM/YYYY')}</td>
                   <td className="description__container">{i.description}</td>
+                  <td>
                   { i.amount[0] === '-' ?
-                  i.receiver && i.receiver.author && <div className="nameTransaction">Sent to {i.receiver.author.name}</div>
+                  i.receiver && i.receiver.author &&  <div className="nameTransaction">Sent to  {i.receiver.author.name}</div>
                   :
                   i.sender && i.sender.author && <div className="nameTransaction">Sent by {i.sender.author.name}</div>
 
-                }              
+                } 
+                </td>             
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
                       style={{

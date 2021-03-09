@@ -5,6 +5,12 @@
     max-width: 100vw;
 }
 
+.balanceBoxDashboard{
+    margin-top:20px;
+    max-width:225px;
+    height: 150px;
+}
+
 .Dashboard_Page_container{
     align-items: center;
     display:flex;
