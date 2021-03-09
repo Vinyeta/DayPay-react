@@ -33,9 +33,6 @@ const UserMenu = ({user}) => {
       <div className="UserMenu_dropdown__container">
         <div className="UserMenu_dropdown__container box">       
           <div className="UserMenu_dropdown__list">
-            <span>Update Profile</span>
-            <span>My boards</span>
-            <span>My pins</span>
             <div style={{cursor: "pointer"}} onClick={() => {localStorage.removeItem("token"); history.replace("/login")} }>Log out</div>
           </div>
         </div>

@@ -4,6 +4,10 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
+import { ReactComponent as Ok } from "../../assets/confirm.svg";
+import { ReactComponent as Ko } from "../../assets/close.svg";
+
+
 
 import "./CheckoutForm.css"
 import {
@@ -11,6 +15,8 @@ import {
     addFunds,
   } from '../Wallet/walletHelper';
  import UseAnimations from 'react-useanimations';
+import Button from "../Button/Button";
+import { useHistory } from 'react-router-dom';
 
 
 export default function CheckoutForm({amount, walletId}) {
@@ -21,6 +27,7 @@ export default function CheckoutForm({amount, walletId}) {
   const [clientSecret, setClientSecret] = useState('');
   const stripe = useStripe();
   const elements = useElements();
+  const history = useHistory();
 
   useEffect(() => {
     
@@ -90,13 +97,13 @@ export default function CheckoutForm({amount, walletId}) {
       setProcessing(false);
       setSucceeded(true);
       console.log(walletId + "mira aqui")
-      addFunds(payload.paymentIntent.description, (payload.paymentIntent.amount/100))
+      addFunds(payload.paymentIntent.description, (payload.paymentIntent.amount))
     }
   };
   return (
     <div className="checkoutform">
     <form id="payment-form" onSubmit={handleSubmit}>
-      <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
+      {(!succeeded && !error) && (<><CardElement id="card-element" options={cardStyle} onChange={handleChange} />
       <button
         disabled={processing || disabled || succeeded}
         id="submit"
@@ -108,15 +115,35 @@ export default function CheckoutForm({amount, walletId}) {
             "Add funds"
           )}
         </span>
-      </button>
+      </button></>)}
       {/* Show any error that happens when processing the payment */}
       {error && (
-        <div className="card-error" role="alert">
-          {error}
+        <div className="error">
+          <Ko></Ko>
+          <br/>{error}
+
+          <br/><br/>
+          <Button buttonClass="defaultButton_featured"
+            value="Retry payment"
+            onClick={() => history.go(0)} />
+
         </div>
       )}
       {/* Show a success message upon completion */}
       <p className={succeeded ? "result-message" : "result-message hidden"}>
+        <div className="confirmation"><Ok/>
+        <br/>Payment succeded!
+
+        <br/>
+        <br/>
+        <br/>
+
+
+        <Button buttonClass="defaultButton_featured"
+            value="Go to wallet"
+            onClick={() => history.push("/dashboard/wallet")} />
+        
+        </div>
       </p>
     </form>
     </div>
