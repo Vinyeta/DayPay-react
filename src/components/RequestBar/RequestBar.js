@@ -9,7 +9,7 @@ const RequestBar = ({ user, token }) => {
   return (
     <>
       <div className="RequestBar_container">
-
+        <div className="RequestBar_UserMenu__container">
           <div className="RequestBar_UserMenu__avatar">
             <Avatar user={user} />
           </div>
@@ -21,7 +21,6 @@ const RequestBar = ({ user, token }) => {
            <div style={{cursor: "pointer"}} onClick={() => {localStorage.removeItem("token"); history.replace("/login")} }>Log out</div>
 </div>
 </div>
-
         </div>
 
         <RequestBox user={user} token={token} />
