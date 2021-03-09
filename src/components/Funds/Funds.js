@@ -8,7 +8,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
-const promise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+const promise = loadStripe("pk_test_51IRZvdKejS6aCTL76ohIcEuzQHZEGDdzYpXXY9PCpFIRt9pFHSU5YXygGydyD9L2810g3j5gBDhWzboAnruvQXjA0059M22jCx");
 
 
 const Funds = ({wallet, token}) => {  

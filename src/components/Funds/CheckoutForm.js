@@ -34,7 +34,7 @@ export default function CheckoutForm({amount, walletId}) {
     // Create PaymentIntent as soon as the page loads
     console.log(walletId);
     window
-      .fetch("http://localhost:5000/create-payment-intent", {
+      .fetch("http://localhost:5000/api/stripe/payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
