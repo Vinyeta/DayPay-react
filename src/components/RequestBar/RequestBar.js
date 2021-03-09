@@ -16,6 +16,7 @@ const RequestBar = ({user, token}) => {
         <div className="RequestBar_container">
         <div className="RequestBar_UserMenu__container">
         <div className="RequestBar_UserMenu__avatar">
+            
             <Avatar
               user={user}
             />

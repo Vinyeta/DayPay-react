@@ -5,7 +5,8 @@ import Header from "../components/Header/Header";
 import BoxInfo from "../components/BoxInfo/BoxInfo";
 import SecondPicture from "../assets/imgmorena.png"
 import TrustBox from "../components/TrustBox/TrustBox";
-import IntroducePage from "../components/introducePage/IntroducePage"
+import IntroducePage from "../components/introducePage/IntroducePage";
+
 
 
 function Landing() {

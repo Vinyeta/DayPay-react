@@ -13,6 +13,10 @@ import Request from '../components/Request/Request';
 import { getBalance, weeklyIncrement } from "../components/Wallet/walletHelper";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
 import RequestBar from '../components/RequestBar/RequestBar';
+import { ReactComponent as Forwards } from "../assets/Forward.svg";
+import Dropdown from "../components/DropDown/DropDown";
+
+//1ºimport Button from '../components/Button/Button';
 
 
 const DashboardPage = () => {
@@ -55,7 +59,8 @@ const DashboardPage = () => {
           setWallet(json._id);
         });
     }
-  }, [token]);
+  }, []);
+
 
   useEffect(() => {
 
@@ -86,22 +91,26 @@ const DashboardPage = () => {
 
   const { path } = useRouteMatch();
 
-  return ( 
+  return (
+
 
     <>
       {notDashboard && user && (
         <div className="UserMenu_top_container">
           <UserMenu
             user={user}
-          />
+          /> 
         </div>
       )}
-
+          
       <div className="Dashboard_container">
         <div className="Dashboard_SideBar_container">
           <Sidebar SideBarStatus={SideBarStatus} />
         </div>
-
+       
+        <div className="UserMenu__container forward">
+            <Forwards />
+        </div>
         {SideBarStatus && user && (
           <div
             className="SideBar_expandButton_container"
@@ -139,7 +148,8 @@ const DashboardPage = () => {
               <div className="balanceTitle">Balance</div>
             </div></div>
           )}
-          
+         
+
           <Switch>
             <Route path={`${path}/wallet`}>
               {wallet && <Wallet wallet={wallet} />}
@@ -157,12 +167,19 @@ const DashboardPage = () => {
           </Switch>
         </div>
         {!notDashboard && user &&(
-          <div className="Dashboard_Requests_container">
-            <RequestBar user={user} token={token2}/>
-          </div>
+          
+        <div className="Dashboard_Requests_container">
+          <div>
+           <RequestBar user={user} token={token2}/>
+          </div> 
+        </div>    
+          
         )}
       </div>
-        
+      <div className="dropdown_container">
+            <Dropdown/>
+      </div>
+      
 
     </>
   );
