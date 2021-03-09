@@ -81,6 +81,7 @@ const DashboardPage = () => {
     <>
       {notDashboard && user && (
         <div className="UserMenu_top_container">
+
           <UserMenu user={user} />
         </div>
       )}
@@ -118,6 +119,7 @@ const DashboardPage = () => {
             </div>
           )}
 
+
           <Switch>
 
 
@@ -145,6 +147,7 @@ const DashboardPage = () => {
             </Route>
           </Switch>
         </div>
+
         {!notDashboard && user && (
           <div className="Dashboard_Requests_container">
             <RequestBar user={user} token={token2} />
