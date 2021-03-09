@@ -97,7 +97,7 @@ export default function CheckoutForm({amount, walletId}) {
       setProcessing(false);
       setSucceeded(true);
       console.log(walletId + "mira aqui")
-      addFunds(payload.paymentIntent.description, (payload.paymentIntent.amount/100))
+      addFunds(payload.paymentIntent.description, (payload.paymentIntent.amount))
     }
   };
   return (
