@@ -9,7 +9,6 @@ import {
   outcomeTransactions,
   allTransactions,
   getBalance,
-  addFunds,
 } from './walletHelper';
 import Moment from 'moment';
 import BalanceBox from '../BalanceBox/BalanceBox';

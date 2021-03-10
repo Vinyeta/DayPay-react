@@ -6,20 +6,12 @@ import {
 } from "@stripe/react-stripe-js";
 import { ReactComponent as Ok } from "../../assets/confirm.svg";
 import { ReactComponent as Ko } from "../../assets/close.svg";
-
-
-
 import "./CheckoutForm.css"
-import {
-
-    addFunds,
-  } from '../Wallet/walletHelper';
- import UseAnimations from 'react-useanimations';
 import Button from "../Button/Button";
 import { useHistory } from 'react-router-dom';
 
 
-export default function CheckoutForm({amount, walletId}) {
+export default function CheckoutForm({amount, walletId, token}) {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
@@ -37,7 +29,8 @@ export default function CheckoutForm({amount, walletId}) {
       .fetch("http://localhost:5000/api/stripe/payment", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
         },
         body: JSON.stringify({amount:amount, walletId: walletId})
       })
@@ -96,8 +89,14 @@ export default function CheckoutForm({amount, walletId}) {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      console.log(walletId + "mira aqui")
-      addFunds(payload.paymentIntent.description, (payload.paymentIntent.amount))
+      fetch(`http://localhost:5000/api/wallet/${walletId}/stripePayment`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({amount:amount})
+      })
     }
   };
   return (
