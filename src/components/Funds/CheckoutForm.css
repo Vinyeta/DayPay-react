@@ -1,9 +1,47 @@
+.confirmation svg {
+  height: 100px;
+  width: 100px;
 
+  align-self: center;
+
+
+}
+
+.error svg {
+  height: 100px;
+  width: 100px;
+
+  align-self: center;
+
+
+}
+
+.confirmation  {
+  color:#54B265;
+  font-size:20px;
+  font-style:bold;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.error  {
+  color:#E04F5F;
+  font-size:15px;
+  font-style:bold;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
   
   .checkoutform form {
     width: 350px;
     align-self: center;
- 
+    text-align: center;
     border-radius: 7px;
 
   }
