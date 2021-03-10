@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import "./Funds.css"
 import Button from '../Button/Button';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
-import { validateEmail } from "../../Utils/validations";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
@@ -13,7 +11,6 @@ const promise = loadStripe("pk_test_51IRZvdKejS6aCTL76ohIcEuzQHZEGDdzYpXXY9PCpFI
 
 const Funds = ({wallet, token}) => {  
 
-  console.log(wallet)
   const [amount, setAmount] = useState(0);
   const [checkoutReady, setCheckoutReady] = useState(false);
 
@@ -44,7 +41,7 @@ const Funds = ({wallet, token}) => {
         <Elements stripe={promise}>
         {checkoutReady && <div className="transTitle"> Complete the payment to add {amount}€ to your wallet</div>}
 
-        {checkoutReady && <CheckoutForm amount={(amount*100)} walletId={wallet}/>}
+        {checkoutReady && <CheckoutForm amount={amount} walletId={wallet} token={token}/>}
       </Elements>
       </div>
     </div>
