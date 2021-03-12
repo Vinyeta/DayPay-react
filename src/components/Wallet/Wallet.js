@@ -113,7 +113,8 @@ const Wallet = (wallet) => {
             )}
 
           </table>
-          <div className="moreTransactions">See all transactions</div>
+          
+          <div className="moreTransactions" onClick={() =>{ allTransactions(setTransactions, walletId);}}>See all transactions</div>
         </div>
 
         <div className="boxShapeTopPage">

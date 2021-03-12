@@ -21,7 +21,7 @@ position:relative;}
 
 .boxShapeBottom svg{
     position: absolute;
-    bottom:-125px;
+    bottom:-90px;
     right:-120px;
     z-index: 2;
     fill:#258AFF;
