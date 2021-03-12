@@ -1,6 +1,6 @@
 .box{
-width: 426px;
-height: 360px;
+width: 386px;
+height: 320px;
 background: #FFFFFF;
 border: 1px solid #E9E9E9;
 box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.03);
@@ -9,6 +9,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
+padding:40px;
 position:relative;}
 
 .boxShapeTop{

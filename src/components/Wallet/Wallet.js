@@ -1,61 +1,52 @@
 import { useEffect, useState } from "react";
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { ReactComponent as Arrows } from "../../assets/Arrows.svg";
-import { ReactComponent as PositiveBalance } from "../../assets/PositiveBalance.svg";
-import { ReactComponent as NegativeBalance } from "../../assets/NegativeBalance.svg";
 import Button from "../Button/Button";
+import { useHistory } from 'react-router-dom';
 import "./wallet.css";
 import {
   incomeTransactions,
   outcomeTransactions,
   allTransactions,
   getBalance,
-  addFunds,
-  weeklyIncrement
 } from './walletHelper';
-
-
-const TransactionsPage = () => {
-
-  const walletId = "6021ff060e5bd82c2fccd226";
-
-  const CENTS_CONVERTER = 100;
+import Moment from 'moment';
+import BalanceBox from '../BalanceBox/BalanceBox';
 
 
 
-  const [transactions, setTransactions] = useState( );
+const Wallet = (wallet) => {
+
+  const walletId = wallet.wallet;
+  
+  
+  const [updateBalance, setUpdateBalance] = useState(false);
+  
+  const history = useHistory();
 
   const [balance, setBalance] = useState();
 
-  const [percentage, setPercentage] = useState("-23");
+  const [transactions, setTransactions] = useState( );
+
+
 
   useEffect(() => {
-    getBalance(setBalance, walletId);
     allTransactions(setTransactions, walletId);
-    weeklyIncrement(setPercentage, walletId);
-    }, []);
+    getBalance(setBalance, walletId);
+    }, [updateBalance]);
 
-    console.log(transactions);
 
   return (
     <div className="transactionsPage_container">
       <div className="transPage">
         <div className="upper">
           <div className="miniBox1">
-            <div className="percentage" style={{
-              color: percentage > 0 ? "#20E9BC" : "#FF523D",
-              fill: percentage > 0 ? "#20E9BC" : "#FF523D",
-            }}>
-              {percentage > 0 ? <PositiveBalance /> : <NegativeBalance />}  {percentage}% {/* TODO: Negative balance SVG*/}
-            </div>
-            <div className="balance">{`${balance / CENTS_CONVERTER}$`}</div>
-            <div className="balanceTitle">Balance</div>
+          <BalanceBox wallet={walletId} update={updateBalance}/>
           </div>
           <div className="miniBox2">
-            <Button style="defaultButton_featured" value="Add funds" 
+            <Button buttonClass="defaultButton_featured" value="Add funds" 
             onClick={() => {
-              addFunds(walletId, balance); 
-              getBalance(setBalance, walletId);
+              history.push('/dashboard/funds');
             }} ></Button>
           </div>
         </div>
@@ -81,33 +72,41 @@ const TransactionsPage = () => {
           <table className="txTable">
 
             {transactions && transactions.map((i) => {
-
+              i.amount.receiver && console.log(i.amount.receiver);  
               return (
                 <tr>
                   <td style={{
                     width: "3%",
                     "text-align": "left",
-                    fill: i.amount > 0 ? "#20E9BC" : "#FF523D"
+                    fill: i.amount[0] !== "-" ? "#20E9BC" : "#FF523D"
                   }}>
                     <Arrows></Arrows>
                   </td>
-                  <td style={{ width: "40%" }}>{i.date}</td>
-                  <td style={{ width: "30%", "text-align": "left" }}>{i.description}</td>
+                  <td className="date__container">{Moment(i.date).format('DD/MM/YYYY')}</td>
+                  <td className="description__container">{i.description}</td>
+                  <td>
+                  { i.amount[0] === '-' ?
+                  i.receiver && i.receiver.author &&  <div className="nameTransaction">Sent to  {i.receiver.author.name}</div>
+                  :
+                  i.sender && i.sender.author && <div className="nameTransaction">Sent by {i.sender.author.name}</div>
+
+                } 
+                </td>             
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
                       style={{
-                        "background-color": i.amount > 0 ? "rgba(32, 233, 188, 0.15)" : "rgba(255, 55, 79, 0.15)",
-                        "color": i.amount > 0 ? "#20E9BC" : "#FF374F",
+                        "background-color": i.amount[0] !== "-" ? "rgba(32, 233, 188, 0.15)" : "rgba(255, 55, 79, 0.15)",
+                        "color": i.amount[0] !== "-" ? "#20E9BC" : "#FF374F",
                         "border-radius": "2px",
                         "padding-left": "6px",
                         "padding-right": "6px",
                         "font-size": "9px",
                       }}
                     >
-                      {i.amount > 0 ? "INCOME" : "OUTCOME"}
+                      {i.amount[0] !== "-" ? "INCOME" : "OUTCOME"}
                     </div>
                   </td>
-                  <td style={{ "color": i.amount > 0 ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount > 0 ? `+${i.amount / CENTS_CONVERTER}` : i.amount / CENTS_CONVERTER} USD</td>
+                  <td style={{ "color": i.amount[0] !== "-" ? "#979797" : "#FF374F", width: "20%", textAlign: "right" }}>{i.amount[0] !== "-" ? `${i.amount}` : i.amount}</td>
                 </tr>)
             }
 
@@ -128,4 +127,4 @@ const TransactionsPage = () => {
   );
 };
 
-export default TransactionsPage;
+export default Wallet;

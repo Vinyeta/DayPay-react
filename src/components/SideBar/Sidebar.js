@@ -1,4 +1,4 @@
-import Logo from "../../utils/daypaylogo.png";
+import Logo from "../../assets/daypaylogo.png";
 import Expand from "../../assets/Expand.png";
 import "./Sidebar.css";
 import SideMenu from '../SideMenu/SideMenu';

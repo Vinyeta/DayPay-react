@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import "./Send.css"
+
+import { useHistory } from "react-router-dom";
+import "./Request.css"
+import "../Send/Send.css"
 import Button from '../Button/Button';
-import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
+import { useState } from 'react';
+import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 import { validateEmail } from "../../Utils/validations";
-import React from 'react';
 
+const Request = ({wallet, token}) => {
 
-const Send = ({wallet, token}) => {
+  console.log(wallet);
 
-  const walletId = wallet
   const history = useHistory();
 
 
@@ -22,11 +23,13 @@ const Send = ({wallet, token}) => {
     "amount": 'errorInvisible'
   });
 
-  const body = {
-    sender:  walletId,
-    receiver: email,
-    amount: amount  
 
+  
+
+  const body = {
+    sender: wallet,
+    receiver: email,
+    amount: amount
   };
 
   const cleanForm = () => {
@@ -34,17 +37,23 @@ const Send = ({wallet, token}) => {
     setAmount("");
   };
 
-  const handleSubmit = (id) => {
+
+  const cleanErrors = () => {
+    setErrorStyle({
+      "email": 'errorInvisible',
+      "amount": 'errorInvisible'
+    })
+  };
+
+  const handleSubmit = () => {
     const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         'Authorization': 'Bearer ' + token
-
       },
       body: JSON.stringify(body),
     };
-
 
     if (!validateEmail(email) && (amount <= 0 || !amount)) {
       setErrorStyle({
@@ -62,11 +71,14 @@ const Send = ({wallet, token}) => {
         'amount': 'errorInvisible',
       })
     } else {
-      fetch(`http://localhost:5000/api/transactions/`, options).then((response) => {
-        console.log(response.status);
+      fetch(`http://localhost:5000/api/requestMoney/`, options).then((response) => {
+        console.log(response.status)
+        cleanErrors();
         history.replace("/dashboard");
-      }
-      );
+    }
+      ).catch(error => {
+        console.log(error);
+      });
     }
 
     cleanForm();
@@ -79,35 +91,27 @@ const Send = ({wallet, token}) => {
         <div className="boxShapeTop"><DotPattern></DotPattern></div>
         <div className="boxShapeBottom"><DotPattern></DotPattern></div>
 
-        <span> Send money to another user</span>
+        <span> Request money from another user</span>
         <form className="tradeForm">
-          <input className="input__container" placeholder="Email"
+          <input required className="input__container" 
+            placeholder="Email"
             type="email"
             name="email"
             onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            
 
           />
-          {/* <span className="text-danger text-small d-block mb-2">
-            {errors?.email?.message}
-          </span> */}
           <span className={errorStyle.email}>Invalid email</span>
-          
-
-          <input className="input__container" placeholder="Amount"
+          <input required className="input__container" 
+            placeholder="Amount"
             type="number"
             name="amount"
-            value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            
 
           />
           <span className={errorStyle.amount}>Introduce a number greater than 0</span>
-
           <Button
             buttonClass="defaultButton_featured"
-            value="Transfer funds"
+            value="Request funds"
             onClick={() => handleSubmit()} />
         </form>
       </div>
@@ -115,4 +119,4 @@ const Send = ({wallet, token}) => {
   )
 }
 
-export default Send;
+export default Request;
