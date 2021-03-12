@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import Logo from "../../assets/Logo.png";
 import Moreno from "../../assets/Moreno.png";
 import betterPayments from "../../assets/betterPayments.png";
+import { API_ROOT } from '../../hostSettings';
 
 
 
@@ -28,7 +29,7 @@ const LoginForm = () => {
       body: JSON.stringify(body),
     };
 
-    fetch("http://localhost:5000/api/auth/login", options)
+    fetch(`${API_ROOT}/api/auth/login`, options)
       .then(response => response.json())
       .then(json => {
         localStorage.setItem('token', json.token)

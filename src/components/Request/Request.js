@@ -6,6 +6,8 @@ import Button from '../Button/Button';
 import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 import { validateEmail } from "../../Utils/validations";
+import { API_ROOT } from '../../hostSettings';
+
 
 const Request = ({wallet, token}) => {
 
@@ -71,7 +73,7 @@ const Request = ({wallet, token}) => {
         'amount': 'errorInvisible',
       })
     } else {
-      fetch(`http://localhost:5000/api/requestMoney/`, options).then((response) => {
+      fetch(`${API_ROOT}/api/requestMoney/`, options).then((response) => {
         console.log(response.status)
         cleanErrors();
         history.replace("/dashboard");

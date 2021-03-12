@@ -4,6 +4,7 @@ import "./AccountSettings.css"
 import Button from '../Button/Button';
 import EditUser from '../../assets/EditUser.svg';
 import EyeOff from '../../assets/eye-off.svg';
+import { API_ROOT } from '../../hostSettings';
 
 
 
@@ -42,7 +43,7 @@ const AccountSettings = ({ user, token }) => {
       body: JSON.stringify(body),
     };
 
-    fetch(`http://localhost:5000/api/users/${id}`, options).then((response) => {
+    fetch(`${API_ROOT}/api/users/${id}`, options).then((response) => {
       console.log(response.status);
       history.push('/dashboard');
     }

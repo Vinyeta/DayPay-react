@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { validateEmail } from "../../Utils/validations";
 import React from 'react';
-
+import { API_ROOT } from '../../hostSettings';
 
 const Send = ({wallet, token}) => {
 
@@ -62,7 +62,7 @@ const Send = ({wallet, token}) => {
         'amount': 'errorInvisible',
       })
     } else {
-      fetch(`http://localhost:5000/api/transactions/`, options).then((response) => {
+      fetch(`${API_ROOT}/api/transactions/`, options).then((response) => {
         console.log(response.status);
         history.replace("/dashboard");
       }

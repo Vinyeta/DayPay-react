@@ -9,6 +9,7 @@ import { ReactComponent as Ko } from "../../assets/close.svg";
 import "./CheckoutForm.css"
 import Button from "../Button/Button";
 import { useHistory } from 'react-router-dom';
+import { API_ROOT } from '../../hostSettings';
 
 
 export default function CheckoutForm({amount, walletId, token}) {
@@ -26,7 +27,7 @@ export default function CheckoutForm({amount, walletId, token}) {
     // Create PaymentIntent as soon as the page loads
     console.log(walletId);
     window
-      .fetch("http://localhost:5000/api/stripe/payment", {
+      .fetch(`${API_ROOT}/api/stripe/payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -89,7 +90,7 @@ export default function CheckoutForm({amount, walletId, token}) {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      fetch(`http://localhost:5000/api/wallet/${walletId}/stripePayment`, {
+      fetch(`${API_ROOT}/api/wallet/${walletId}/stripePayment`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

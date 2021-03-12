@@ -1,7 +1,7 @@
 import "./RequestBox.css";
 import { useState , useEffect} from 'react';
 import Moment from 'moment';
-
+import { API_ROOT } from '../../hostSettings';
 
 
 const updateRequest = (requestId, status, token) => {
@@ -26,7 +26,7 @@ const updateRequest = (requestId, status, token) => {
 
     }
             
-    fetch(`http://localhost:5000/api/requestMoney/${requestId}`, options)
+    fetch(`${API_ROOT}/api/requestMoney/${requestId}`, options)
                 .then((response) => response.json())
 
 }
@@ -65,7 +65,7 @@ const RequestBox = ({user, token}) => {
 
         }
             
-        fetch(`http://localhost:5000/api/requestMoney/${user._id}/user`, options)
+        fetch(`${API_ROOT}/api/requestMoney/${user._id}/user`, options)
                   .then((response) => response.json())
                   .then((json) => {
                       setRequests(json);

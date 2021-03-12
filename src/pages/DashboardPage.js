@@ -12,6 +12,7 @@ import Request from "../components/Request/Request";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
 import BalanceBox from '../components/BalanceBox/BalanceBox';
 import Funds from '../components/Funds/Funds';
+import { API_ROOT } from '../hostSettings';
 
 
 const DashboardPage = () => {
@@ -41,11 +42,11 @@ const DashboardPage = () => {
         },
       };
 
-      fetch(`http://localhost:5000/api/users/${token._id}`, options)
+      fetch(`${API_ROOT}/api/users/${token._id}`, options)
         .then((response) => response.json())
         .then((json) => setUserData(json));
 
-      fetch(`http://localhost:5000/api/wallet/${token._id}/author`, options)
+      fetch(`${API_ROOT}/api/wallet/${token._id}/author`, options)
         .then((response) => response.json())
         .then((json) => {
           setWallet(json._id);
