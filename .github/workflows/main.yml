@@ -34,7 +34,7 @@ jobs:
       run: yarn build
 
   PublishToNetlify:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/dynamicBackendRoutes'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
