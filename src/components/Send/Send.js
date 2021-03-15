@@ -89,9 +89,7 @@ const Send = ({wallet, token}) => {
             
 
           />
-          {/* <span className="text-danger text-small d-block mb-2">
-            {errors?.email?.message}
-          </span> */}
+
           <span className={errorStyle.email}>Invalid email</span>
           
 
@@ -114,5 +112,6 @@ const Send = ({wallet, token}) => {
     </div>
   )
 }
+
 
 export default Send;

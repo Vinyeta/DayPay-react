@@ -12,7 +12,7 @@ import "./SideMenu.css";
 const SideMenu = () => {
     const { url } = useRouteMatch();
     return (
-        <div className="SideMenu_container" style={{ color: "#1D293F" }}>
+        <div className="SideMenu_container" >
 
             <table>
                 <tr>
@@ -86,7 +86,8 @@ const SideMenu = () => {
                 </tr>
             </table>
 
-        </div >)
+        </div >
+        )
 }
 
 export default SideMenu;
