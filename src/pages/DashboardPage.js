@@ -10,12 +10,10 @@ import RequestBar from "../components/RequestBar/RequestBar";
 import Expand from "../assets/Expand.png";
 import Request from "../components/Request/Request";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
-import BalanceBox from '../components/BalanceBox/BalanceBox';
-import Funds from '../components/Funds/Funds';
-
+import BalanceBox from "../components/BalanceBox/BalanceBox";
+import Funds from "../components/Funds/Funds";
 
 const DashboardPage = () => {
-  
   const history = useHistory();
 
   const [user, setUserData] = useState();
@@ -23,8 +21,6 @@ const DashboardPage = () => {
   const [wallet, setWallet] = useState();
 
   const [SideBarStatus, setSideBarStatus] = useState(true);
-
-
 
   const token = jwt.decode(localStorage.getItem("token"));
 
@@ -53,8 +49,6 @@ const DashboardPage = () => {
     }
   }, []);
 
-
-
   const notDashboard = history.location.pathname !== "/dashboard";
 
   var styleClass = "";
@@ -74,7 +68,6 @@ const DashboardPage = () => {
     styleClass = "Dashboard_Page_container expand3";
   }
 
-
   const { path } = useRouteMatch();
 
   return (
@@ -85,18 +78,21 @@ const DashboardPage = () => {
         </div>
       )}
       <div className="Dashboard_container">
-        { SideBarStatus && (<div className="Dashboard_SideBar_container">
-          <Sidebar /></div> )}
-        
+        {SideBarStatus && (
+          <div className="Dashboard_SideBar_container">
+            <Sidebar />
+            {SideBarStatus && user && (
+              <div
+                className="SideBar_expandButton_container"
+                onClick={() => setSideBarStatus(false)}
+              >
+                <img src={Expand} alt="Expand Button" />{" "}
+              </div>
+            )}
 
-        {SideBarStatus && user && (
-          <div
-            className="SideBar_expandButton_container"
-            onClick={() => setSideBarStatus(false)}
-          >
-            <img src={Expand} alt="Expand Button" />{" "}
           </div>
         )}
+
 
         {!SideBarStatus && user && (
           <div
@@ -106,52 +102,59 @@ const DashboardPage = () => {
             <img src={Expand} alt="Expand Button" />
           </div>
         )}
-        <div className={styleClass}>
-          {!notDashboard && wallet && user && (
-            <div className="overview_container">
-              <h1>Overview</h1>
-              <span>
-                Hi {user.name}, get your summary of your transacrtions and
-                requests here
-              </span>
-              <div className="balanceBoxDashboard"><BalanceBox wallet={wallet} /></div>
-            </div>
-          )}
 
-          <Switch>
-
-
-            <Route path={`${path}/wallet`}>
+        <Switch>
+          <Route path={`${path}/wallet`}>
+            <div className={styleClass}>
               {wallet && <Wallet wallet={wallet} />}
-            </Route>
-            <Route path={`${path}/send`}>
+            </div>
+          </Route>
+          <Route path={`${path}/send`}>
+            <div className={styleClass}>
               {wallet && <Send wallet={wallet} token={token2} />}
-            </Route>
-            <Route path={`${path}/request`}>
+            </div>
+          </Route>
+          <Route path={`${path}/request`}>
+            <div className={styleClass}>
               {user && <Request wallet={wallet} token={token2} />}
-            </Route>
-            <Route path={`${path}/accountsettings`}>
+            </div>
+          </Route>
+          <Route path={`${path}/accountsettings`}>
+            <div className={styleClass}>
               {user && <AccountSettings user={user} token={token2} />}
-            </Route>
+            </div>
+          </Route>
 
-            <Route path={`${path}/funds`}>
+          <Route path={`${path}/funds`}>
+            <div className={styleClass}>
               {user && <Funds wallet={wallet} token={token2} />}
-            </Route>
+            </div>
+          </Route>
 
-            <Route path={`${path}/`}>
+          <Route path={`${path}/`}>
+            <div className={styleClass}>
+              {wallet && user && (
+                <div className="overview_container">
+                  <h1>Overview</h1>
+                  <span>
+                    Hi {user.name}, get your summary of your transacrtions and
+                    requests here
+                  </span>
+                  <div className="balanceBoxDashboard">
+                    <BalanceBox wallet={wallet} />
+                  </div>
+                </div>
+              )}
+            </div>
 
-
-
-            </Route>
-          </Switch>
-        </div>
-        {!notDashboard && user && (
-          <div className="Dashboard_Requests_container">
-            <RequestBar user={user} token={token2} />
-          </div>
-        )}
+            {user && (
+              <div className="Dashboard_Requests_container">
+                <RequestBar user={user} token={token2} />
+              </div>
+            )}
+          </Route>
+        </Switch>
       </div>
-      
     </>
   );
 };

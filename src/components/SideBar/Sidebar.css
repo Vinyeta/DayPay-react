@@ -13,7 +13,6 @@
     left: 0;
     background-color: white ;
     z-index:999;
-    overflow-x: unset;
     
 }
 
@@ -25,6 +24,11 @@
 
 .SideBar_menu_container {
     order: 1;
+    
+  overflow: scroll;
+  overflow-x: hidden;
+  color: #1D293F;
+    
 }
 
 .SideBar_expandButton_container {
