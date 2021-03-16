@@ -80,12 +80,10 @@ export default function CheckoutForm({amount, walletId, token}) {
         card: elements.getElement(CardElement)
       }
     });
-    console.log(payload)
     if (payload.error) {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {
-        console.log(payload)
       setError(null);
       setProcessing(false);
       setSucceeded(true);
@@ -95,7 +93,7 @@ export default function CheckoutForm({amount, walletId, token}) {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + token
         },
-        body: JSON.stringify({amount:amount})
+        body: JSON.stringify(payload)
       })
     }
   };

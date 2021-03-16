@@ -91,6 +91,9 @@ const Wallet = (wallet) => {
                   i.sender && i.sender.author && <div className="nameTransaction">Sent by {i.sender.author.name}</div>
 
                 } 
+                { i.stripeSender && <div className="nameTransaction">Added by card ending in {i.stripeSender}</div>
+
+                }
                 </td>             
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
