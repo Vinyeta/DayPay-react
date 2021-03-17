@@ -59,7 +59,7 @@ const Header = () => {
         </>
         :
         <>
-          <Link to='/dashboard'>
+          <Link to='/dashboard' style={{ textDecoration: 'none' }}>
             <Button
               buttonClass="defaultButton"
               value="Dashboard" />
