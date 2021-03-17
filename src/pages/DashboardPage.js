@@ -56,7 +56,7 @@ const DashboardPage = () => {
     <>
       {notDashboard && user && (
         <div className="UserMenu_top_container">
-          <UserMenu  />
+          <UserMenu />
         </div>
       )}
       <div className="Dashboard_container">
@@ -82,47 +82,48 @@ const DashboardPage = () => {
           </div>
         )}
         <div className={styleClass}>
-        <Switch>
+          <Switch>
 
 
-          <Route path={`${path}/wallet`}>
-            {wallet && <Wallet />}
-          </Route>
-          <Route path={`${path}/send`}>
-            {wallet && <Send />}
-          </Route>
-          <Route path={`${path}/request`}>
-            {user && <Request />}
-          </Route>
-          <Route path={`${path}/accountsettings`}>
-            {user && <AccountSettings />}
-          </Route>
+            <Route path={`${path}/wallet`}>
+              {wallet && <Wallet />}
+            </Route>
+            <Route path={`${path}/send`}>
+              {wallet && <Send />}
+            </Route>
+            <Route path={`${path}/request`}>
+              {user && <Request />}
+            </Route>
+            <Route path={`${path}/accountsettings`}>
+              {user && <AccountSettings />}
+            </Route>
 
-          <Route path={`${path}/funds`}>
-            {user && <Funds />}
-          </Route>
+            <Route path={`${path}/funds`}>
+              {user && <Funds />}
+            </Route>
 
-          <Route path={`${path}/`}>
+            <Route path={`${path}/`}>
 
-            <div className="overview_container">
-              <h1>Overview</h1>
-              {user &&
-                <span>
-                  Hi {user.name}, get your summary of your transacrtions and
+              <div className="overview_container">
+                <h1>Overview</h1>
+                {user &&
+                  <>
+                    <span>
+                      Hi {user.name}, get your summary of your transacrtions and
                   requests here
               </span>
-              }
-              <div className="balanceBoxDashboard"><BalanceBox  /></div>
-            </div>
 
-          </Route>
-        </Switch>
+                    <div className="balanceBoxDashboard"><BalanceBox /></div>
+                    <div className="Dashboard_Requests_container">
+                      <RequestBar />
+                    </div>
+                  </>
+                }
+              </div>
+
+            </Route>
+          </Switch>
         </div>
-        {!notDashboard && user && (
-          <div className="Dashboard_Requests_container">
-            <RequestBar />
-          </div>
-        )}
       </div>
 
     </>
