@@ -4,7 +4,7 @@ import Avatar from "../Avatar/Avatar";
 import { useHistory } from 'react-router-dom';
 import { ReactComponent as Forwards } from "../../assets/Forward.svg";
 
-const RequestBar = ({ user, token }) => {
+const RequestBar = ({ user, token, wallet }) => {
   const history = useHistory();
   return (
     <>
@@ -23,7 +23,7 @@ const RequestBar = ({ user, token }) => {
 </div>
         </div>
 
-        <RequestBox user={user} token={token} />
+        <RequestBox user={user} token={token} wallet={wallet} />
       </div>
     </>
   );

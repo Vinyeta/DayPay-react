@@ -75,19 +75,20 @@ const DashboardPage = () => {
   }
 
 
+  
   const { path } = useRouteMatch();
 
   return (
     <>
       {notDashboard && user && (
         <div className="UserMenu_top_container">
-          <UserMenu user={user} />
+          <UserMenu />
         </div>
       )}
       <div className="Dashboard_container">
-        { SideBarStatus && (<div className="Dashboard_SideBar_container">
-          <Sidebar /></div> )}
-        
+        {SideBarStatus && (<div className="Dashboard_SideBar_container">
+          <Sidebar /></div>)}
+
 
         {SideBarStatus && user && (
           <div
@@ -107,51 +108,50 @@ const DashboardPage = () => {
           </div>
         )}
         <div className={styleClass}>
-          {!notDashboard && wallet && user && (
-            <div className="overview_container">
-              <h1>Overview</h1>
-              <span>
-                Hi {user.name}, get your summary of your transacrtions and
-                requests here
-              </span>
-              <div className="balanceBoxDashboard"><BalanceBox wallet={wallet} /></div>
-            </div>
-          )}
-
           <Switch>
 
 
             <Route path={`${path}/wallet`}>
-              {wallet && <Wallet wallet={wallet} />}
+              {wallet && <Wallet />}
             </Route>
             <Route path={`${path}/send`}>
-              {wallet && <Send wallet={wallet} token={token2} />}
+              {wallet && <Send />}
             </Route>
             <Route path={`${path}/request`}>
-              {user && <Request wallet={wallet} token={token2} />}
+              {user && <Request />}
             </Route>
             <Route path={`${path}/accountsettings`}>
-              {user && <AccountSettings user={user} token={token2} />}
+              {user && <AccountSettings />}
             </Route>
 
             <Route path={`${path}/funds`}>
-              {user && <Funds wallet={wallet} token={token2} />}
+              {user && <Funds />}
             </Route>
 
             <Route path={`${path}/`}>
 
+              <div className="overview_container">
+                <h1>Overview</h1>
+                {user &&
+                  <>
+                    <span>
+                      Hi {user.name}, get your summary of your transacrtions and
+                  requests here
+              </span>
 
+                    <div className="balanceBoxDashboard"><BalanceBox /></div>
+                    <div className="Dashboard_Requests_container">
+                      <RequestBar />
+                    </div>
+                  </>
+                }
+              </div>
 
             </Route>
           </Switch>
         </div>
-        {!notDashboard && user && (
-          <div className="Dashboard_Requests_container">
-            <RequestBar user={user} token={token2} />
-          </div>
-        )}
       </div>
-      
+
     </>
   );
 };
