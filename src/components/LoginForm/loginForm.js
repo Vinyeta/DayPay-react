@@ -12,7 +12,9 @@ const LoginForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const history = useHistory();
-  const { login } = useContext(UserContext);  
+  const { token, login } = useContext(UserContext);  
+
+  if(token) history.replace('/dashboard')
 
   const body = {
     email: email,
