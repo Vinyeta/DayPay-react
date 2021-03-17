@@ -1,16 +1,15 @@
-
+import { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import "./Request.css"
 import "../Send/Send.css"
 import Button from '../Button/Button';
-import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 import { validateEmail } from "../../Utils/validations";
+import { UserContext } from '../../user-context';
 
-const Request = ({wallet, token}) => {
+const Request = () => {
 
-  console.log(wallet);
-
+  const { wallet, token } = useContext(UserContext);
   const history = useHistory();
 
 
@@ -72,7 +71,6 @@ const Request = ({wallet, token}) => {
       })
     } else {
       fetch(`http://localhost:5000/api/requestMoney/`, options).then((response) => {
-        console.log(response.status)
         cleanErrors();
         history.replace("/dashboard");
     }

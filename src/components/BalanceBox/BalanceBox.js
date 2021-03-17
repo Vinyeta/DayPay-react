@@ -1,14 +1,17 @@
+import { useState, useEffect, useContext} from 'react';
 import { ReactComponent as PositiveBalance } from "../../assets/PositiveBalance.svg"
 import { ReactComponent as NegativeBalance } from "../../assets/NegativeBalance.svg";
 import "./BalanceBox.css";
 import {
     getBalance,
     weeklyIncrement
-  } from '../Wallet/walletHelper';
-import { useState, useEffect} from 'react';
+} from '../Wallet/walletHelper';
+import { UserContext } from '../../user-context';
 
 
-const BalanceBox = ({wallet, update}) => {
+const BalanceBox = () => {
+
+  const { wallet, token } = useContext(UserContext);
     
     const [balance, setBalance] = useState();
 
@@ -17,11 +20,10 @@ const BalanceBox = ({wallet, update}) => {
     useEffect(() => {
 
       if (wallet !== undefined) {
-        getBalance(setBalance, wallet);
-        weeklyIncrement(setPercentage, wallet);
-        console.log(percentage)
+        getBalance(setBalance, wallet, token);
+        weeklyIncrement(setPercentage, wallet, token);
       }
-    }, [update]);
+    }, []);
 
     
 

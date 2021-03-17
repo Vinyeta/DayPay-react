@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import "./AccountSettings.css"
 import Button from '../Button/Button';
 import EditUser from '../../assets/EditUser.svg';
 import EyeOff from '../../assets/eye-off.svg';
+import { UserContext } from '../../user-context';
 
 
+const AccountSettings = () => {
 
-const AccountSettings = ({ user, token }) => {
+  const {user, token} = useContext(UserContext);
 
   const history = useHistory();
 

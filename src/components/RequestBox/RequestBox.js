@@ -1,7 +1,8 @@
-import "./RequestBox.css";
 import { useState , useEffect} from 'react';
+import "./RequestBox.css";
 import Moment from 'moment';
-
+import { UserContext } from '../../user-context';
+import { useContext } from 'react/cjs/react.development';
 
 
 const updateRequest = (requestId, status, token) => {
@@ -32,26 +33,13 @@ const updateRequest = (requestId, status, token) => {
 }
 
 
-const RequestBox = ({user, token}) => {
+const RequestBox = () => {
 
-
-    // const request = 
-    
-    // {_id: "60328b9adb363344e4bccd2e",
-    // sender: "602ab73fedaba66830b7a141",
-    // receiver :"602d4c3ab14a9b694bbc7773",
-    // amount: 555,
-    // status: "rejected",
-    // date: Date("2021-02-21T16:32:05.238+00:00")}
+    const { user, token } = useContext(UserContext);
 
     const [requests, setRequests] = useState([])
 
     const [updateTrans, setUpdate] = useState(false)
-
-
-
-
-
 
     useEffect(() => {
 

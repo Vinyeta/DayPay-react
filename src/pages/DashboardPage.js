@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
-import jwt from "jsonwebtoken";
 import "./DashboardPage.css";
 import UserMenu from "../components/UserMenu/UserMenu";
 import Sidebar from "../components/SideBar/Sidebar";
@@ -12,44 +11,20 @@ import Request from "../components/Request/Request";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
 import BalanceBox from '../components/BalanceBox/BalanceBox';
 import Funds from '../components/Funds/Funds';
+import { UserContext } from '../user-context';
 
 
 const DashboardPage = () => {
-  
+
   const history = useHistory();
-
-  const [user, setUserData] = useState();
-
-  const [wallet, setWallet] = useState();
 
   const [SideBarStatus, setSideBarStatus] = useState(true);
 
-
-
-  const token = jwt.decode(localStorage.getItem("token"));
-
-  const token2 = localStorage.getItem("token");
+  const { user, token, wallet } = useContext(UserContext);
 
   useEffect(() => {
     if (!token) {
       history.replace("/login");
-    } else {
-      const options = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token2,
-        },
-      };
-
-      fetch(`http://localhost:5000/api/users/${token._id}`, options)
-        .then((response) => response.json())
-        .then((json) => setUserData(json));
-
-      fetch(`http://localhost:5000/api/wallet/${token._id}/author`, options)
-        .then((response) => response.json())
-        .then((json) => {
-          setWallet(json._id);
-        });
     }
   }, []);
 
@@ -85,9 +60,9 @@ const DashboardPage = () => {
         </div>
       )}
       <div className="Dashboard_container">
-        { SideBarStatus && (<div className="Dashboard_SideBar_container">
-          <Sidebar /></div> )}
-        
+        {SideBarStatus && (<div className="Dashboard_SideBar_container">
+          <Sidebar /></div>)}
+
 
         {SideBarStatus && user && (
           <div
@@ -107,51 +82,49 @@ const DashboardPage = () => {
           </div>
         )}
         <div className={styleClass}>
-          {!notDashboard && wallet && user && (
+        <Switch>
+
+
+          <Route path={`${path}/wallet`}>
+            {wallet && <Wallet />}
+          </Route>
+          <Route path={`${path}/send`}>
+            {wallet && <Send />}
+          </Route>
+          <Route path={`${path}/request`}>
+            {user && <Request />}
+          </Route>
+          <Route path={`${path}/accountsettings`}>
+            {user && <AccountSettings />}
+          </Route>
+
+          <Route path={`${path}/funds`}>
+            {user && <Funds />}
+          </Route>
+
+          <Route path={`${path}/`}>
+
             <div className="overview_container">
               <h1>Overview</h1>
-              <span>
-                Hi {user.name}, get your summary of your transacrtions and
-                requests here
+              {user &&
+                <span>
+                  Hi {user.name}, get your summary of your transacrtions and
+                  requests here
               </span>
+              }
               <div className="balanceBoxDashboard"><BalanceBox wallet={wallet} /></div>
             </div>
-          )}
 
-          <Switch>
-
-
-            <Route path={`${path}/wallet`}>
-              {wallet && <Wallet wallet={wallet} />}
-            </Route>
-            <Route path={`${path}/send`}>
-              {wallet && <Send wallet={wallet} token={token2} />}
-            </Route>
-            <Route path={`${path}/request`}>
-              {user && <Request wallet={wallet} token={token2} />}
-            </Route>
-            <Route path={`${path}/accountsettings`}>
-              {user && <AccountSettings user={user} token={token2} />}
-            </Route>
-
-            <Route path={`${path}/funds`}>
-              {user && <Funds wallet={wallet} token={token2} />}
-            </Route>
-
-            <Route path={`${path}/`}>
-
-
-
-            </Route>
-          </Switch>
+          </Route>
+        </Switch>
         </div>
         {!notDashboard && user && (
           <div className="Dashboard_Requests_container">
-            <RequestBar user={user} token={token2} />
+            <RequestBar />
           </div>
         )}
       </div>
-      
+
     </>
   );
 };
