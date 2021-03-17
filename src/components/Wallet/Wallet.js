@@ -19,7 +19,6 @@ const Wallet = (wallet) => {
 
   const walletId = wallet.wallet;
   
-  
   const [updateBalance, setUpdateBalance] = useState(false);
   
   const history = useHistory();
@@ -27,6 +26,7 @@ const Wallet = (wallet) => {
   const [balance, setBalance] = useState();
 
   const [transactions, setTransactions] = useState( );
+
 
 
 
@@ -113,9 +113,12 @@ const Wallet = (wallet) => {
             )}
 
           </table>
+
+
           
-          <div className="moreTransactions" onClick={() =>{ allTransactions(setTransactions, walletId);}}>See all transactions</div>
+        <div className="moreTransactions" onClick={() =>{ allTransactions(setTransactions, walletId);}}>See all transactions</div>
         </div>
+
 
         <div className="boxShapeTopPage">
           <DotPattern></DotPattern>
