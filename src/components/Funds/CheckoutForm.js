@@ -92,7 +92,7 @@ export default function CheckoutForm({ amount }) {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + token
         },
-        body: JSON.stringify({amount:amount})
+        body: JSON.stringify(payload)
       })
     }
   };

@@ -62,7 +62,7 @@ const Send = () => {
         'amount': 'errorInvisible',
       })
     } else {
-      fetch(`http://localhost:5000/api/transactions/`, options).then((response) => {
+      fetch(`http://localhost:5000/api/queue/msg`, options).then((response) => {
         console.log(response.status);
         history.replace("/dashboard");
       }
@@ -89,9 +89,7 @@ const Send = () => {
             
 
           />
-          {/* <span className="text-danger text-small d-block mb-2">
-            {errors?.email?.message}
-          </span> */}
+
           <span className={errorStyle.email}>Invalid email</span>
           
 
@@ -114,5 +112,6 @@ const Send = () => {
     </div>
   )
 }
+
 
 export default Send;
