@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useContext} from 'react';
 import { ReactComponent as PositiveBalance } from "../../assets/PositiveBalance.svg"
 import { ReactComponent as NegativeBalance } from "../../assets/NegativeBalance.svg";
@@ -42,5 +43,6 @@ return (<div className="miniBoxBalance">
             <div className="balanceTitle">Balance</div>
 </div>)
 }
+
 
 export default BalanceBox

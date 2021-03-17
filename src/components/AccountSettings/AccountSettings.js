@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 import EditUser from '../../assets/EditUser.svg';
 import EyeOff from '../../assets/eye-off.svg';
 import { UserContext } from '../../user-context';
+import Avatar from '../Avatar/Avatar';
 
 
 const AccountSettings = () => {
@@ -61,20 +62,23 @@ const AccountSettings = () => {
         <span> Edit profile</span>
         <form className="tradeForm">
 
-          <img className="accountSettings__img" src={user.avatar} alt="Avatar" />
+          <div className="accountSettings__img" >
+          <Avatar user={user} />          
+          </div>
           <img className="accountSettings__edit" src={EditUser} alt="edit user avatar" />
-  
 
           <div className="nameData__container">
             <input className="nameInput__container" placeholder="Name"
               type="text"
               name="name"
+              value={user.name}
               onChange={(e) => setName(e.target.value)}
             />
 
             <input className="lastNameInput__container" placeholder="Last Name"
               type="text"
               name="surname"
+              value={user.surname}
               onChange={(e) => setSurname(e.target.value)}
             />     
           </div>
@@ -84,6 +88,7 @@ const AccountSettings = () => {
             <input className="input__container" placeholder="Email"
             type="email"
             name="email"
+            value={user.email}
             onChange={(e) => setEmail(e.target.value)}
           /> 
 
