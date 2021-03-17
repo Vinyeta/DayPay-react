@@ -37,7 +37,7 @@ const Wallet = () => {
       <div className="transPage">
         <div className="upper">
           <div className="miniBox1">
-          <BalanceBox wallet={wallet}/>
+          <BalanceBox />
           </div>
           <div className="miniBox2">
             <Button buttonClass="defaultButton_featured" value="Add funds" 

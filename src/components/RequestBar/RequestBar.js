@@ -28,7 +28,7 @@ const RequestBar = () => {
 </div>
         </div>
 
-        <RequestBox user={user} token={token} />
+        <RequestBox  />
       </div>
     </>
   );

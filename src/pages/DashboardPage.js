@@ -56,7 +56,7 @@ const DashboardPage = () => {
     <>
       {notDashboard && user && (
         <div className="UserMenu_top_container">
-          <UserMenu user={user} />
+          <UserMenu  />
         </div>
       )}
       <div className="Dashboard_container">
@@ -112,7 +112,7 @@ const DashboardPage = () => {
                   requests here
               </span>
               }
-              <div className="balanceBoxDashboard"><BalanceBox wallet={wallet} /></div>
+              <div className="balanceBoxDashboard"><BalanceBox  /></div>
             </div>
 
           </Route>
