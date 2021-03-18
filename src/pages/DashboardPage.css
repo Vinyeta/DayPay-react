@@ -67,12 +67,11 @@
 }
 
 .Dashboard_Requests_container{
+    display: flex;
     z-index:999;
     right:0px;
     width: 348px;
     position: absolute;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 .UserMenu_top_container{
@@ -122,8 +121,8 @@
    .SideBar_expandButton_container {
     bottom: 20px;
     left: 231px;
-    position: fixed;
     order:2;
+    position: fixed;
     cursor: pointer;
     z-index: 99999;
 

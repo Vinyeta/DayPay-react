@@ -1,21 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import "./Send.css"
 import Button from '../Button/Button';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { validateEmail } from "../../Utils/validations";
+import { UserContext } from '../../user-context';
 
 
+const Send = () => {
 
+  const { user, wallet, token } = useContext(UserContext);
 
-
-
-const Send = ({wallet, token, user}) => {
-
-  
-  const walletId = wallet
   const history = useHistory();
-
 
 
 
@@ -31,7 +27,7 @@ const Send = ({wallet, token, user}) => {
   });
 
   const body = {
-    sender:  walletId,
+    sender:  wallet,
     receiver: email,
     amount: amount  
 
@@ -78,8 +74,7 @@ const Send = ({wallet, token, user}) => {
        setSameEmail('errorVisible') 
       
     } else {
-      fetch(`http://localhost:5000/api/transactions/`, options)
-      .then((response) => {
+      fetch(`http://localhost:5000/api/queue/msg`, options).then((response) => {
         console.log(response.status);
         history.replace("/dashboard");
       }
@@ -128,5 +123,6 @@ const Send = ({wallet, token, user}) => {
       </div>
   );
 }
+
 
 export default Send;

@@ -1,20 +1,20 @@
+import { useState, useEffect, useContext } from 'react';
 import "./RequestBox.css";
-import { useState , useEffect} from 'react';
 import Moment from 'moment';
 import Modal from 'react-modal';
 import Button from '../Button/Button';
-
+import { UserContext } from '../../user-context';
 
 
 const updateRequest = (requestId, status, token) => {
 
-    
-        
+
+
     const body = {
         status: status
     }
-    
-    
+
+
     const options = {
 
         headers: {
@@ -28,160 +28,161 @@ const updateRequest = (requestId, status, token) => {
         method: "PATCH"
 
     }
-            
+
     fetch(`http://localhost:5000/api/requestMoney/${requestId}`, options)
 
 }
 
 
-const RequestBox = ({user, wallet, token}) => {
+const RequestBox = () => {
+    const { user, token, wallet } = useContext(UserContext);
+
     const accepting = (wallet, requestAmount, requestEmail) => {
         const body = {
-            sender:  wallet,
+            sender: wallet,
             receiver: requestEmail,
-            amount: requestAmount  
-        
-          };
+            amount: requestAmount
+
+        };
         const options = {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
-              'Authorization': 'Bearer ' + token
-      
+                "Content-Type": "application/json",
+                'Authorization': 'Bearer ' + token
+
             },
             body: JSON.stringify(body),
-          };
-    
-        
-        fetch(`http://localhost:5000/api/transactions` , options)
-        .then((response) => response.json())
-}
-    
-   
+        };
+
+
+        fetch(`http://localhost:5000/api/transactions`, options)
+            .then((response) => response.json())
+    }
+
+
 
     const customStyles = {
-        content : {
-          top                   : '50%',
-          width                 : '150px',
-          height                : '150px',
-          left                  : '50%',
-          right                 : 'auto',
-          bottom                : 'auto',
-          marginRight           : '-50%',
-          transform             : 'translate(-50%, -50%)'
+        content: {
+            top: '50%',
+            width: '150px',
+            height: '150px',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)'
         }
-      };
-    const [modalIsOpen,setIsOpen] = useState(false);
-       
+    };
+    const [modalIsOpen, setIsOpen] = useState(false);
+
     function openModal() {
-    setIsOpen(true);
-  }
- 
-  function closeModal(){
-    setIsOpen(false);
-  }
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
     const [requests, setRequests] = useState([])
 
     const [updateTrans, setUpdate] = useState(false)
-
 
     useEffect(() => {
 
         const options = {
 
-        headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + token
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+
+            }
 
         }
 
-        }
-            
         fetch(`http://localhost:5000/api/requestMoney/${user._id}/user`, options)
-                  .then((response) => response.json())
-                  .then((json) => {
-                      setRequests(json);
-                      console.log(requests);
-                    })      
-      }, [!updateTrans])
-      
-      const [hasConfirmed, setHasConfirmed] = useState(false);
+            .then((response) => response.json())
+            .then((json) => {
+                setRequests(json);
+                console.log(requests);
+            })
+    }, [!updateTrans])
+
+    const [hasConfirmed, setHasConfirmed] = useState(false);
 
     return (
         <>
-        {requests && requests.map((request, index) => ( 
-        <div className={`RequestBox_container_${request.status}`}>
-            <div className="Request_data">
-                <div className="Request_date">{Moment(request.date).format('DD.MM.YYYY HH:MM')}</div>
-                {request.sender && request.sender.author && <div className="Request_title">Sent by {request.sender.author.name}</div>}
-                {request.sender && request.sender.author && <div className="Request_subtitle">{request.sender.author.name} requested a payment</div> }
-                <div className="Request_amount">{request.amount}</div>
-            </div>
-    <div className="modal_container">
-        <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                style={customStyles}
-                contentLabel="Example Modal"
-               
-                >
+            {requests && requests.map((request, index) => (
+                <div className={`RequestBox_container_${request.status}`}>
+                    <div className="Request_data">
+                        <div className="Request_date">{Moment(request.date).format('DD.MM.YYYY HH:MM')}</div>
+                        {request.sender && request.sender.author && <div className="Request_title">Sent by {request.sender.author.name}</div>}
+                        {request.sender && request.sender.author && <div className="Request_subtitle">{request.sender.author.name} requested a payment</div>}
+                        <div className="Request_amount">{request.amount}</div>
+                    </div>
+                    <div className="modal_container">
+                        <Modal
+                            isOpen={modalIsOpen}
+                            onRequestClose={closeModal}
+                            style={customStyles}
+                            contentLabel="Example Modal"
 
-                  <div className="sending_money">Are you sure you want accept? The money will be sent automatically. Click 'Accept againg to send'</div> 
-            <div className="button_container2">    
-                
-             <Button  buttonClass="defaultButton_featured" onClick={() => {closeModal();
-                                                                            
-                                                                           setHasConfirmed(true)}} 
-                                                                           value='OK' />
-            </div>
-        
-        </Modal>
-    </div>
-            { request.status === "pending" &&
+                        >
+
+                            <div className="sending_money">Are you sure you want accept? The money will be sent automatically. Click 'Accept againg to send'</div>
+                            <div className="button_container2">
+
+                                <Button buttonClass="defaultButton_featured" onClick={() => {
+                                    closeModal();
+
+                                    setHasConfirmed(true)
+                                }}
+                                    value='OK' />
+                            </div>
+
+                        </Modal>
+                    </div>
+                    { request.status === "pending" &&
 
 
-                
-            <div className="Request_buttons">
-                <div className="Request_button_accept" onClick={() =>{ 
-                    if(!hasConfirmed) openModal();
-                    else {
-                        accepting(wallet, request.amount, request.sender.author.email);
-                        updateRequest(request._id, "accepted", token); 
-                        setUpdate(!updateTrans);
-                        setHasConfirmed(false);
+
+                        <div className="Request_buttons">
+                            <div className="Request_button_accept" onClick={() => {
+                                if (!hasConfirmed) openModal();
+                                else {
+                                    accepting(wallet, request.amount, request.sender.author.email);
+                                    updateRequest(request._id, "accepted", token);
+                                    setUpdate(!updateTrans);
+                                    setHasConfirmed(false);
+                                }
+                            }}>Accept</div>
+                            <div className="Request_button_reject" onClick={() => {
+                                updateRequest(request._id, "rejected", token);
+                                setUpdate(!updateTrans)
+                            }}>Reject</div>
+                        </div>
+
                     }
-                    }}>Accept</div>
-                <div className="Request_button_reject" onClick={() => 
-                        {updateRequest(request._id, "rejected", token); 
-                         setUpdate(!updateTrans)}}>Reject</div>
+
+                    { request.status === "accepted" &&
+
+                        <div className="Request_status_accepted">
+                            ACCEPTED AND SENT
             </div>
 
-            }  
+                    }
 
-            { request.status === "accepted" &&
-                
-            <div className="Request_status_accepted">
-                ACCEPTED AND SENT
-            </div>
+                    { request.status === "rejected" &&
 
-            }   
-
-            { request.status === "rejected" &&
-                
-                <div className="Request_status_rejected">
-                REJECTED
+                        <div className="Request_status_rejected">
+                            REJECTED
                 </div>
-    
-                }  
 
-        </div>))
-    }
-    </>
+                    }
+
+                </div>))
+            }
+        </>
     )
 }
 
 export default RequestBox;
-
-// <div className="Request_button_accept" onClick={() => {updateRequest(request._id, "accepted", token); setUpdate(!updateTrans)}}>Accept</div>
-//
-//

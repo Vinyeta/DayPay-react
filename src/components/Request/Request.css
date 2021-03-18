@@ -90,14 +90,3 @@
       .verificationVisible {
         color:green;
       }
-      .invalid_request{
-        position: relative;
-        margin-top: 10px;
-        margin-bottom: 30px;
-      }
-      .invalid_amount{
-        position: relative;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        bottom: 40px;
-      }

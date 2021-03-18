@@ -1,21 +1,18 @@
-
+import { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import "./Request.css"
 import "../Send/Send.css"
 import Button from '../Button/Button';
-import { useState } from 'react';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg"
 import { validateEmail } from "../../Utils/validations";
+import { UserContext } from '../../user-context';
 
-const Request = ({wallet, token, user}) => {
+const Request = () => {
 
   const [sameAuth, setSameAuth] = useState('errorInvisible');
 
-    
-
-
-  console.log(wallet);
-
+  
+  const { user, wallet, token } = useContext(UserContext);
   const history = useHistory();
 
 
@@ -80,7 +77,6 @@ const Request = ({wallet, token, user}) => {
       })
     } else {
       fetch(`http://localhost:5000/api/requestMoney/`, options).then((response) => {
-        console.log(response.status)
         cleanErrors();
         history.replace("/dashboard");
     }
@@ -132,5 +128,6 @@ const Request = ({wallet, token, user}) => {
     </div>
   )
 }
+
 
 export default Request;
