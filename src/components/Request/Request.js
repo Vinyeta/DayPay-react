@@ -9,7 +9,10 @@ import { UserContext } from '../../user-context';
 
 const Request = () => {
 
-  const { wallet, token } = useContext(UserContext);
+  const [sameAuth, setSameAuth] = useState('errorInvisible');
+
+  
+  const { user, wallet, token } = useContext(UserContext);
   const history = useHistory();
 
 
@@ -59,11 +62,14 @@ const Request = () => {
         'email': 'errorVisible',
         'amount': 'errorVisible',
       })
-    } else if (amount <= 0) {
+    } else if (amount <= 0 || !amount) {
       setErrorStyle({
         'email': 'errorInvisible',
         'amount': 'errorVisible',
       })
+    } else if (user.email === email) {   
+      setSameAuth('errorVisible') 
+    
     } else if (!validateEmail(email)) {
       setErrorStyle({
         'email': 'errorVisible',
@@ -98,15 +104,21 @@ const Request = () => {
             onChange={(e) => setEmail(e.target.value)}
 
           />
+          
           <span className={errorStyle.email}>Invalid email</span>
           <input required className="input__container" 
             placeholder="Amount"
             type="number"
             name="amount"
             onChange={(e) => setAmount(e.target.value)}
+           />
+          <div className="invalid_request"> 
+            <span className={sameAuth}>Can't request money to yourself</span>
+          </div>
+          <div className="invalid_amount">
+            <span className={errorStyle.amount}>Introduce a number greater than 0</span>
+          </div>
 
-          />
-          <span className={errorStyle.amount}>Introduce a number greater than 0</span>
           <Button
             buttonClass="defaultButton_featured"
             value="Request funds"

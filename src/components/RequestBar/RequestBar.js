@@ -9,7 +9,7 @@ import { UserContext } from '../../user-context';
 
 const RequestBar = () => {
 
-  const { user, token } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const history = useHistory();
   return (
     <>
