@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./loginForm.css";
 import Button from "../Button/Button";
@@ -14,7 +14,9 @@ const LoginForm = () => {
   const history = useHistory();
   const { token, login } = useContext(UserContext);  
 
-  if(token) history.replace('/dashboard')
+  useEffect(() => {
+    if(token) history.replace('/dashboard')
+  }, [token]);
 
   const body = {
     email: email,
