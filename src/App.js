@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import Landing from './pages/Landing';
 import DashboardPage from './pages/DashboardPage';
+import { UserProvider } from './user-context';
 
 
 function App() {
@@ -19,20 +20,22 @@ function App() {
   return (
     <div>
       <Router>
-        <Switch>
-          <Route path='/login'>
-            <LoginForm />
-          </Route>
-          <Route path='/signup'>
-            <SignUpForm />
-          </Route>
-          <Route path='/dashboard'>
-            <DashboardPage />
-          </Route>
-          <Route path='/'>
-            <Landing />
-          </Route>
-        </Switch>
+        <UserProvider>
+          <Switch>
+            <Route path='/login'>
+              <LoginForm />
+            </Route>
+            <Route path='/signup'>
+              <SignUpForm />
+            </Route>
+            <Route path='/dashboard'>
+              <DashboardPage />
+            </Route>
+            <Route path='/'>
+              <Landing />
+            </Route>
+          </Switch>
+        </UserProvider>
       </Router>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken";
 import "./DashboardPage.css";
@@ -12,42 +12,21 @@ import Request from "../components/Request/Request";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
 import BalanceBox from "../components/BalanceBox/BalanceBox";
 import Funds from "../components/Funds/Funds";
+import { UserContext } from '../user-context';
 
 const DashboardPage = () => {
   const history = useHistory();
 
-  const [user, setUserData] = useState();
-
-  const [wallet, setWallet] = useState();
-
   const [SideBarStatus, setSideBarStatus] = useState(true);
 
-  const token = jwt.decode(localStorage.getItem("token"));
-
-  const token2 = localStorage.getItem("token");
+  const  { user, token, wallet } = useContext(UserContext);
 
   useEffect(() => {
     if (!token) {
       history.replace("/login");
-    } else {
-      const options = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token2,
-        },
-      };
-
-      fetch(`http://localhost:5000/api/users/${token._id}`, options)
-        .then((response) => response.json())
-        .then((json) => setUserData(json));
-
-      fetch(`http://localhost:5000/api/wallet/${token._id}/author`, options)
-        .then((response) => response.json())
-        .then((json) => {
-          setWallet(json._id);
-        });
     }
   }, []);
+
 
   const notDashboard = history.location.pathname !== "/dashboard";
 
@@ -74,7 +53,7 @@ const DashboardPage = () => {
     <>
       {notDashboard && user && (
         <div className="UserMenu_top_container">
-          <UserMenu user={user} />
+          <UserMenu/>
         </div>
       )}
       <div className="Dashboard_container">
@@ -106,28 +85,28 @@ const DashboardPage = () => {
         <Switch>
           <Route path={`${path}/wallet`}>
             <div className={styleClass}>
-              {wallet && <Wallet wallet={wallet} />}
+              <Wallet/>
             </div>
           </Route>
           <Route path={`${path}/send`}>
             <div className={styleClass}>
-              {wallet && <Send wallet={wallet} token={token2} />}
+              {wallet && <Send/>}
             </div>
           </Route>
           <Route path={`${path}/request`}>
             <div className={styleClass}>
-              {user && <Request wallet={wallet} token={token2} />}
+              {user && <Request/>}
             </div>
           </Route>
           <Route path={`${path}/accountsettings`}>
             <div className={styleClass}>
-              {user && <AccountSettings user={user} token={token2} />}
+              {user && <AccountSettings/>}
             </div>
           </Route>
 
           <Route path={`${path}/funds`}>
             <div className={styleClass}>
-              {user && <Funds wallet={wallet} token={token2} />}
+              {user && <Funds/>}
             </div>
           </Route>
 
@@ -137,11 +116,11 @@ const DashboardPage = () => {
                 <div className="overview_container">
                   <h1>Overview</h1>
                   <span>
-                    Hi {user.name}, get your summary of your transacrtions and
+                    Hi {user.name}, get your summary of your transactions and
                     requests here
                   </span>
                   <div className="balanceBoxDashboard">
-                    <BalanceBox wallet={wallet} />
+                    <BalanceBox/>
                   </div>
                 </div>
               )}
@@ -149,7 +128,7 @@ const DashboardPage = () => {
 
             {user && (
               <div className="Dashboard_Requests_container">
-                <RequestBar user={user} token={token2} />
+                <RequestBar/>
               </div>
             )}
           </Route>

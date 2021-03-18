@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import "./Send.css"
 import Button from '../Button/Button';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { validateEmail } from "../../Utils/validations";
-import React from 'react';
+import { UserContext } from '../../user-context';
 
 
-const Send = ({wallet, token}) => {
+const Send = () => {
 
-  const walletId = wallet
+  const { wallet, token } = useContext(UserContext);
+
   const history = useHistory();
-
 
   const [email, setEmail] = useState();
 
@@ -23,7 +23,7 @@ const Send = ({wallet, token}) => {
   });
 
   const body = {
-    sender:  walletId,
+    sender:  wallet,
     receiver: email,
     amount: amount  
 
