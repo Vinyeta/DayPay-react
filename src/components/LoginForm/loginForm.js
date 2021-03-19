@@ -29,7 +29,7 @@ const LoginForm = () => {
       body: JSON.stringify(body),
     };
 
-    fetch(`${API_ROOT}/api/auth/login`, options)
+    fetch(`${API_ROOT}api/auth/login`, options)
       .then(response => response.json())
       .then(json => {
         localStorage.setItem('token', json.token)

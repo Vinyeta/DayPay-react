@@ -73,7 +73,7 @@ const Request = ({wallet, token}) => {
         'amount': 'errorInvisible',
       })
     } else {
-      fetch(`${API_ROOT}/api/requestMoney/`, options).then((response) => {
+      fetch(`${API_ROOT}api/requestMoney/`, options).then((response) => {
         console.log(response.status)
         cleanErrors();
         history.replace("/dashboard");

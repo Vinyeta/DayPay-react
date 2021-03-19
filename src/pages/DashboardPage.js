@@ -42,11 +42,11 @@ const DashboardPage = () => {
         },
       };
 
-      fetch(`${API_ROOT}/api/users/${token._id}`, options)
+      fetch(`${API_ROOT}api/users/${token._id}`, options)
         .then((response) => response.json())
         .then((json) => setUserData(json));
 
-      fetch(`${API_ROOT}/api/wallet/${token._id}/author`, options)
+      fetch(`${API_ROOT}api/wallet/${token._id}/author`, options)
         .then((response) => response.json())
         .then((json) => {
           setWallet(json._id);

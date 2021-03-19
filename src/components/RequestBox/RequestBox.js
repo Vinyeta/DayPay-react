@@ -26,7 +26,7 @@ const updateRequest = (requestId, status, token) => {
 
     }
             
-    fetch(`${API_ROOT}/api/requestMoney/${requestId}`, options)
+    fetch(`${API_ROOT}api/requestMoney/${requestId}`, options)
                 .then((response) => response.json())
 
 }
@@ -65,7 +65,7 @@ const RequestBox = ({user, token}) => {
 
         }
             
-        fetch(`${API_ROOT}/api/requestMoney/${user._id}/user`, options)
+        fetch(`${API_ROOT}api/requestMoney/${user._id}/user`, options)
                   .then((response) => response.json())
                   .then((json) => {
                       setRequests(json);

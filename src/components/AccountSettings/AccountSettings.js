@@ -43,7 +43,7 @@ const AccountSettings = ({ user, token }) => {
       body: JSON.stringify(body),
     };
 
-    fetch(`${API_ROOT}/api/users/${id}`, options).then((response) => {
+    fetch(`${API_ROOT}api/users/${id}`, options).then((response) => {
       console.log(response.status);
       history.push('/dashboard');
     }

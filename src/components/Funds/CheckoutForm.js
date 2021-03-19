@@ -27,7 +27,7 @@ export default function CheckoutForm({amount, walletId, token}) {
     // Create PaymentIntent as soon as the page loads
     console.log(walletId);
     window
-      .fetch(`${API_ROOT}/api/stripe/payment`, {
+      .fetch(`${API_ROOT}api/stripe/payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +90,7 @@ export default function CheckoutForm({amount, walletId, token}) {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      fetch(`${API_ROOT}/api/wallet/${walletId}/stripePayment`, {
+      fetch(`${API_ROOT}api/wallet/${walletId}/stripePayment`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
