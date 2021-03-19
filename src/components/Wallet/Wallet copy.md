@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { ReactComponent as Arrows } from "../../assets/Arrows.svg";
 import Button from "../Button/Button";
@@ -8,28 +8,48 @@ import {
   incomeTransactions,
   outcomeTransactions,
   allTransactions,
+  getBalance,
 } from './walletHelper';
 import Moment from 'moment';
 import BalanceBox from '../BalanceBox/BalanceBox';
-import { UserContext } from '../../user-context';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Pagination from '@material-ui/lab/Pagination';
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 
 
 
-const Wallet = () => {
 
-  const { wallet, token } = useContext(UserContext);
+const Wallet = (wallet) => {
+
+  const walletId = wallet.wallet;
+  
+  
+  const [updateBalance, setUpdateBalance] = useState(false);
   
   const history = useHistory();
 
+  const [balance, setBalance] = useState();
 
   const [transactions, setTransactions] = useState( );
+
+  const classes = useStyles();
 
 
 
   useEffect(() => {
-    allTransactions(setTransactions, wallet, token);
-    }, []);
+    allTransactions(setTransactions, walletId);
+    getBalance(setBalance, walletId);
+    }, [updateBalance]);
 
 
   return (
@@ -37,7 +57,7 @@ const Wallet = () => {
       <div className="transPage">
         <div className="upper">
           <div className="miniBox1">
-          <BalanceBox />
+          <BalanceBox wallet={walletId} update={updateBalance}/>
           </div>
           <div className="miniBox2">
             <Button buttonClass="defaultButton_featured" value="Add funds" 
@@ -54,13 +74,13 @@ const Wallet = () => {
             <div className="filters">
               <div></div>
               <div>
-                <span onClick={() =>{ allTransactions(setTransactions, wallet, token);}}>All</span>
+                <span onClick={() =>{ allTransactions(setTransactions, walletId);}}>All</span>
               </div>
-              <div style={{ cursor: "pointer" }} onClick={ () => incomeTransactions(setTransactions, wallet,token)}>
+              <div style={{ cursor: "pointer" }} onClick={ () => incomeTransactions(setTransactions, walletId)}>
                 <span>Income</span>
               </div>
               <div>
-                <span onClick={() => outcomeTransactions(setTransactions, wallet, token)}>Outcome</span>
+                <span onClick={() => outcomeTransactions(setTransactions, walletId)}>Outcome</span>
               </div>
             </div>{" "}
           </div>
@@ -113,6 +133,13 @@ const Wallet = () => {
 
           </table>
           <div className="moreTransactions">See all transactions</div>
+          <div className={classes.root}>
+              <Pagination count={10} />
+              <Pagination count={10} color="primary" />
+              <Pagination count={10} color="secondary" />
+              <Pagination count={10} disabled />
+          </div>
+  
         </div>
 
         <div className="boxShapeTopPage">
@@ -127,3 +154,8 @@ const Wallet = () => {
 };
 
 export default Wallet;
+
+
+//cuanto dinero hay en la cuenta
+//CHART JS
+//https://www.chartjs.org/
