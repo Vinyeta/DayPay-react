@@ -31,6 +31,7 @@ function UserProvider({ children }) {
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("decodifiedToken");
     setUser(null);
     setToken(null);
     setDecodifiedToken(null);

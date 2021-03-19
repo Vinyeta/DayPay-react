@@ -8,6 +8,7 @@ import { UserContext } from '../../user-context';
 const Header = () => {
   const { token } = useContext(UserContext);
 
+
   const [links, setLinks] = useState({
     activeObject: null,
     objects: [{ text: "About" }, { text: "Pricing" }, { text: "Contact" }],

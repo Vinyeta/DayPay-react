@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
-import jwt from "jsonwebtoken";
 import "./DashboardPage.css";
 import UserMenu from "../components/UserMenu/UserMenu";
 import Sidebar from "../components/SideBar/Sidebar";

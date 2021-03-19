@@ -46,7 +46,6 @@ const LoginForm = () => {
             value="Login"
             onClick={()=> {
               login(body);
-              history.replace('/dashboard');
             }}
           />
           <span className="alreadyAccount">Don`t have an account?
