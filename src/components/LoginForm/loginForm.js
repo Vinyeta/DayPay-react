@@ -5,7 +5,6 @@ import Button from "../Button/Button";
 import Logo from "../../assets/Logo.png";
 import Moreno from "../../assets/Moreno.png";
 import betterPayments from "../../assets/betterPayments.png";
-import { API_ROOT } from '../../hostSettings';
 import { UserContext } from '../../user-context';
 
 
@@ -14,10 +13,11 @@ const LoginForm = () => {
   const [password, setPassword] = useState();
   const history = useHistory();
   const { token, login } = useContext(UserContext);  
+  useEffect(()=> {
+  token && history.replace('/dashboard');
 
-  useEffect(() => {
-    if(token) history.replace('/dashboard')
-  }, [token]);
+  }, [token, login,])
+
 
   const body = {
     email: email,
