@@ -1,17 +1,17 @@
 import React from 'react'
-import "./MoneyChart.css";
 import { Chart } from 'react-charts';
 import { UserContext } from '../../user-context';
+import "./MoneyChart.css";
+import { dayOfTheWeek } from '../../Utils/dayOfTheWeek';
 
 function ChartDay() {
 
     const { wallet, token } = React.useContext(UserContext);
 
-    const [histogram, setHistogram] = React.useState();
-    console.log(histogram);
+    const [histogram, setHistogram] = React.useState([]);
 
 
-    React.useEffect( () => {
+    React.useEffect(() => {
         console.log('test');
         const options = {
 
@@ -25,30 +25,44 @@ function ChartDay() {
 
         fetch(`http://localhost:5000/api/wallet/${wallet}/histogram`, options)
             .then((response) => response.json())
-            .then((json) => {setHistogram(json); console.log(json)});
+            .then((json) => {
+                let preparingData = [];
+                json.forEach(element => {
+                    preparingData.unshift({ x: dayOfTheWeek(element.date), y: element.funds });
+                    console.log('test2')
+                });
+                setHistogram(preparingData);
+            })
+            .catch((err) => console.log(err));
     }, []);
 
-    const data = React.useMemo(() => [
+
+
+    const data = React.useMemo(
+        () => [
             {
                 label: 'Series 1',
-                data: [{ x: 1, y: histogram && histogram[6] }, { x: 2, y: histogram && histogram[5] }, { x: 3, y: histogram && histogram[4] }, { x: 4, y: histogram && histogram[3] }, { x: 5, y: histogram && histogram[2] }, { x: 6, y: histogram && histogram[1] }, { x: 7, y: histogram && histogram[0] }]
-            },
-
-        ],[histogram]);
+                data: histogram && histogram
+            }
+        ], [histogram]);
 
     const axes = React.useMemo(
         () => [
-            { primary: true, type: 'linear', position: 'bottom' },
+            { primary: true, type: 'ordinal', position: 'bottom' },
             { type: 'linear', position: 'left' }
-        ],
+        ], []);
+    const series = React.useMemo(
+        () => ({
+            type: "bar"
+        }),
         []
-    )
+    );
 
     return (
         <div
             style={{
-                width: '400px',
-                height: '300px'
+                width: '500px',
+                height: '300px',
             }}
         >
             <Chart data={data} axes={axes} />
