@@ -88,34 +88,12 @@
   margin-bottom: 30px;
 }
 
-.buttonOfSignUpForm {
-  text-align: center;
-  line-height: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  height: 40px;
-  width: 100px;
-  border-radius: 7px;
-  font-style: Manrope;
-  background-color: #258aff;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .buttonOfNewsletterform:hover {
   color: white;
   background: black;
 }
 
 .buttonOfIntroducePage:hover {
-  color: white;
-  background: black;
-}
-
-.buttonOfSignUpForm:hover {
   color: white;
   background: black;
 }
