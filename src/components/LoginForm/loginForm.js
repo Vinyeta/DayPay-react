@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./loginForm.css";
 import Button from "../Button/Button";
@@ -6,37 +6,24 @@ import Logo from "../../assets/Logo.png";
 import Moreno from "../../assets/Moreno.png";
 import betterPayments from "../../assets/betterPayments.png";
 import { API_ROOT } from '../../hostSettings';
-
+import { UserContext } from '../../user-context';
 
 
 const LoginForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const history = useHistory();
+  const { token, login } = useContext(UserContext);  
 
+  useEffect(() => {
+    if(token) history.replace('/dashboard')
+  }, [token]);
 
   const body = {
     email: email,
     password: password,
   };
 
-  const handleLogin = () => {
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    };
-
-    fetch(`${API_ROOT}api/auth/login`, options)
-      .then(response => response.json())
-      .then(json => {
-        localStorage.setItem('token', json.token)
-        history.replace('/dashboard')
-      })
-      .catch(error => console.log(error))
-  };
   return (
     <div className="Login__container">
       <div className="logform__container" >
@@ -58,7 +45,9 @@ const LoginForm = () => {
           <Button
             buttonClass="defaultButton_featured"
             value="Login"
-            onClick={handleLogin}
+            onClick={()=> {
+              login(body);
+            }}
           />
           <span className="alreadyAccount">Don`t have an account?
           <Link to="/signup" style={{ textDecoration: 'none' }}> Sign Up</Link>
@@ -73,5 +62,4 @@ const LoginForm = () => {
     </div>
   );
 };
-
 export default (LoginForm);

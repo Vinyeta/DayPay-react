@@ -2,7 +2,6 @@ import "./FooterList.css";
 
 const FooterList = ({menu}) => {
 
-    console.log(menu.items)
 
     return (
         <div className="footerList__container">

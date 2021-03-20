@@ -23,13 +23,9 @@ const Sidebar = () => {
                 <SideMenu />
             </div>
 
-            <div className="SideBar_expandButton_container" onClick={() => setSideBarStatus(!SideBarStatus)} >
-                <img src={Expand} alt="Expand Button"  />
-            </div>
+            
         </div>)}
-        {!SideBarStatus && <div className="Page_expandButton_container" onClick={() => setSideBarStatus(!SideBarStatus)} >
-                <img src={Expand} alt="Expand Button"  />
-            </div>}
+        
     </>
     )
 }

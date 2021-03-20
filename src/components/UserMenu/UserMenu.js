@@ -1,12 +1,13 @@
+import { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import "./UserMenu.css";
 import Avatar from "../Avatar/Avatar";
 import { ReactComponent as Forwards } from "../../assets/Forward.svg";
-import { useHistory } from 'react-router-dom';
+import { UserContext } from '../../user-context';
 
+const UserMenu = () => {
 
-const UserMenu = ({user}) => {
-
-
+  const { logout, user } = useContext(UserContext);
   const history = useHistory();
 
   return (
@@ -33,7 +34,7 @@ const UserMenu = ({user}) => {
       <div className="UserMenu_dropdown__container">
         <div className="UserMenu_dropdown__container box">       
           <div className="UserMenu_dropdown__list">
-            <div style={{cursor: "pointer"}} onClick={() => {localStorage.removeItem("token"); history.replace("/login")} }>Log out</div>
+            <div style={{cursor: "pointer"}} onClick={() => {logout(); history.replace("/login")} }>Log out</div>
           </div>
         </div>
       </div>
