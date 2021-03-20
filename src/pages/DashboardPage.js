@@ -9,8 +9,9 @@ import RequestBar from "../components/RequestBar/RequestBar";
 import Expand from "../assets/Expand.png";
 import Request from "../components/Request/Request";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
-import BalanceBox from "../components/BalanceBox/BalanceBox";
-import Funds from "../components/Funds/Funds";
+import BalanceBox from '../components/BalanceBox/BalanceBox';
+import Funds from '../components/Funds/Funds';
+import { API_ROOT } from '../hostSettings';
 import { UserContext } from '../user-context';
 
 const DashboardPage = () => {

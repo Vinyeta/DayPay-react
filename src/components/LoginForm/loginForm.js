@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import Logo from "../../assets/Logo.png";
 import Moreno from "../../assets/Moreno.png";
 import betterPayments from "../../assets/betterPayments.png";
+import { API_ROOT } from '../../hostSettings';
 import { UserContext } from '../../user-context';
 
 

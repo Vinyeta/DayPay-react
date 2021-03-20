@@ -1,5 +1,6 @@
 import * as React from "react";
 import jwt from "jsonwebtoken";
+import { API_ROOT } from './hostSettings';
 
 export const UserContext = React.createContext();
 
@@ -19,7 +20,7 @@ function UserProvider({ children }) {
       body: JSON.stringify(body),
     };
 
-    fetch("http://localhost:5000/api/auth/login", options)
+    fetch(`${API_ROOT}api/auth/login`, options)
       .then(response => response.json())
       .then(json => {
         localStorage.setItem('token', json.token);
@@ -45,11 +46,11 @@ function UserProvider({ children }) {
           Authorization: "Bearer " + token,
         },
       };
-      fetch(`http://localhost:5000/api/users/${decodifiedToken}`, options)
+      fetch(`${API_ROOT}api/users/${decodifiedToken}`, options)
         .then((response) => response.json())
         .then((json) => setUser(json))
         .then(() => {
-          fetch(`http://localhost:5000/api/wallet/${decodifiedToken}/author`, options)
+          fetch(`${API_ROOT}api/wallet/${decodifiedToken}/author`, options)
             .then((response) => response.json())
             .then((json) => {
               setWallet(json._id);
