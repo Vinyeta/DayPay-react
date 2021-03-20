@@ -39,47 +39,13 @@
     padding-right:7px;
   }
   
-  .featuredButton {
-    text-align: center;
-    line-height: 20px;
-    font-size: 16px;
-    height: 65px;
-    width: 193px;
-    border-radius: 5px;
-    background-color: #258AFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-.featuredButton {
-  text-align: center;
-  line-height: 20px;
-  font-size: 16px;
-  height: 65px;
-  width: 193px;
-  border-radius: 5px;
-  background-color: #258aff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  
 
 .defaultButton:hover {
   color: white;
   background-color: black;
 }
 
-.featuredButton:hover {
-  color: white;
-  background: black;
-}
 
 .defaultButton_featured:hover {
   color: white;
