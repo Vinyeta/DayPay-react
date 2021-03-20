@@ -34,7 +34,7 @@ jobs:
       run: npm build
 
   PublishToNetlify:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/dynamicBackendRoutes'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
