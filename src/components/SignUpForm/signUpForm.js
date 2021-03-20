@@ -64,7 +64,7 @@ const SignUpForm = () => {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="buttonOfSignUpForm">
+        <div className="defaultButton_featured">
           <Button
           buttonClass="defaultButton_featured"
           value="Sign up"
