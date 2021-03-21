@@ -9,11 +9,12 @@ import RequestBar from "../components/RequestBar/RequestBar";
 import Expand from "../assets/Expand.png";
 import Request from "../components/Request/Request";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
-import BalanceBox from "../components/BalanceBox/BalanceBox";
-import Funds from "../components/Funds/Funds";
+import BalanceBox from '../components/BalanceBox/BalanceBox';
+import Funds from '../components/Funds/Funds';
 import { UserContext } from '../user-context';
 import MoneyChart from "../components/MoneyChart/MoneyChart";
 import TransactionChart from "../components/TransactionChart/TransactionChart";
+
 
 const DashboardPage = () => {
   const history = useHistory();
@@ -121,7 +122,7 @@ const DashboardPage = () => {
                     requests here
                   </span>
                   <div className="balanceBoxDashboard">
-                     <BalanceBox/>
+                    <BalanceBox/>
                   </div>
                   <div className="charts">   
                      <MoneyChart/>

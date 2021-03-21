@@ -4,6 +4,7 @@ import "./AccountSettings.css"
 import Button from '../Button/Button';
 import EditUser from '../../assets/EditUser.svg';
 import EyeOff from '../../assets/eye-off.svg';
+import { API_ROOT } from '../../hostSettings';
 import { UserContext } from '../../user-context';
 import Avatar from '../Avatar/Avatar';
 
@@ -45,7 +46,7 @@ const AccountSettings = () => {
       body: JSON.stringify(body),
     };
 
-    fetch(`http://localhost:5000/api/users/${id}`, options).then((response) => {
+    fetch(`${API_ROOT}api/users/${id}`, options).then((response) => {
       console.log(response.status);
       history.push('/dashboard');
     }
@@ -65,7 +66,6 @@ const AccountSettings = () => {
           <div className="accountSettings__img" >
           <Avatar user={user} />          
           </div>
-          <img className="accountSettings__edit" src={EditUser} alt="edit user avatar" />
 
           <div className="nameData__container">
             <input className="nameInput__container" placeholder="Name"

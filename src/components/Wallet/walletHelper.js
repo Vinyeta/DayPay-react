@@ -1,3 +1,5 @@
+import { API_ROOT } from '../../hostSettings';
+
 
 
 export const incomeTransactions = (setTransactions, id, token) => {
@@ -8,10 +10,8 @@ export const incomeTransactions = (setTransactions, id, token) => {
         "Authorization": "Bearer " + token
   
     }}
-  
-  
 
-    fetch(`http://localhost:5000/api/transactions/${id}/received`, options)
+    fetch(`${API_ROOT}api/transactions/${id}/received`, options)
       .then((response) => response.json())
       .then((json) => setTransactions(json));
   }
@@ -24,10 +24,8 @@ export  const outcomeTransactions = (setTransactions, id, token) => {
         "Authorization": "Bearer " + token
   
     }}
-  
-  
 
-    fetch(`http://localhost:5000/api/transactions/${id}/sent`, options)
+    fetch(`${API_ROOT}api/transactions/${id}/sent`, options)
       .then((response) => response.json())
       .then((json) => setTransactions(json));
 
@@ -42,9 +40,7 @@ export  const allTransactions = (setTransactions, id, token) => {
   
     }}
   
-  
-
-    fetch(`http://localhost:5000/api/transactions/${id}/all`, options)
+    fetch(`${API_ROOT}api/transactions/${id}/all`, options)
       .then((response) => response.json())
       .then((json) => setTransactions(json));
 
@@ -59,9 +55,8 @@ export  const getBalance = (setBalance, id, token) => {
         "Authorization": "Bearer " + token
   
     }}
-  
-  
-    fetch(`http://localhost:5000/api/wallet/${id}/balance`, options)
+   
+    fetch(`${API_ROOT}api/wallet/${id}/balance`, options)
       .then((response) => response.json())
       .then((json) => setBalance(json));
   }
@@ -76,10 +71,8 @@ export  const getBalance = (setBalance, id, token) => {
           "Authorization": "Bearer " + token
     
       }}
-    
-    
-    
-    fetch(`http://localhost:5000/api/wallet/${id}/increment`, options)
+       
+    fetch(`${API_ROOT}api/wallet/${id}/increment`, options)
       .then((response) => response.json())
       .then((json) => setPercentage(json.toFixed(2)));
   };

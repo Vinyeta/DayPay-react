@@ -4,6 +4,7 @@ import "./Send.css"
 import Button from '../Button/Button';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { validateEmail } from "../../Utils/validations";
+import { API_ROOT } from '../../hostSettings';
 import { UserContext } from '../../user-context';
 
 
@@ -54,7 +55,6 @@ const Send = () => {
     };
     
 
-
     if (!validateEmail(email) && (amount <= 0 || !amount)) {
       setErrorStyle({
         'email': 'errorVisible',
@@ -74,7 +74,7 @@ const Send = () => {
        setSameEmail('errorVisible') 
       
     } else {
-      fetch(`http://localhost:5000/api/queue/msg`, options).then((response) => {
+      fetch(`${API_ROOT}api/transactions/`, options).then((response) => {
         console.log(response.status);
         history.replace("/dashboard");
       }

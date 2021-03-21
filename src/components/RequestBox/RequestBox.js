@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import "./RequestBox.css";
 import Moment from 'moment';
+import { API_ROOT } from '../../hostSettings';
 import Modal from 'react-modal';
 import Button from '../Button/Button';
 import { UserContext } from '../../user-context';
@@ -28,8 +29,9 @@ const updateRequest = (requestId, status, token) => {
         method: "PATCH"
 
     }
-
-    fetch(`http://localhost:5000/api/requestMoney/${requestId}`, options)
+            
+    fetch(`${API_ROOT}api/requestMoney/${requestId}`, options)
+                .then((response) => response.json())
 
 }
 
@@ -55,7 +57,7 @@ const RequestBox = () => {
         };
 
 
-        fetch(`http://localhost:5000/api/transactions`, options)
+        fetch(`${API_ROOT}api/transactions`, options)
             .then((response) => response.json())
     }
 
@@ -98,14 +100,14 @@ const RequestBox = () => {
             }
 
         }
-
-        fetch(`http://localhost:5000/api/requestMoney/${user._id}/user`, options)
-            .then((response) => response.json())
-            .then((json) => {
-                setRequests(json);
-                console.log(requests);
-            })
-    }, [!updateTrans])
+            
+        fetch(`${API_ROOT}api/requestMoney/${user._id}/user`, options)
+                  .then((response) => response.json())
+                  .then((json) => {
+                      setRequests(json);
+                      console.log(requests);
+                    })      
+      }, [!updateTrans])
 
     const [hasConfirmed, setHasConfirmed] = useState(false);
 

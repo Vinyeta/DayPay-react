@@ -9,6 +9,7 @@ import { ReactComponent as Ok } from "../../assets/confirm.svg";
 import { ReactComponent as Ko } from "../../assets/close.svg";
 import "./CheckoutForm.css"
 import Button from "../Button/Button";
+import { API_ROOT } from '../../hostSettings';
 import { UserContext } from '../../user-context';
 
 export default function CheckoutForm({ amount }) {
@@ -26,7 +27,7 @@ export default function CheckoutForm({ amount }) {
     
     // Create PaymentIntent as soon as the page loads
     window
-      .fetch("http://localhost:5000/api/stripe/payment", {
+      .fetch(`${API_ROOT}api/stripe/payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -86,7 +87,7 @@ export default function CheckoutForm({ amount }) {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      fetch(`http://localhost:5000/api/wallet/${wallet}/stripePayment`, {
+      fetch(`${API_ROOT}api/wallet/${wallet}/stripePayment`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
