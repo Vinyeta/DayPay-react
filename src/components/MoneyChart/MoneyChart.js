@@ -50,7 +50,8 @@ function ChartDay() {
         () => [
             { primary: true, type: 'ordinal', position: 'bottom' },
             { type: 'linear', position: 'left' }
-        ], []);
+        ], [histogram]);
+
     const series = React.useMemo(
         () => ({
             type: "bar"
@@ -59,12 +60,7 @@ function ChartDay() {
     );
 
     return (
-        <div
-            style={{
-                width: '500px',
-                height: '300px',
-            }}
-        >
+        <div className="histogram">
             <Chart data={data} axes={axes} />
         </div>
     )
