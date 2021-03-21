@@ -31,7 +31,7 @@ function ChartDay() {
     const data = React.useMemo(() => [
             {
                 label: 'Series 1',
-                data: [{ x: 1, y: histogram && histogram[6] }, { x: 2, y: histogram && histogram[5] }, { x: 3, y: histogram && histogram[4] }, { x: 4, y: histogram && histogram[3] }, { x: 5, y: histogram && histogram[2] }, { x: 6, y: histogram && histogram[1] }, { x: 7, y: histogram && histogram[0] }]
+                data: [{ x: 1, y: histogram && histogram[6] }, { x: 2, y: histogram && histogram[5] }, { x: 3, y: histogram && histogram[4] }, { x: 4, y: histogram && histogram[3] }, { x: 5, y: histogram && histogram[2] }, { x: 6, y: histogram && histogram[1] }, { x: 7, y: histogram && histogram[] }]
             },
 
         ],[histogram]);
