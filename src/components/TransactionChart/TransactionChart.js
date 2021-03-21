@@ -1,10 +1,12 @@
 import React from 'react'
 import { Chart } from 'react-charts';
 import { UserContext } from '../../user-context';
-import "./MoneyChart.css";
-import { dayOfTheWeek } from '../../Utils/dayOfTheWeek';
+import "./TransactionChart.css";
+import { parseDate } from '../../Utils/parseDate';
 
-function ChartDay() {
+
+
+function TransactionChart() {
 
     const { wallet, token } = React.useContext(UserContext);
 
@@ -12,7 +14,6 @@ function ChartDay() {
 
 
     React.useEffect(() => {
-        console.log('test');
         const options = {
 
             headers: {
@@ -20,17 +21,19 @@ function ChartDay() {
                 "Authorization": "Bearer " + token
 
             }
+
         }
 
 
-        fetch(`http://localhost:5000/api/wallet/${wallet}/histogram`, options)
+        fetch(`http://localhost:5000/api/transactions/${wallet}/lastWeek`, options)
             .then((response) => response.json())
             .then((json) => {
                 let preparingData = [];
                 json.forEach(element => {
-                    preparingData.unshift({ x: dayOfTheWeek(element.date), y: element.funds });
+                    preparingData.unshift({ x: parseDate(new Date (element.date)), y: element.amount });
                     console.log('test2')
                 });
+                console.log(preparingData);
                 setHistogram(preparingData);
             })
             .catch((err) => console.log(err));
@@ -56,14 +59,14 @@ function ChartDay() {
         () => ({
             type: "bar"
         }),
-        []
+        [histogram]
     );
 
     return (
         <div className="histogram">
-            <Chart data={data} axes={axes} tooltip />
+            <Chart data={data} axes={axes} series={series} tooltip/>
         </div>
     )
 }
 
-export default ChartDay;
+export default TransactionChart;
