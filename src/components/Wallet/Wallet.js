@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { ReactComponent as Arrows } from "../../assets/Arrows.svg";
 import Button from "../Button/Button";
@@ -8,32 +8,28 @@ import {
   incomeTransactions,
   outcomeTransactions,
   allTransactions,
-  getBalance,
 } from './walletHelper';
 import Moment from 'moment';
 import BalanceBox from '../BalanceBox/BalanceBox';
+import { UserContext } from '../../user-context';
 
 
 
-const Wallet = (wallet) => {
 
-  const walletId = wallet.wallet;
-  
-  const [updateBalance, setUpdateBalance] = useState(false);
+const Wallet = () => {
+
+  const { wallet, token } = useContext(UserContext);
   
   const history = useHistory();
 
-  const [balance, setBalance] = useState();
 
   const [transactions, setTransactions] = useState( );
 
 
 
-
   useEffect(() => {
-    allTransactions(setTransactions, walletId);
-    getBalance(setBalance, walletId);
-    }, [updateBalance]);
+    allTransactions(setTransactions, wallet, token);
+    }, []);
 
 
   return (
@@ -41,7 +37,7 @@ const Wallet = (wallet) => {
       <div className="transPage">
         <div className="upper">
           <div className="miniBox1">
-          <BalanceBox wallet={walletId} update={updateBalance}/>
+          <BalanceBox />
           </div>
           <div className="miniBox2">
             <Button buttonClass="defaultButton_featured" value="Add funds" 
@@ -58,13 +54,13 @@ const Wallet = (wallet) => {
             <div className="filters">
               <div></div>
               <div>
-                <span onClick={() =>{ allTransactions(setTransactions, walletId);}}>All</span>
+                <span onClick={() =>{ allTransactions(setTransactions, wallet, token);}}>All</span>
               </div>
-              <div style={{ cursor: "pointer" }} onClick={ () => incomeTransactions(setTransactions, walletId)}>
+              <div style={{ cursor: "pointer" }} onClick={ () => incomeTransactions(setTransactions, wallet,token)}>
                 <span>Income</span>
               </div>
               <div>
-                <span onClick={() => outcomeTransactions(setTransactions, walletId)}>Outcome</span>
+                <span onClick={() => outcomeTransactions(setTransactions, wallet, token)}>Outcome</span>
               </div>
             </div>{" "}
           </div>
@@ -91,6 +87,9 @@ const Wallet = (wallet) => {
                   i.sender && i.sender.author && <div className="nameTransaction">Sent by {i.sender.author.name}</div>
 
                 } 
+                { i.stripeSender && <div className="nameTransaction">Added by card ending in {i.stripeSender}</div>
+
+                }
                 </td>             
                   <td style={{ width: "65px", height: "16px" }}>
                     <div  
@@ -113,12 +112,8 @@ const Wallet = (wallet) => {
             )}
 
           </table>
-
-
-          
-        <div className="moreTransactions" onClick={() =>{ allTransactions(setTransactions, walletId);}}>See all transactions</div>
+          <div className="moreTransactions">See all transactions</div>
         </div>
-
 
         <div className="boxShapeTopPage">
           <DotPattern></DotPattern>

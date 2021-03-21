@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import imagen from "../../assets/Moreno.png";
 import Logo from "../../assets/Logo.png";
 import betterPayments from "../../assets/betterPayments.png";
+import { API_ROOT } from '../../hostSettings';
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState();
@@ -31,7 +32,7 @@ const SignUpForm = () => {
       body: JSON.stringify(body),
     };
 
-    fetch("http://localhost:5000/api/auth/signUp", options)
+    fetch(`${API_ROOT}api/auth/signUp`, options)
       .then((response) => response.json())
       .then( history.replace('/login'))
       .catch(error => console.log(error))
@@ -63,7 +64,7 @@ const SignUpForm = () => {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="buttonOfSignUpForm">
+        <div className="defaultButton_featured">
           <Button
           buttonClass="defaultButton_featured"
           value="Sign up"

@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import "./AccountSettings.css"
 import Button from '../Button/Button';
 import EditUser from '../../assets/EditUser.svg';
 import EyeOff from '../../assets/eye-off.svg';
+import { API_ROOT } from '../../hostSettings';
+import { UserContext } from '../../user-context';
 import Avatar from '../Avatar/Avatar';
 
 
+const AccountSettings = () => {
 
-const AccountSettings = ({ user, token }) => {
+  const {user, token} = useContext(UserContext);
 
   const history = useHistory();
 
@@ -43,7 +46,7 @@ const AccountSettings = ({ user, token }) => {
       body: JSON.stringify(body),
     };
 
-    fetch(`http://localhost:5000/api/users/${id}`, options).then((response) => {
+    fetch(`${API_ROOT}api/users/${id}`, options).then((response) => {
       console.log(response.status);
       history.push('/dashboard');
     }
@@ -63,7 +66,6 @@ const AccountSettings = ({ user, token }) => {
           <div className="accountSettings__img" >
           <Avatar user={user} />          
           </div>
-          <img className="accountSettings__edit" src={EditUser} alt="edit user avatar" />
 
           <div className="nameData__container">
             <input className="nameInput__container" placeholder="Name"

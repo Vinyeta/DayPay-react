@@ -1,16 +1,18 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import "./Funds.css"
 import Button from '../Button/Button';
 import { ReactComponent as DotPattern } from "../../assets/Pattern.svg";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import { UserContext } from '../../user-context';
 
 const promise = loadStripe("pk_test_51IRZvdKejS6aCTL76ohIcEuzQHZEGDdzYpXXY9PCpFIRt9pFHSU5YXygGydyD9L2810g3j5gBDhWzboAnruvQXjA0059M22jCx");
 
 
-const Funds = ({wallet, token}) => {  
+const Funds = () => {  
 
+  const { wallet, token } = useContext(UserContext);
   const [amount, setAmount] = useState(0);
   const [checkoutReady, setCheckoutReady] = useState(false);
 
@@ -41,7 +43,7 @@ const Funds = ({wallet, token}) => {
         <Elements stripe={promise}>
         {checkoutReady && <div className="transTitle"> Complete the payment to add {amount}€ to your wallet</div>}
 
-        {checkoutReady && <CheckoutForm amount={amount} walletId={wallet} token={token}/>}
+        {checkoutReady && <CheckoutForm amount={amount} />}
       </Elements>
       </div>
     </div>

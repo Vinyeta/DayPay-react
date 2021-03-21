@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from 'react-router-dom';
 import {
   CardElement,
   useStripe,
@@ -8,10 +9,10 @@ import { ReactComponent as Ok } from "../../assets/confirm.svg";
 import { ReactComponent as Ko } from "../../assets/close.svg";
 import "./CheckoutForm.css"
 import Button from "../Button/Button";
-import { useHistory } from 'react-router-dom';
+import { API_ROOT } from '../../hostSettings';
+import { UserContext } from '../../user-context';
 
-
-export default function CheckoutForm({amount, walletId, token}) {
+export default function CheckoutForm({ amount }) {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
@@ -20,25 +21,24 @@ export default function CheckoutForm({amount, walletId, token}) {
   const stripe = useStripe();
   const elements = useElements();
   const history = useHistory();
+  const { wallet, token } = useContext(UserContext);
 
   useEffect(() => {
     
     // Create PaymentIntent as soon as the page loads
-    console.log(walletId);
     window
-      .fetch("http://localhost:5000/api/stripe/payment", {
+      .fetch(`${API_ROOT}api/stripe/payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + token
         },
-        body: JSON.stringify({amount:amount, walletId: walletId})
+        body: JSON.stringify({amount:amount, wallet: wallet})
       })
       .then(res => {
         return res.json();
       })
       .then(data => {
-          console.log(data)
         setClientSecret(data.client_secret);
       });
   }, []);
@@ -80,22 +80,20 @@ export default function CheckoutForm({amount, walletId, token}) {
         card: elements.getElement(CardElement)
       }
     });
-    console.log(payload)
     if (payload.error) {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {
-        console.log(payload)
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      fetch(`http://localhost:5000/api/wallet/${walletId}/stripePayment`, {
+      fetch(`${API_ROOT}api/wallet/${wallet}/stripePayment`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + token
         },
-        body: JSON.stringify({amount:amount})
+        body: JSON.stringify(payload)
       })
     }
   };

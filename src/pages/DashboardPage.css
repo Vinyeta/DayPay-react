@@ -11,6 +11,11 @@
     height: 150px;
 }
 
+.charts {
+    max-width: 800px;
+    margin-bottom: 80px;
+}
+
 .Dashboard_Page_container{
     align-items: center;
     display:flex;
@@ -146,4 +151,5 @@
     left:40px;
     height: 100%;
     width: 100%;
+    overflow: scroll;
 }
