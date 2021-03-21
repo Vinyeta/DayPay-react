@@ -3,6 +3,7 @@ import { Chart } from 'react-charts';
 import { UserContext } from '../../user-context';
 import "./TransactionChart.css";
 import { parseDate } from '../../Utils/parseDate';
+import { API_ROOT } from '../../hostSettings';
 
 
 
@@ -25,7 +26,7 @@ function TransactionChart() {
         }
 
 
-        fetch(`http://localhost:5000/api/transactions/${wallet}/lastWeek`, options)
+        fetch(`${API_ROOT}api/transactions/${wallet}/lastWeek`, options)
             .then((response) => response.json())
             .then((json) => {
                 let preparingData = [];

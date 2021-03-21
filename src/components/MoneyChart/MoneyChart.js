@@ -3,6 +3,7 @@ import { Chart } from 'react-charts';
 import { UserContext } from '../../user-context';
 import "./MoneyChart.css";
 import { dayOfTheWeek } from '../../Utils/dayOfTheWeek';
+import { API_ROOT } from '../../hostSettings';
 
 function ChartDay() {
 
@@ -23,7 +24,7 @@ function ChartDay() {
         }
 
 
-        fetch(`http://localhost:5000/api/wallet/${wallet}/histogram`, options)
+        fetch(`${API_ROOT}api/wallet/${wallet}/histogram`, options)
             .then((response) => response.json())
             .then((json) => {
                 let preparingData = [];
