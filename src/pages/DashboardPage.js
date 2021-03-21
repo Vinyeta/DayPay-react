@@ -12,6 +12,9 @@ import AccountSettings from "../components/AccountSettings/AccountSettings";
 import BalanceBox from '../components/BalanceBox/BalanceBox';
 import Funds from '../components/Funds/Funds';
 import { UserContext } from '../user-context';
+import MoneyChart from "../components/MoneyChart/MoneyChart";
+import TransactionChart from "../components/TransactionChart/TransactionChart";
+
 
 const DashboardPage = () => {
   const history = useHistory();
@@ -120,6 +123,10 @@ const DashboardPage = () => {
                   </span>
                   <div className="balanceBoxDashboard">
                     <BalanceBox/>
+                  </div>
+                  <div className="charts">   
+                     <MoneyChart/>
+                     <TransactionChart/>
                   </div>
                 </div>
               )}

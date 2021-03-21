@@ -66,7 +66,6 @@ const AccountSettings = () => {
           <div className="accountSettings__img" >
           <Avatar user={user} />          
           </div>
-          <img className="accountSettings__edit" src={EditUser} alt="edit user avatar" />
 
           <div className="nameData__container">
             <input className="nameInput__container" placeholder="Name"

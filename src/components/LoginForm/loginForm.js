@@ -11,12 +11,8 @@ import { UserContext } from '../../user-context';
 const LoginForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const history = useHistory();
-  const { token, login } = useContext(UserContext);  
-  useEffect(()=> {
-  token && history.replace('/dashboard');
-
-  }, [token, login,])
+  const { login } = useContext(UserContext);  
+ 
 
 
   const body = {

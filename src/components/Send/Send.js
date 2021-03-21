@@ -33,6 +33,10 @@ const Send = () => {
     amount: amount  
 
   };
+  const validaciones = {
+    sender: email,
+    receiver: email
+  }
 
   const cleanForm = () => {
     setEmail("");
@@ -49,6 +53,7 @@ const Send = () => {
       },
       body: JSON.stringify(body),
     };
+    
 
     if (!validateEmail(email) && (amount <= 0 || !amount)) {
       setErrorStyle({
