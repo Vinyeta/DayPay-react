@@ -121,8 +121,8 @@ const DashboardPage = () => {
                   </span>
                   <div className="balanceBoxDashboard">
                     <BalanceBox/>
-                    <MoneyChart/>
                   </div>
+                  <MoneyChart/>
                 </div>
               )}
             </div>
