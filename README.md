@@ -75,8 +75,8 @@
 
 ### Built With
 
-* [React](https://reactjs.org/)
-* [Express](https://expressjs.com/)
+- [React](https://reactjs.org/)
+- [Express](https://expressjs.com/)
 
 <!-- GETTING STARTED -->
 
@@ -86,17 +86,15 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* npm
+- npm
 
-  
-
-``` sh
+```sh
   npm install npm@latest -g
-  ```
+```
 
-* docker
+- docker
 
-``` sh
+```sh
 https://docs.docker.com/engine/install/ubuntu/
 ```
 
@@ -104,66 +102,54 @@ https://docs.docker.com/engine/install/ubuntu/
 
 1. Clone the repo
 
-   
-
-``` sh
+```sh
    git clone https://github.com/raulsalcedo03/DayPay-react.git
-   ```
+```
 
 2. Install NPM packages
 
-   
-
-``` sh
+```sh
    npm install
-   ```
+```
 
 3. Clone the backend repo
 
-   
-
-``` sh
+```sh
    git clone https://github.com/raulsalcedo03/DayPay-node.git
-   ```
+```
 
 4. Install backend NPM packages
 
-   
-
-``` sh
+```sh
    npm install
-   ```
+```
 
 5. Setup MongoDB image using docker:
 
-   
-
-``` sh
+```sh
    sudo docker run -d -p 127.0.0.1:27017:27017 --name DayPay-node \
     -e MONGO_INITDB_ROOT_USERNAME=mongoadmin \
     -e MONGO_INITDB_ROOT_PASSWORD=secret \
     mongo
-   ```
+```
 
 6. Run the mongo image in docker:
 
-``` sh
+```sh
 sudo docker start DayPay-node
 ```
 
 7. Start the backend server:
 
-``` sh
+```sh
 npm start
 ```
 
 8. Start the frontend server:
 
-``` sh
+```sh
 npm start
 ```
-
-   
 
 <!-- USAGE EXAMPLES -->
 
@@ -175,37 +161,35 @@ npm start
 
 We will use camelCase for all naming conventions.
 </br>
-When creating class names, if the class is a container we will name it according to what will be contained followed by __container. eg:
+When creating class names, if the class is a container we will name it according to what will be contained followed by \_\_container. eg:
 
-``` sh
+```sh
 <div className="trustBox__container">trustBox</div>
 ```
 
 Branches will be named after the developer and the feature being developed. eg:
 
-``` sh
+```sh
 raulSalcedo-user-API
 ```
 
 Pull request have to be reviewed by two team members before merging and have to be tested berfore commiting the changes.
 
-
 </br>
 </br>
 </br>
-
 
 Usamos camelCase para todos los nombres.
 </br>
-Al crear cajas contenedoras para añadiremos __container al final del nombre de la siguiente manera:
+Al crear cajas contenedoras para añadiremos \_\_container al final del nombre de la siguiente manera:
 
-``` sh
+```sh
 <div className="trustBox__container">trustBox</div>
 ```
 
 Nombraremos las ramas en funcion de quien essta trabajando en ella y de la feature a trabajar. Por ejemplo:
 
-``` sh
+```sh
 raulSalcedo-user-API
 ```
 
@@ -243,10 +227,11 @@ Project Link: [https://github.com/raulsalcedo03/DayPay-react](https://github.com
 
 ## Acknowledgements
 
-* [Readme template](https://github.com/othneildrew/Best-README-Template)
+- [Readme template](https://github.com/othneildrew/Best-README-Template)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/raulsalcedo03/repo.svg?style=for-the-badge
 [contributors-url]: https://github.com/raulsalcedo03/repo/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/raulsalcedo03/repo.svg?style=for-the-badge

@@ -44,7 +44,6 @@
   margin-bottom: 64px;
   width: 130px;
   cursor: pointer;
-  
 }
 
 .imagenBetterPayments {
@@ -74,12 +73,11 @@
   z-index: 0;
 }
 
-.continue_text_url{
+.continue_text_url {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 28px;
   color: blue;
-  text-decoration:wavy;
+  text-decoration: wavy;
 }
-

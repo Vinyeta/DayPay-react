@@ -1,36 +1,36 @@
-.boxinfo__container{
+.boxinfo__container {
 }
-.big_text{
-    margin-bottom: 42px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 58px;
-    line-height: 64px;  
-    letter-spacing: -1px;;
+.big_text {
+  margin-bottom: 42px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 58px;
+  line-height: 64px;
+  letter-spacing: -1px;
 }
-.firstsubgeneralbox__container{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+.firstsubgeneralbox__container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }
 
 .box_infoN {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 21px;
-    line-height: 34px;
-    color: #1D293F;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 34px;
+  color: #1d293f;
 }
 .box_info {
-    position: relative;
-    top: 18px;
-    margin-left: 30px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    color: #7C8087;
+  position: relative;
+  top: 18px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #7c8087;
 }

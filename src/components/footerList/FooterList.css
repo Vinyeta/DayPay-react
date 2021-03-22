@@ -1,26 +1,24 @@
 .footerList__container {
-    width: 190px;
-    height: 229px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 79px;
-    cursor: pointer;
-
+  width: 190px;
+  height: 229px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 79px;
+  cursor: pointer;
 }
-.principalText{
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 32px;
-    color: #1D293F;
-    margin-bottom: 23px;
-
+.principalText {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 32px;
+  color: #1d293f;
+  margin-bottom: 23px;
 }
-.subtittles{
-    margin-bottom: 15px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 40px;
-    color: #7C8087;
+.subtittles {
+  margin-bottom: 15px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 40px;
+  color: #7c8087;
 }

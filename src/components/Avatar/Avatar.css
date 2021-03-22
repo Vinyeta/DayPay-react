@@ -6,7 +6,7 @@
 }
 
 .avatar_text__container {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;

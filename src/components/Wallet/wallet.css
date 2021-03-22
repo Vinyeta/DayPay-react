@@ -82,56 +82,53 @@
   padding: 26px;
   display: table;
   overflow: hidden;
-  
-     }
-
-     .Box3 tr{
-      height: 34px;
-      
-         }
-
-     .upper{
-      display:flex;
-      flex-basis:100%;
-      
-         }
-
-.boxShapeTopPage{
-    position: absolute;
-    top:-40px;
-    left:-60px;
-    z-index: -2;
-  }
-
-.boxShapeBottomPage svg{
-    position: absolute;
-    bottom:-40px;
-    right:-120px;
-    z-index: -2;
-    fill:#258AFF;
 }
 
-.transPage > span{
-    margin-bottom:45px;
-    font-family: Manrope;
-font-style: normal;
-font-weight: bold;
-font-size: 14px;
-line-height: 20px;
-    }
-
-.transactionsPage_container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 98%;
-    width: 98%;
-    overflow-y: hidden;
-    margin-top: 50px;
-    margin-bottom: 0px;
+.Box3 tr {
+  height: 34px;
 }
 
-.txTable{
+.upper {
+  display: flex;
+  flex-basis: 100%;
+}
+
+.boxShapeTopPage {
+  position: absolute;
+  top: -40px;
+  left: -60px;
+  z-index: -2;
+}
+
+.boxShapeBottomPage svg {
+  position: absolute;
+  bottom: -40px;
+  right: -120px;
+  z-index: -2;
+  fill: #258aff;
+}
+
+.transPage > span {
+  margin-bottom: 45px;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.transactionsPage_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 98%;
+  width: 98%;
+  overflow-y: hidden;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.txTable {
   table-layout: fixed;
   width: 100%;
   height: 100%;

@@ -1,15 +1,13 @@
-import { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import "./AccountSettings.css"
-import Button from '../Button/Button';
-import EyeOff from '../../assets/eye-off.svg';
-import { API_ROOT } from '../../hostSettings';
-import { UserContext } from '../../user-context';
-import Avatar from '../Avatar/Avatar';
-
+import { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import "./AccountSettings.css";
+import Button from "../Button/Button";
+import EyeOff from "../../assets/eye-off.svg";
+import { API_ROOT } from "../../hostSettings";
+import { UserContext } from "../../user-context";
+import Avatar from "../Avatar/Avatar";
 
 const AccountSettings = () => {
-
   const { user, token } = useContext(UserContext);
 
   const history = useHistory();
@@ -25,15 +23,12 @@ const AccountSettings = () => {
     setPasswordShown(passwordShown ? false : true);
   };
 
-
   const body = {
     name: name,
     surname: surname,
     email: email,
     password: password,
   };
-
-
 
   const handleSubmit = (id) => {
     const options = {
@@ -46,36 +41,34 @@ const AccountSettings = () => {
     };
 
     fetch(`${API_ROOT}api/users/${id}`, options).then((response) => {
-      history.push('/dashboard');
-    }
-    );
-
+      history.push("/dashboard");
+    });
   };
-
-
 
   return (
     <>
-      { user &&
+      {user && (
         <div className="accountSettings_container">
           <div className="boxSettings">
-
             <span> Edit profile</span>
             <form className="tradeForm">
-
-              <div className="accountSettings__img" >
+              <div className="accountSettings__img">
                 <Avatar user={user} />
               </div>
 
               <div className="nameData__container">
-                <input className="nameInput__container" placeholder="Name"
+                <input
+                  className="nameInput__container"
+                  placeholder="Name"
                   type="text"
                   name="name"
                   value={user.name}
                   onChange={(e) => setName(e.target.value)}
                 />
 
-                <input className="lastNameInput__container" placeholder="Last Name"
+                <input
+                  className="lastNameInput__container"
+                  placeholder="Last Name"
                   type="text"
                   name="surname"
                   value={user.surname}
@@ -83,33 +76,41 @@ const AccountSettings = () => {
                 />
               </div>
 
-
-
-              <input className="input__container" placeholder="Email"
+              <input
+                className="input__container"
+                placeholder="Email"
                 type="email"
                 name="email"
                 value={user.email}
                 onChange={(e) => setEmail(e.target.value)}
               />
 
-              <input required className="input__container" placeholder="Password"
+              <input
+                required
+                className="input__container"
+                placeholder="Password"
                 type={passwordShown ? "text" : "password"}
                 name="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <img className="eyeOff" src={EyeOff} alt="eye off" onClick={togglePasswordVisiblity} />
-
+              <img
+                className="eyeOff"
+                src={EyeOff}
+                alt="eye off"
+                onClick={togglePasswordVisiblity}
+              />
 
               <Button
                 buttonClass="defaultButton_featured"
                 value="Save"
-                onClick={() => handleSubmit(user._id)} />
+                onClick={() => handleSubmit(user._id)}
+              />
             </form>
           </div>
         </div>
-      }
-      </>
-  )
-}
+      )}
+    </>
+  );
+};
 
 export default AccountSettings;

@@ -1,31 +1,31 @@
-.introducePage__principal__conteiner{
-    margin-top: 159px;
-    display: flex;
-    flex-direction: row;
+.introducePage__principal__conteiner {
+  margin-top: 159px;
+  display: flex;
+  flex-direction: row;
 }
-.introduceImage__container >img{
-    width: 609px;
-    height: 471px;    
+.introduceImage__container > img {
+  width: 609px;
+  height: 471px;
 }
-.small__text{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 21px;
-    line-height: 34px;
-    color: #1D293F;
-    margin-top: 26px;
+.small__text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 34px;
+  color: #1d293f;
+  margin-top: 26px;
 }
-.stillConfused_text{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 28px;
-    color: black;
+.stillConfused_text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: black;
 }
-.stillConfused_text_url{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 28px;
-    color: blue;
+.stillConfused_text_url {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: blue;
 }
