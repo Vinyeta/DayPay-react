@@ -62,12 +62,6 @@
   margin-top: 32px;
 }
 
-.buttonOfSignUpForm {
-  display: flex;
-  justify-content: center;
-  margin-left: 10px;
-}
-
-.loginButtonUnderlined{
+.loginButtonUnderlined {
   text-decoration: none;
-} 
+}

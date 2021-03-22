@@ -1,92 +1,87 @@
-.box{
-    width: 426px;
-    height: 360px;
-    background: #FFFFFF;
-    border: 1px solid #E9E9E9;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.03);
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position:relative;}
-    
-    .boxShapeTop{
-        position: absolute;
-        top:-40px;
-        left:-60px;
-        z-index: -2;
-      }
-    
-    .boxShapeBottom svg{
-        position: absolute;
-        bottom:-125px;
-        right:-120px;
-        z-index: 2;
-        fill:#258AFF;
-    }
-    
-    .box > span{
-        margin-bottom:45px;
-        font-family: Manrope;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 20px;
-        }
-    
-    .tradePage_container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        z-index: 4;
-        position: relative; 
-    
-    
-    
-    }
-    
-    /* STYLE FORM  */
-    
-      
-      .tradeForm {
-        display: flex;
-        flex-direction: column;
-        width: 287px;
-        align-items: center;
-      }
-    
-      
-      .input__container {
-        background: #ffffff;
-        width: 283px;
-        height: 56px;
-        padding-left: 10px;
-        padding-right: 10px;
-    
-        margin-bottom: 32px;
-        /* Shadow */
-      
-        box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04),
-          0px 4px 16px rgba(194, 183, 183, 0.08);
-        border-radius: 4px;
-        border: 1px;
-      }
-    
-    
-      .errorInvisible {
-        display:none;
-      }
-      
-      .errorVisible {
-        color:red;
-      }
-      
-      .verificationInvisible {
-        display:none;
-      }
-      
-      .verificationVisible {
-        color:green;
-      }
+.box {
+  width: 426px;
+  height: 360px;
+  background: #ffffff;
+  border: 1px solid #e9e9e9;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.boxShapeTop {
+  position: absolute;
+  top: -40px;
+  left: -60px;
+  z-index: -2;
+}
+
+.boxShapeBottom svg {
+  position: absolute;
+  bottom: -125px;
+  right: -120px;
+  z-index: 2;
+  fill: #258aff;
+}
+
+.box > span {
+  margin-bottom: 45px;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tradePage_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 4;
+  position: relative;
+}
+
+/* STYLE FORM  */
+
+.tradeForm {
+  display: flex;
+  flex-direction: column;
+  width: 287px;
+  align-items: center;
+}
+
+.input__container {
+  background: #ffffff;
+  width: 283px;
+  height: 56px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  margin-bottom: 32px;
+  /* Shadow */
+
+  box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04),
+    0px 4px 16px rgba(194, 183, 183, 0.08);
+  border-radius: 4px;
+  border: 1px;
+}
+
+.errorInvisible {
+  display: none;
+}
+
+.errorVisible {
+  color: red;
+}
+
+.verificationInvisible {
+  display: none;
+}
+
+.verificationVisible {
+  color: green;
+}

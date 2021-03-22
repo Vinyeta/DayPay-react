@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Manrope');
+@import url("https://fonts.googleapis.com/css?family=Manrope");
 
-html, body {
-    font-family: Manrope, sans-serif;
+html,
+body {
+  font-family: Manrope, sans-serif;
 }

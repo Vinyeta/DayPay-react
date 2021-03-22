@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import "./AccountSettings.css"
-import Button from '../Button/Button';
-import EditUser from '../../assets/EditUser.svg';
-import EyeOff from '../../assets/eye-off.svg';
+import { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import "./AccountSettings.css";
+import Button from "../Button/Button";
+import EyeOff from "../../assets/eye-off.svg";
+import { API_ROOT } from "../../hostSettings";
+import { UserContext } from "../../user-context";
+import Avatar from "../Avatar/Avatar";
 
-
-
-const AccountSettings = ({ user, token }) => {
+const AccountSettings = () => {
+  const { user, token } = useContext(UserContext);
 
   const history = useHistory();
 
@@ -22,15 +23,12 @@ const AccountSettings = ({ user, token }) => {
     setPasswordShown(passwordShown ? false : true);
   };
 
-
   const body = {
     name: name,
     surname: surname,
     email: email,
-    password:  password,
+    password: password,
   };
-
-
 
   const handleSubmit = (id) => {
     const options = {
@@ -42,65 +40,77 @@ const AccountSettings = ({ user, token }) => {
       body: JSON.stringify(body),
     };
 
-    fetch(`http://localhost:5000/api/users/${id}`, options).then((response) => {
-      console.log(response.status);
-      history.push('/dashboard');
-    }
-    );
-
+    fetch(`${API_ROOT}api/users/${id}`, options).then((response) => {
+      history.push("/dashboard");
+    });
   };
 
-
-
   return (
-    <div className="accountSettings_container">
-      <div className="boxSettings">
+    <>
+      {user && (
+        <div className="accountSettings_container">
+          <div className="boxSettings">
+            <span> Edit profile</span>
+            <form className="tradeForm">
+              <div className="accountSettings__img">
+                <Avatar user={user} />
+              </div>
 
-        <span> Edit profile</span>
-        <form className="tradeForm">
+              <div className="nameData__container">
+                <input
+                  className="nameInput__container"
+                  placeholder="Name"
+                  type="text"
+                  name="name"
+                  value={user.name}
+                  onChange={(e) => setName(e.target.value)}
+                />
 
-          <img className="accountSettings__img" src={user.avatar} alt="Avatar" />
-          <img className="accountSettings__edit" src={EditUser} alt="edit user avatar" />
-  
+                <input
+                  className="lastNameInput__container"
+                  placeholder="Last Name"
+                  type="text"
+                  name="surname"
+                  value={user.surname}
+                  onChange={(e) => setSurname(e.target.value)}
+                />
+              </div>
 
-          <div className="nameData__container">
-            <input className="nameInput__container" placeholder="Name"
-              type="text"
-              name="name"
-              onChange={(e) => setName(e.target.value)}
-            />
+              <input
+                className="input__container"
+                placeholder="Email"
+                type="email"
+                name="email"
+                value={user.email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
-            <input className="lastNameInput__container" placeholder="Last Name"
-              type="text"
-              name="surname"
-              onChange={(e) => setSurname(e.target.value)}
-            />     
+              <input
+                required
+                className="input__container"
+                placeholder="Password"
+                type={passwordShown ? "text" : "password"}
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <img
+                className="eyeOff"
+                src={EyeOff}
+                alt="eye off"
+                onClick={togglePasswordVisiblity}
+              />
+
+              <Button
+                buttonClass="defaultButton_featured"
+                value="Save"
+                onClick={() => handleSubmit(user._id)}
+              />
+            </form>
           </div>
-
-
-
-            <input className="input__container" placeholder="Email"
-            type="email"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-          /> 
-
-            <input required className="input__container" placeholder="Password"
-            type={passwordShown ? "text" : "password"}
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-          /> 
-          <img className="eyeOff" src={EyeOff} alt="eye off" onClick={togglePasswordVisiblity} />
-
-
-          <Button
-            buttonClass="defaultButton_featured"
-            value="Save"
-            onClick={() => handleSubmit(user._id)} />
-        </form>
-      </div>
-    </div>
-  )
-}
+        </div>
+      )}
+    </>
+  );
+};
 
 export default AccountSettings;

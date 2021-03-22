@@ -1,66 +1,66 @@
 .newsletter__container {
-    display: flex;
-    flex-direction: column;
-    width: 413px;
-    height: 215px;
-    align-items: left;
-    margin-top: 69px;
+  display: flex;
+  flex-direction: column;
+  width: 413px;
+  height: 215px;
+  align-items: left;
+  margin-top: 69px;
 }
 
 .newsletter__title__container {
-    color: #1D293F;
-    margin: auto;
-    width: 100%;
-    font-size: 18px;
-    line-height: 32px;
-    margin-bottom: 23px;
-    text-align: left;
-    font-style: normal;
-    font-weight: bold;
+  color: #1d293f;
+  margin: auto;
+  width: 100%;
+  font-size: 18px;
+  line-height: 32px;
+  margin-bottom: 23px;
+  text-align: left;
+  font-style: normal;
+  font-weight: bold;
 }
 .newsletter__text__container {
-    width: 350px;
-    height: 56px;
-    font-size: 16px;
-    color: #7C8087;
-    margin-bottom: 31px;
+  width: 350px;
+  height: 56px;
+  font-size: 16px;
+  color: #7c8087;
+  margin-bottom: 31px;
 }
 .newsletter__bottom__container {
-    align-items: right;
-    width: 413px;
-    height: 63px;
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    margin-left: 50px;
+  align-items: right;
+  width: 413px;
+  height: 63px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-left: 50px;
 }
-.newsletter__bottom__container > img{
-    position: relative;
-    top: 2.5px;
+.newsletter__bottom__container > img {
+  position: relative;
+  top: 2.5px;
 }
 .newsletter__email {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: normal;
-    text-align: center;
-    color: #8C97AC;
-    height: 63px;
-    width: 150px;
-    border: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  color: #8c97ac;
+  height: 63px;
+  width: 150px;
+  border: none;
 }
 .newsletter__suscribe__button {
-    float: right;
-    cursor: pointer;
-    width: 160px;
-    height: 63px;
-    margin-right: 50px;
-    border-radius: 5px;
-    background: #258AFF;
-    color: #FFFFFF;
-    font-style: bold;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
-    align-items: right;
+  float: right;
+  cursor: pointer;
+  width: 160px;
+  height: 63px;
+  margin-right: 50px;
+  border-radius: 5px;
+  background: #258aff;
+  color: #ffffff;
+  font-style: bold;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  align-items: right;
 }

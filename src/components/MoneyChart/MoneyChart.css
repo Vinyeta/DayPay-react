@@ -1,0 +1,12 @@
+.histogram {
+  margin-top: 25px;
+  max-width: 500px;
+  max-height: 300px;
+  border: 1px solid white;
+
+  display: block;
+  background-color: white;
+  box-shadow: gray;
+
+  object-fit: contain;
+}
