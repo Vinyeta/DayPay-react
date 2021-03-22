@@ -15,20 +15,28 @@ const AccountSettings = () => {
   const [name, setName] = useState(user.name);
   const [surname, setSurname] = useState(user.surname);
   const [email, setEmail] = useState(user.email);
-  const [password, setPassword] = useState(user.password);
+  const [password, setPassword] = useState('');
 
   //code added to show/hide password
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
-
-  const body = {
-    name: name,
-    surname: surname,
-    email: email,
-    password: password,
-  };
+  let body = {};
+  if (password) {
+    body = {
+      name: name,
+      surname: surname,
+      email: email,
+    };
+  } else {
+    body = {
+      name: name,
+      surname: surname,
+      email: email,
+      password: password
+    }
+  }
 
   const handleSubmit = (id) => {
     const options = {
