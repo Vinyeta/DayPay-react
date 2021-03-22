@@ -23,7 +23,7 @@ const AccountSettings = () => {
     setPasswordShown(passwordShown ? false : true);
   };
   let body = {};
-  if (password) {
+  if (password === "") {
     body = {
       name: name,
       surname: surname,
