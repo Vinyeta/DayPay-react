@@ -33,10 +33,6 @@ const Send = () => {
     amount: amount  
 
   };
-  const validaciones = {
-    sender: email,
-    receiver: email
-  }
 
   const cleanForm = () => {
     setEmail("");
@@ -74,7 +70,7 @@ const Send = () => {
        setSameEmail('errorVisible') 
       
     } else {
-      fetch(`${API_ROOT}api/transactions/`, options).then((response) => {
+      fetch(`${API_ROOT}api/queue/msg`, options).then((response) => {
         console.log(response.status);
         history.replace("/dashboard");
       }

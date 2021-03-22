@@ -57,7 +57,7 @@ const RequestBox = () => {
         };
 
 
-        fetch(`${API_ROOT}api/transactions`, options)
+        fetch(`${API_ROOT}api/queue/msg`, options)
             .then((response) => response.json())
     }
 

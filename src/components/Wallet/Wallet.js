@@ -112,7 +112,6 @@ const Wallet = () => {
             )}
 
           </table>
-          <div className="moreTransactions">See all transactions</div>
         </div>
 
         <div className="boxShapeTopPage">
