@@ -34,7 +34,6 @@ const year = (year) => {
 };
 
 export const parseDate = (date) => {
-  console.log(typeof date);
   return `${date.getDate()}-${month(date.getMonth())}-${year(
     date.getFullYear()
   )}-${date.getHours()}:${date.getMinutes()}`;
