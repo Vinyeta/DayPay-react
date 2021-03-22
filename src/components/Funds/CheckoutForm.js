@@ -24,7 +24,7 @@ export default function CheckoutForm({ amount }) {
   const { wallet, token } = useContext(UserContext);
 
   useEffect(() => {
-    
+
     // Create PaymentIntent as soon as the page loads
     window
       .fetch(`${API_ROOT}api/stripe/payment`, {
@@ -33,7 +33,7 @@ export default function CheckoutForm({ amount }) {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + token
         },
-        body: JSON.stringify({amount:amount, wallet: wallet})
+        body: JSON.stringify({ amount: amount, wallet: wallet })
       })
       .then(res => {
         return res.json();
@@ -41,7 +41,7 @@ export default function CheckoutForm({ amount }) {
       .then(data => {
         setClientSecret(data.client_secret);
       });
-  }, []);
+  }, [wallet]);
 
 
 
@@ -68,8 +68,8 @@ export default function CheckoutForm({ amount }) {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
-  
-  
+
+
   const handleSubmit = async ev => {
 
 
@@ -98,51 +98,55 @@ export default function CheckoutForm({ amount }) {
     }
   };
   return (
-    <div className="checkoutform">
-    <form id="payment-form" onSubmit={handleSubmit}>
-      {(!succeeded && !error) && (<><CardElement id="card-element" options={cardStyle} onChange={handleChange} />
-      <button
-        disabled={processing || disabled || succeeded}
-        id="submit"
-      >
-        <span id="button-text">
-          {processing ? (
-            <div className="spinner" id="spinner"></div>
-          ) : (
-            "Add funds"
-          )}
-        </span>
-      </button></>)}
-      {/* Show any error that happens when processing the payment */}
-      {error && (
-        <div className="error">
-          <Ko></Ko>
-          <br/>{error}
+    <>
+      {wallet &&
+        <div className="checkoutform">
+          <form id="payment-form" onSubmit={handleSubmit}>
+            {(!succeeded && !error) && (<><CardElement id="card-element" options={cardStyle} onChange={handleChange} />
+              <button
+                disabled={processing || disabled || succeeded}
+                id="submit"
+              >
+                <span id="button-text">
+                  {processing ? (
+                    <div className="spinner" id="spinner"></div>
+                  ) : (
+                    "Add funds"
+                  )}
+                </span>
+              </button></>)}
+            {/* Show any error that happens when processing the payment */}
+            {error && (
+              <div className="error">
+                <Ko></Ko>
+                <br />{error}
 
-          <br/><br/>
-          <Button buttonClass="defaultButton_featured"
-            value="Retry payment"
-            onClick={() => history.go(0)} />
+                <br /><br />
+                <Button buttonClass="defaultButton_featured"
+                  value="Retry payment"
+                  onClick={() => history.go(0)} />
 
+              </div>
+            )}
+            {/* Show a success message upon completion */}
+            <p className={succeeded ? "result-message" : "result-message hidden"}>
+              <div className="confirmation"><Ok />
+                <br />Payment succeded!
+
+        <br />
+                <br />
+                <br />
+
+
+                <Button buttonClass="defaultButton_featured"
+                  value="Go to wallet"
+                  onClick={() => history.push("/dashboard/wallet")} />
+
+              </div>
+            </p>
+          </form>
         </div>
-      )}
-      {/* Show a success message upon completion */}
-      <p className={succeeded ? "result-message" : "result-message hidden"}>
-        <div className="confirmation"><Ok/>
-        <br/>Payment succeded!
-
-        <br/>
-        <br/>
-        <br/>
-
-
-        <Button buttonClass="defaultButton_featured"
-            value="Go to wallet"
-            onClick={() => history.push("/dashboard/wallet")} />
-        
-        </div>
-      </p>
-    </form>
-    </div>
+      }
+    </>
   );
 }

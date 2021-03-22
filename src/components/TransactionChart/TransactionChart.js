@@ -31,14 +31,14 @@ function TransactionChart() {
             .then((json) => {
                 let preparingData = [];
                 json.forEach(element => {
-                    preparingData.unshift({ x: parseDate(new Date (element.date)), y: element.amount });
+                    preparingData.unshift({ x: parseDate(new Date(element.date)), y: element.amount });
                     console.log('test2')
                 });
                 console.log(preparingData);
                 setHistogram(preparingData);
             })
             .catch((err) => console.log(err));
-    }, []);
+    }, [wallet]);
 
 
 
@@ -64,9 +64,13 @@ function TransactionChart() {
     );
 
     return (
-        <div className="histogram">
-            <Chart data={data} axes={axes} series={series} tooltip/>
-        </div>
+        <>
+            {wallet &&
+                <div className="histogram">
+                    <Chart data={data} axes={axes} series={series} tooltip />
+                </div>
+            }
+        </>
     )
 }
 

@@ -35,7 +35,6 @@ const SignUpForm = () => {
     fetch(`${API_ROOT}api/auth/signUp`, options)
       .then((response) => response.json())
       .then( history.replace('/login'))
-      .catch(error => console.log(error))
   };
   return (
   <div className="SignUp__container">

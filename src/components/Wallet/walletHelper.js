@@ -48,6 +48,7 @@ export  const allTransactions = (setTransactions, id, token) => {
 
 
 export  const getBalance = (setBalance, id, token) => {
+  console.log(id);
   const options = {
 
     headers: {
@@ -58,7 +59,7 @@ export  const getBalance = (setBalance, id, token) => {
    
     fetch(`${API_ROOT}api/wallet/${id}/balance`, options)
       .then((response) => response.json())
-      .then((json) => setBalance(json));
+      .then((json) => {console.log(json);setBalance(json)});
   }
 
  
@@ -74,5 +75,5 @@ export  const getBalance = (setBalance, id, token) => {
        
     fetch(`${API_ROOT}api/wallet/${id}/increment`, options)
       .then((response) => response.json())
-      .then((json) => setPercentage(json.toFixed(2)));
+      .then((json) => setPercentage(json));
   };

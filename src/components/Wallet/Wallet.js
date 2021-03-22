@@ -28,16 +28,22 @@ const Wallet = () => {
 
 
   useEffect(() => {
+    if(wallet) {
     allTransactions(setTransactions, wallet, token);
-    }, []);
+    console.log(allTransactions(setTransactions, wallet, token));
+    }
+    }, [wallet]);
 
 
   return (
+    
     <div className="transactionsPage_container">
       <div className="transPage">
         <div className="upper">
           <div className="miniBox1">
-          <BalanceBox />
+          {wallet &&
+            <BalanceBox />
+          }
           </div>
           <div className="miniBox2">
             <Button buttonClass="defaultButton_featured" value="Add funds" 

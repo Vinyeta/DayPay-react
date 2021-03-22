@@ -18,9 +18,11 @@ const RequestBar = () => {
           <div className="RequestBar_UserMenu__avatar">
             <Avatar />
           </div>
-          <span>
-            {user.name} {user.surname} <Forwards />
-          </span>
+          {user &&
+            <span>
+              {user.name} {user.surname} <Forwards />
+            </span>
+          }
           <div className="RequestBar_UserMenu__container_dropdown">
             <div className="UserMenu_dropdown__list">
               <div style={{ cursor: "pointer" }} onClick={() => { logout(); history.replace("/login") }}>Log out</div>

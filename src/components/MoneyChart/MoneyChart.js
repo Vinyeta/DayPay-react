@@ -13,7 +13,6 @@ function ChartDay() {
 
 
     React.useEffect(() => {
-        console.log('test');
         const options = {
 
             headers: {
@@ -30,12 +29,10 @@ function ChartDay() {
                 let preparingData = [];
                 json.forEach(element => {
                     preparingData.unshift({ x: dayOfTheWeek(element.date), y: element.funds });
-                    console.log('test2')
                 });
                 setHistogram(preparingData);
             })
-            .catch((err) => console.log(err));
-    }, []);
+    }, [wallet]);
 
 
 
@@ -53,17 +50,14 @@ function ChartDay() {
             { type: 'linear', position: 'left' }
         ], [histogram]);
 
-    const series = React.useMemo(
-        () => ({
-            type: "bar"
-        }),
-        []
-    );
-
     return (
-        <div className="histogram">
-            <Chart data={data} axes={axes} tooltip />
-        </div>
+        <>
+            {wallet &&
+                <div className="histogram">
+                    <Chart data={data} axes={axes} tooltip />
+                </div>
+            }
+        </>
     )
 }
 

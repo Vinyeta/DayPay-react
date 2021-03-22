@@ -105,9 +105,8 @@ const RequestBox = () => {
                   .then((response) => response.json())
                   .then((json) => {
                       setRequests(json);
-                      console.log(requests);
                     })      
-      }, [!updateTrans])
+      }, [user])
 
     const [hasConfirmed, setHasConfirmed] = useState(false);
 

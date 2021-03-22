@@ -11,30 +11,28 @@ const UserMenu = () => {
   const history = useHistory();
 
   return (
-    
-      <div className="test">
-        <div className="UserMenu__container">
-          <div className="UserMenu__container avatar">
-            <Avatar
-              user={user}
-            />
-          </div>
 
+    <div className="test">
+      <div className="UserMenu__container">
+        <div className="UserMenu__container avatar">
+          <Avatar />
+        </div>
+        {user &&
           <div className="UserMenu__container text">
             <span>{user.name} {user.surname}</span>
           </div>
-
-          <div className="UserMenu__container forward">
-            <Forwards />
-          </div>
+        }
+        <div className="UserMenu__container forward">
+          <Forwards />
         </div>
+      </div>
 
-        <div className="UserMenu_dropdown__space">
-        </div>
+      <div className="UserMenu_dropdown__space">
+      </div>
       <div className="UserMenu_dropdown__container">
-        <div className="UserMenu_dropdown__container box">       
+        <div className="UserMenu_dropdown__container box">
           <div className="UserMenu_dropdown__list">
-            <div style={{cursor: "pointer"}} onClick={() => {logout(); history.replace("/login")} }>Log out</div>
+            <div style={{ cursor: "pointer" }} onClick={() => { logout(); history.replace("/login") }}>Log out</div>
           </div>
         </div>
       </div>

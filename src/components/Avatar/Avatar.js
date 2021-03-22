@@ -5,7 +5,9 @@ import "./Avatar.css";
 const Avatar = () => {
   const { user } = useContext(UserContext);
     return (
-      <div className="avatar_text__container">{user.name.slice(0,1)}</div>
+      <>
+      {user && <div className="avatar_text__container">{user.name.slice(0,1)}</div>}
+      </>
     )
 
 };

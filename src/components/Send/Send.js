@@ -28,9 +28,9 @@ const Send = () => {
   });
 
   const body = {
-    sender:  wallet,
+    sender: wallet,
     receiver: email,
-    amount: amount  
+    amount: amount
 
   };
 
@@ -49,7 +49,7 @@ const Send = () => {
       },
       body: JSON.stringify(body),
     };
-    
+
 
     if (!validateEmail(email) && (amount <= 0 || !amount)) {
       setErrorStyle({
@@ -67,56 +67,57 @@ const Send = () => {
         'amount': 'errorInvisible',
       })
     } else if (user.email === email) {  //hay que crear aqui un else if que nos agarre el 
-       setSameEmail('errorVisible') 
-      
+      setSameEmail('errorVisible')
+
     } else {
-      fetch(`${API_ROOT}api/queue/msg`, options).then((response) => {
-        console.log(response.status);
-        history.replace("/dashboard");
-      }
-      );
+      fetch(`${API_ROOT}api/queue/msg`, options)
+        .then(history.replace("/dashboard"))
     }
 
     cleanForm();
   };
-  
+
 
 
   return (
-      <div className="tradePage_container">
-        <div className="box">
-          <div className="boxShapeTop"><DotPattern></DotPattern></div>
-          <div className="boxShapeBottom"><DotPattern></DotPattern></div>
+    <>
+      {user &&
+        <div className="tradePage_container">
+          <div className="box">
+            <div className="boxShapeTop"><DotPattern></DotPattern></div>
+            <div className="boxShapeBottom"><DotPattern></DotPattern></div>
 
-          <span> Send money to another user</span>
-          <form className="tradeForm">
-            <input className="input__container" placeholder="Email"
-              type="email"
-              name="email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-        
-            />
-             
-            <span className={errorStyle.email}>Invalid email</span>
-            
+            <span> Send money to another user</span>
+            <form className="tradeForm">
+              <input className="input__container" placeholder="Email"
+                type="email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
 
-            <input className="input__container" placeholder="Amount"
-              type="number"
-              name="amount"
-              onChange={(e) => setAmount(e.target.value)}
-              
+              />
 
-            />
-            <span className={errorStyle.amount}>Introduce a number greater than 0</span>
-            <span className={sameEmail}>Can't send money to yourself</span>
-            <Button
-              buttonClass="defaultButton_featured"
-              value="Transfer funds"
-              onClick={() => handleSubmit()} />
-          </form>
+              <span className={errorStyle.email}>Invalid email</span>
+
+
+              <input className="input__container" placeholder="Amount"
+                type="number"
+                name="amount"
+                onChange={(e) => setAmount(e.target.value)}
+
+
+              />
+              <span className={errorStyle.amount}>Introduce a number greater than 0</span>
+              <span className={sameEmail}>Can't send money to yourself</span>
+              <Button
+                buttonClass="defaultButton_featured"
+                value="Transfer funds"
+                onClick={() => handleSubmit()} />
+            </form>
+          </div>
         </div>
-      </div>
+      }
+    </>
   );
 }
 

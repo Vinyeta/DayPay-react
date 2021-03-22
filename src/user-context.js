@@ -28,7 +28,7 @@ function UserProvider({ children }) {
         localStorage.setItem('decodifiedToken', jwt.decode(json.token)._id);
       })
       .catch(error => console.log(error));
-      setTimeout(()=>{window.location.reload()}, 300 );
+      setTimeout(()=>{window.location.reload()}, 400 );
   }
 
   const logout = () => {
