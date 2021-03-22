@@ -63,13 +63,14 @@ const AccountSettings = () => {
               <div className="accountSettings__img">
                 <Avatar user={user} />
               </div>
-
+            {user &&
+            <>
               <div className="nameData__container">
                 <input
                   className="nameInput__container"
                   type="text"
                   name="name"
-                  palceholder={user.name}
+                  placeholder={user.name}
                   onChange={(e) => setName(e.target.value)}
                 />
 
@@ -77,7 +78,7 @@ const AccountSettings = () => {
                   className="lastNameInput__container"
                   type="text"
                   name="surname"
-                  palceholder={user.surname}
+                  placeholder={user.surname}
                   onChange={(e) => setSurname(e.target.value)}
                 />
               </div>
@@ -86,7 +87,7 @@ const AccountSettings = () => {
                 className="input__container"
                 type="email"
                 name="email"
-                palceholder={user.email}
+                placeholder={user.email}
                 onChange={(e) => setEmail(e.target.value)}
               />
 
@@ -98,6 +99,8 @@ const AccountSettings = () => {
                 name="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              </>
+            }
               <img
                 className="eyeOff"
                 src={EyeOff}
