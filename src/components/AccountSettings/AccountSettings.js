@@ -67,29 +67,26 @@ const AccountSettings = () => {
               <div className="nameData__container">
                 <input
                   className="nameInput__container"
-                  placeholder="Name"
                   type="text"
                   name="name"
-                  value={user.name}
+                  palceholder={user.name}
                   onChange={(e) => setName(e.target.value)}
                 />
 
                 <input
                   className="lastNameInput__container"
-                  placeholder="Last Name"
                   type="text"
                   name="surname"
-                  value={user.surname}
+                  palceholder={user.surname}
                   onChange={(e) => setSurname(e.target.value)}
                 />
               </div>
 
               <input
                 className="input__container"
-                placeholder="Email"
                 type="email"
                 name="email"
-                value={user.email}
+                palceholder={user.email}
                 onChange={(e) => setEmail(e.target.value)}
               />
 
